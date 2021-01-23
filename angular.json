@@ -129,6 +129,10 @@
   },
   "defaultProject": "FoodCourt",
   "cli": {
+<<<<<<< HEAD
     "analytics": "cdcd5d3c-c87d-4df2-9888-a7aac92a8f62"
+=======
+    "analytics": "23413809-a1a6-4de3-bd37-4abc0b400e20"
+>>>>>>> 61db6b7d3d6c31b6c3151fb0dab2099f3141c358
   }
 }
