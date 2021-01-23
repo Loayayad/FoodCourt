@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "FoodCourt"
+  "defaultProject": "FoodCourt",
+  "cli": {
+    "analytics": "23413809-a1a6-4de3-bd37-4abc0b400e20"
+  }
 }
