@@ -9,6 +9,10 @@ import { ChefsComponent } from './Components/chefs/chefs.component';
 import { MenuComponent } from './Components/menu/menu.component';
 import { OffersComponent } from './Components/offers/offers.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { HomeComponent } from './Components/home/home.component';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
+import { LoginComponent } from './Components/login/login.component';
 
 
 @NgModule({
@@ -18,7 +22,11 @@ import { CartComponent } from './Components/cart/cart.component';
     MenuComponent,
     OffersComponent,
     CartComponent,
-    OffersComponent
+    OffersComponent,
+    HeaderComponent,
+    HomeComponent,
+    NotfoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
