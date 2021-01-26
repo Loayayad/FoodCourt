@@ -1,0 +1,20 @@
+
+<div class="container">
+    <div id="ourChefs" class="text-center col-12">Our Chefs</div><br><br>
+    <div class="row">
+        <div class="card col-4 text-left" *ngFor="let chef of ChefList">
+            
+                <img [src]="chef?.image" >
+                <h3 class="chefN">{{chef?.name}}</h3>
+                <h6 >{{chef?.description}}</h6>
+                <!-- <a routerLink="/chefProfile">Know them better</a> -->
+         
+    </div>
+
+</div>
+    
+
+
+
+
+  
