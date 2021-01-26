@@ -13,6 +13,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { LoginComponent } from './Components/login/login.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { LoginComponent } from './Components/login/login.component';
     HeaderComponent,
     HomeComponent,
     NotfoundComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
