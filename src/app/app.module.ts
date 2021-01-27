@@ -15,6 +15,8 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { LoginComponent } from './Components/login/login.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { CheckOutComponent } from './Components/check-out/check-out.component';
+import { MenuParentComponent } from './Components/menu-parent/menu-parent.component';
+import { MealDetailsComponent } from './Components/meal-details/meal-details.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { CheckOutComponent } from './Components/check-out/check-out.component';
     NotfoundComponent,
     LoginComponent,
     FooterComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    MenuParentComponent,
+    MealDetailsComponent
   ],
   imports: [
     BrowserModule,

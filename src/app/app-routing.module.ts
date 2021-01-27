@@ -5,6 +5,7 @@ import { CheckOutComponent } from './Components/check-out/check-out.component';
 import { ChefsComponent } from './Components/chefs/chefs.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
+import { MealDetailsComponent } from './Components/meal-details/meal-details.component';
 import { MenuComponent } from './Components/menu/menu.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { OffersComponent } from './Components/offers/offers.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'Cart', component:CartComponent},
   {path:'LogIn', component:LoginComponent},
   {path:'Checkout', component:CheckOutComponent},
+  {path:'MealDetails/:mID', component:MealDetailsComponent},
   {path: '', redirectTo: '/Home', pathMatch:'full'},
   {path: "**", component:NotfoundComponent}
 ];
