@@ -9,6 +9,7 @@ import { MealDetailsComponent } from './Components/meal-details/meal-details.com
 import { MenuComponent } from './Components/menu/menu.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { OffersComponent } from './Components/offers/offers.component';
+import { SignupComponent } from './Components/signup/signup.component';
 
 const routes: Routes = [
   {path: 'Home', component:HomeComponent},
@@ -17,8 +18,10 @@ const routes: Routes = [
   {path: 'Offers', component:OffersComponent},
   {path: 'Cart', component:CartComponent},
   {path:'LogIn', component:LoginComponent},
+  {path:'Signup', component:SignupComponent},
   {path:'Checkout', component:CheckOutComponent},
   {path:'MealDetails/:mID', component:MealDetailsComponent},
+  
   {path: '', redirectTo: '/Home', pathMatch:'full'},
   {path: "**", component:NotfoundComponent}
 ];
