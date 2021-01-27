@@ -21,7 +21,6 @@ const routes: Routes = [
   {path:'Signup', component:SignupComponent},
   {path:'Checkout', component:CheckOutComponent},
   {path:'MealDetails/:mID', component:MealDetailsComponent},
-  
   {path: '', redirectTo: '/Home', pathMatch:'full'},
   {path: "**", component:NotfoundComponent}
 ];

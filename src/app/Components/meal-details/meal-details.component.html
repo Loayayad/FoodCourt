@@ -1,5 +1,6 @@
-<h1 class="text-center">{{meals?.name}} details: </h1>
+<h1 class="text-center">Meal Details: </h1>
 <div class="d-flex justify-content-center">
     <img [src]="meals?.image" width="40%">
-    <h1></h1>
+    <h1> {{meals.name}}</h1>
+    <h2>made by: {{meals.chefID}}</h2>
 </div>
