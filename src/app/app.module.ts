@@ -15,12 +15,9 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { LoginComponent } from './Components/login/login.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { CheckOutComponent } from './Components/check-out/check-out.component';
-<<<<<<< HEAD
 import { MenuParentComponent } from './Components/menu-parent/menu-parent.component';
 import { MealDetailsComponent } from './Components/meal-details/meal-details.component';
-=======
 import { SignupComponent } from './Components/signup/signup.component';
->>>>>>> 28a6763e25fb7d4d04ead4382685f9a20c8dbc2d
 
 
 @NgModule({
@@ -37,12 +34,9 @@ import { SignupComponent } from './Components/signup/signup.component';
     LoginComponent,
     FooterComponent,
     CheckOutComponent,
-<<<<<<< HEAD
     MenuParentComponent,
-    MealDetailsComponent
-=======
+    MealDetailsComponent,
     SignupComponent
->>>>>>> 28a6763e25fb7d4d04ead4382685f9a20c8dbc2d
   ],
   imports: [
     BrowserModule,
