@@ -26,6 +26,9 @@ export class ChefsComponent implements OnInit {
     );
 
   }
+  viewChef(ChefID:number|undefined){
+    this.router.navigate(['/Profile',ChefID])
+  }
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }

@@ -14,8 +14,8 @@ export class ChefService {
 
     return this.http.get<IChefs[]>(`${environment.API_URL}/chefs`);
   }
-  getChefsByID(pID:number):Observable<IChefs>
+  getChefsByID(cID:number):Observable<IChefs>
   {
-    return this.http.get<IChefs>(`${environment.API_URL}/chefs/${pID}`);
+    return this.http.get<IChefs>(`${environment.API_URL}/chefs/${cID}`);
   }
 }
