@@ -16,6 +16,9 @@ import { LoginComponent } from './Components/login/login.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { CheckOutComponent } from './Components/check-out/check-out.component';
 import { ChefProfileComponent } from './Components/chef-profile/chef-profile.component';
+import { MenuParentComponent } from './Components/menu-parent/menu-parent.component';
+import { MealDetailsComponent } from './Components/meal-details/meal-details.component';
+import { SignupComponent } from './Components/signup/signup.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { ChefProfileComponent } from './Components/chef-profile/chef-profile.com
     LoginComponent,
     FooterComponent,
     CheckOutComponent,
-    ChefProfileComponent
+    ChefProfileComponent,
+    MenuParentComponent,
+    MealDetailsComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
