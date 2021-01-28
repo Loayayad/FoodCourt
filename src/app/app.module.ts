@@ -20,6 +20,7 @@ import { MenuParentComponent } from './Components/menu-parent/menu-parent.compon
 import { MealDetailsComponent } from './Components/meal-details/meal-details.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { BlogComponent } from './Components/blog/blog.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -41,10 +42,12 @@ import { BlogComponent } from './Components/blog/blog.component';
     MealDetailsComponent,
     SignupComponent,
     BlogComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

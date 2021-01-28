@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { HomeAPIService } from 'src/app/Services/home-api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  subscription: Subscription|null = null;
+  HomeList: any[] = [];
+
+  constructor(private homeService:HomeAPIService) { }
 
   ngOnInit(): void {
+    this.homeService.getHomeItems().subscribe(
+      (res) =>{
+        this.HomeList = res;
+        console.log(this.HomeList)
+        console.log(this.HomeList[1].offers[1].image)
+      },
+      (err)=>{
+        console.log(err);
+      }
+    )
   }
 
 }

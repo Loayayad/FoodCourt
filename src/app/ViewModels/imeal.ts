@@ -4,5 +4,6 @@ export interface IMeal {
     image:string,
     chefID:number,
     categoryID:number,
-    price:number
+    price:number,
+    description:string
 }
