@@ -1,10 +1,10 @@
-
+<!-- Viewing meals of the selected category as cards -->
 <br>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="shadow p-3 mb-5 bg-white rounded card text-center col-3 card-light" style="margin-right:20px;" *ngFor = "let meal of MealsList" >
+        <div class="shadow rounded card text-center col-3 card-light" style="margin-right:20px;" *ngFor = "let meal of MealsList" >
             
-            <img [src]="meal?.image" class="card-img-top rounded" width="100%" (click)="viewDetails(meal.id)">
+            <img [src]="meal?.image" class="card-img-top" (click)="viewDetails(meal.id)">
             <div class="card-body">
                 
                 <h4 class="card-title text-center">{{meal?.name}}</h4>

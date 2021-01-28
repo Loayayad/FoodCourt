@@ -20,26 +20,10 @@ export class MenuComponent implements OnInit {
   constructor(private mealService:MealAPIService,
     
     private router:Router) { }
-  @Input() InputCategoryID:number=1;
-  ngOnInit(): void {
-    // this.mealService.getAllMeals().subscribe(
-    //   (res)=>{
-    //     this.MealsList = res;
-    //   },
-    //   (err)=>{
-    //     console.log(err);
-    //   }
-    //)
-    // console.log(this.MealsList);
-    // console.log(this.SelectedCategory);
-    // this.subscription = this.catService.getAllCategories().subscribe(
-    //   (res)=>{
-    //     this.CategoryList=res;
-    //     console.log(this.CategoryList);
-    //   },
-    //   (err)=>{
-    //     console.log(err);
-    //   })
+    //Accessing the selected category from the parent component.
+    @Input() InputCategoryID:number=1;
+    ngOnInit(): void {
+
   }
   ngOnChanges(){
     this.mealService.getMealByCategoryID(this.InputCategoryID).subscribe(

@@ -8,6 +8,11 @@
     flex-direction: column; 
     justify-content: center;
     font-family: 'Quicksand', sans-serif;
+    
+}
+.shadow{
+    margin-bottom: 20px;
+    padding:0;
 }
 .btn-sm{
     background-color: #FF8303; 
@@ -23,16 +28,7 @@
     font-family: 'Quicksand', sans-serif;
     display: inline;
 }
-button:hover{
+img,button:hover{
     cursor: pointer;
 }
-img:hover{
-    position:relative;
-    top:-40px;
-    left:-50px;
-    width:400px;
-    height:auto;
-    display:block;
-    z-index:500;
-    cursor: pointer;
-}
+
