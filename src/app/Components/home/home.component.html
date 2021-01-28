@@ -42,14 +42,15 @@
 
         <div class="row d-flex col-lg-12 mx-auto">
             <div class="col-lg-4" *ngFor="let offer of HomeList[1].offers">
-                <div class="card m-1">
+                <div class="card shadow card-light m-2">
 
                     <a href="Meal.html"><img class="card-img-top" [src]="offer?.image"></a>
 
                     <div class="card-body">
                         <h2>{{offer?.name}}</h2>
                         <h5>{{offer?.price}} L.E.</h5>
-                        <p><a class="btn buttonColor" href="./Menu-main.html" role="button">View details &raquo;</a></p>
+                        <p>{{offer?.description}}</p>
+                        <!-- <p><a class="btn buttonColor" href="./Menu-main.html" role="button">View details &raquo;</a></p> -->
                     </div>
 
                 </div>
@@ -65,20 +66,20 @@
         <div class="container-fluid d-inline-flex">
             <h1 class="display-3">Recommended</h1>
             <div class="container text-right mt-5">
-                <p><a class="btn btn-sm buttonColor" routerLink="/Offers" role="button">Discover More</a></p>
+                <p><a class="btn btn-sm buttonColor" routerLink="/MenuParent" role="button">Discover More</a></p>
             </div>
         </div>
 
         <div class="row d-flex col-lg-12 mx-auto">
             <div class="col-lg-4" *ngFor="let recommended of HomeList[2].recommended">
-                <div class="card m-1">
+                <div class="card shadow card-light m-2">
 
                     <a href="Meal.html"><img class="card-img-top" [src]="recommended?.image"></a>
 
                     <div class="card-body">
                         <h2>{{recommended?.name}}</h2>
                         <h5>{{recommended?.price}} L.E.</h5>
-                        <p><a class="btn buttonColor" href="./Menu-main.html" role="button">View details &raquo;</a></p>
+                        <!-- <p><a class="btn buttonColor" href="./Menu-main.html" role="button">View details &raquo;</a></p> -->
                     </div>
 
                 </div>

@@ -21,6 +21,7 @@ import { MealDetailsComponent } from './Components/meal-details/meal-details.com
 import { SignupComponent } from './Components/signup/signup.component';
 import { BlogComponent } from './Components/blog/blog.component';
 import { FormsModule } from '@angular/forms';
+import { AdminComponent } from './Components/admin/admin.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     MenuParentComponent,
     MealDetailsComponent,
     SignupComponent,
-    BlogComponent
+    BlogComponent,
+    AdminComponent
     
   ],
   imports: [
