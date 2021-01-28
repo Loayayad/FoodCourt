@@ -1,0 +1,38 @@
+
+.card-title {
+    color: #FE6E00;
+    font-family: 'Quicksand', sans-serif;
+}
+.card-body{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+}
+.btn-sm{
+    background-color: #FF8303; 
+    display: inline;
+    color:white; 
+    font-size: 12px; 
+    height: 30px;
+    font-family: 'Quicksand', sans-serif;
+}
+.stepper{
+    font-size: 12px; 
+    height: 32px;
+    font-family: 'Quicksand', sans-serif;
+    display: inline;
+}
+button:hover{
+    cursor: pointer;
+}
+img:hover{
+    position:relative;
+    top:-40px;
+    left:-50px;
+    width:400px;
+    height:auto;
+    display:block;
+    z-index:500;
+    cursor: pointer;
+}

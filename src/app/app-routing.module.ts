@@ -7,6 +7,7 @@ import { ChefsComponent } from './Components/chefs/chefs.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MealDetailsComponent } from './Components/meal-details/meal-details.component';
+import { MenuParentComponent } from './Components/menu-parent/menu-parent.component';
 import { MenuComponent } from './Components/menu/menu.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { OffersComponent } from './Components/offers/offers.component';
@@ -14,6 +15,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 
 const routes: Routes = [
   {path: 'Home', component:HomeComponent},
+  {path: 'MenuParent', component:MenuParentComponent},
   {path: 'Menu', component:MenuComponent},
   {path: 'Chefs', component:ChefsComponent},
   {path: 'Offers', component:OffersComponent},

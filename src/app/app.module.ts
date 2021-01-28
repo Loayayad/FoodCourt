@@ -19,6 +19,7 @@ import { ChefProfileComponent } from './Components/chef-profile/chef-profile.com
 import { MenuParentComponent } from './Components/menu-parent/menu-parent.component';
 import { MealDetailsComponent } from './Components/meal-details/meal-details.component';
 import { SignupComponent } from './Components/signup/signup.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -39,10 +40,12 @@ import { SignupComponent } from './Components/signup/signup.component';
     MenuParentComponent,
     MealDetailsComponent,
     SignupComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

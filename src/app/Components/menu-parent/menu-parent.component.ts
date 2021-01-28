@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CategoryService } from 'src/app/Services/category.service';
 import { ICategory } from 'src/app/ViewModels/icategory';
@@ -9,24 +9,24 @@ import { MenuComponent } from '../menu/menu.component';
   templateUrl: './menu-parent.component.html',
   styleUrls: ['./menu-parent.component.scss']
 })
-export class MenuParentComponent implements OnInit {
-  // CategoryList: ICategory[]=[];
-  // SelectedCategory: number = 1;
-  // subscription: Subscription|null = null;
+export class MenuParentComponent implements OnInit{
+  CategoryList: ICategory[]=[];
+  SelectedCategory: number = 1;
 
-  // @ViewChild(MenuComponent) DetailsRef:any;
+  @ViewChild(MenuComponent) DetailsRef:any;
+  subscription:Subscription|null = null;
   constructor(private catService:CategoryService) { }
 
   ngOnInit(): void {
-    // this.subscription = this.catService.getAllCategories().subscribe(
-    //   (res)=>{
-    //     this.CategoryList=res;
-    //     console.log(this.CategoryList);
-    //   },
-    //   (err)=>{
-    //     console.log(err);
-    //   }
-    // )
+    this.subscription = this.catService.getAllCategories().subscribe(
+      (res)=>{
+        this.CategoryList=res;
+        console.log(this.CategoryList);
+      },
+      (err)=>{
+        console.log(err);
+      }
+    )
   }
 
 }
