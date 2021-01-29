@@ -1,5 +1,6 @@
 <body>
 
+    <!-- carousel for the slider images  -->
     <div id="myCarousel" class="carousel slide mx-auto" style="width: 80%;" data-ride="carousel">
 
         <ol class="carousel-indicators">
@@ -41,15 +42,16 @@
         </div>
 
         <div class="row d-flex col-lg-12 mx-auto">
-            <div class="col-lg-4" *ngFor="let offer of HomeList[1].offers">
-                <div class="card shadow card-light m-2">
 
-                    <a href="Meal.html"><img class="card-img-top" [src]="offer?.image"></a>
+            <div class="col-lg-4" *ngFor="let offer of ListOffers">
+                <div class="card shadow card-light m-2" >
+                    <p class="ribbon"> Discount: {{offer?.discount}}</p>
+                    <a href="#"><img class="card-img-top" [src]="offer?.image"></a>
 
                     <div class="card-body">
                         <h2>{{offer?.name}}</h2>
                         <h5>{{offer?.price}} L.E.</h5>
-                        <p>{{offer?.description}}</p>
+                        <!-- <p>{{offer?.description}}</p> -->
                         <!-- <p><a class="btn buttonColor" href="./Menu-main.html" role="button">View details &raquo;</a></p> -->
                     </div>
 
@@ -61,8 +63,6 @@
     <hr class="featurette-divider">
     <!-- Recommended Section -->
     <div class="container-fluid mx-auto" style="width: 80%;">
-
-        <!-- Offers Section -->
         <div class="container-fluid d-inline-flex">
             <h1 class="display-3">Recommended</h1>
             <div class="container text-right mt-5">
@@ -74,7 +74,7 @@
             <div class="col-lg-4" *ngFor="let recommended of HomeList[2].recommended">
                 <div class="card shadow card-light m-2">
 
-                    <a href="Meal.html"><img class="card-img-top" [src]="recommended?.image"></a>
+                    <a href="#"><img class="card-img-top" [src]="recommended?.image"></a>
 
                     <div class="card-body">
                         <h2>{{recommended?.name}}</h2>
@@ -91,6 +91,7 @@
 
     <hr class="featurette-divider">
 
+    <!-- general view of a product -->
     <div class="row featurette">
         <div class="col-md-12 d-flex mx-auto">
             <div class="col-md-1"></div>
@@ -129,11 +130,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <hr class="featurette-divider"> -->
-    <!-- /END THE FEATURETTES -->
-
-
 
 
 </body>
