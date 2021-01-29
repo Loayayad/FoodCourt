@@ -32,4 +32,5 @@ export class ChefsComponent implements OnInit {
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
+  
 }

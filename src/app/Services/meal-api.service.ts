@@ -22,4 +22,8 @@ export class MealAPIService {
   {
     return this.http.get<IMeal>(`${environment.API_URL}/meals/${pID}`);
   }
+  getMealByChefID(cID:number): Observable <IMeal[]>
+  {
+    return this.http.get<IMeal[]>(`${environment.API_URL}/meals?chefID=${cID}`);
+  }
 }

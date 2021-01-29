@@ -20,7 +20,8 @@ import { MenuParentComponent } from './Components/menu-parent/menu-parent.compon
 import { MealDetailsComponent } from './Components/meal-details/meal-details.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { BlogComponent } from './Components/blog/blog.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChefDishesComponent } from './Components/chef-dishes/chef-dishes.component';
 
 
 @NgModule({
@@ -41,13 +42,15 @@ import { FormsModule } from '@angular/forms';
     MenuParentComponent,
     MealDetailsComponent,
     SignupComponent,
-    BlogComponent
+    BlogComponent,
+    ChefDishesComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

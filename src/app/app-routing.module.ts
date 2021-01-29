@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BlogComponent } from './Components/blog/blog.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckOutComponent } from './Components/check-out/check-out.component';
+import { ChefDishesComponent } from './Components/chef-dishes/chef-dishes.component';
 import { ChefProfileComponent } from './Components/chef-profile/chef-profile.component';
 import { ChefsComponent } from './Components/chefs/chefs.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'Blog', component:BlogComponent},
   {path:'Checkout', component:CheckOutComponent},
   {path:'Profile/:cID',component:ChefProfileComponent},
+  {path:'Dishes/:cID',component:ChefDishesComponent},
   {path:'MealDetails/:mID', component:MealDetailsComponent},
   {path: '', redirectTo: '/Home', pathMatch:'full'},
   {path: "**", component:NotfoundComponent}
