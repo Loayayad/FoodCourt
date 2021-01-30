@@ -45,11 +45,8 @@ import { AdminComponent } from './Components/admin/admin.component';
     SignupComponent,
     BlogComponent,
     ChefDishesComponent,
-<<<<<<< HEAD
     AdminComponent,
-=======
-    AdminComponent
->>>>>>> e498c5dfe8fd189deae0220e986efc0b24ce82dc
+   
     
   ],
   imports: [
