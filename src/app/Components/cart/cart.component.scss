@@ -1,3 +1,96 @@
+.shopping-cart {
+    margin-top: 300px;
+    background-color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    color: #ffaf42;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
+h1,
+.sub-heading {
+    text-align: center;
+    margin: .5rem 0 1rem;
+}
+
+.sub-heading {
+    font-size: .75em;
+    font-weight: 300;
+}
+._grid {
+    /* margin-left: 0; */
+    text-align: justify !important;
+    text-justify: distribute-all-lines;
+    font-size: 0 !important;
+    text-rendering: optimizespeed;
+}
+
+._grid:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+
+._column {
+    display: inline-block;
+    vertical-align: top;
+    font-size: medium;
+    text-align: left;
+    text-rendering: optimizeLegibility;
+}
+.shopping-cart {
+    width: 80%;
+    max-width: 60rem;
+    margin: 0 auto;
+}
+.shopping-cart--list-item {
+    border: 1px solid #bdc3c7;
+    margin-bottom: 2rem;
+    height: 10rem;
+    overflow: hidden;
+}
+.shopping-cart--list-item:hover,
+.shopping-cart--list-item:hover * {
+    border-color: #fd5602;
+}
+
+.shopping-cart--list-item>._column {
+    height: 100%;
+    /* make vertical lines match */
+}
+.product-image {
+    width: 16.663198%;
+    background: no-repeat center / cover transparent;
+}
+.product-info {
+    width: 70.832119%;
+    padding: .5rem;
+}
+
+.product-name {
+    font: 300 2.4em/1 "Quicksand", sans-serif;
+    letter-spacing: -.025em;
+    margin: 0 0 .125em;
+}
+
+.price {
+    line-height: 1;
+    text-align: right;
+}
+
+.product-single-price {
+    margin-top: -1rem;
+    font-size: 2.4em;
+}
+
+
+
 .btn{
     margin-top:100px;
     background-color:#FF8303;
