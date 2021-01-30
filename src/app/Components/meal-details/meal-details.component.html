@@ -3,10 +3,12 @@
     <img [src]="meals?.image" width="40%" class="align-self-center rounded-circle shadow-lg mb-5 rounded d-inline" style="margin-top:20px">
     <div class="d-flex flex-column justify-content-center text-left" style="margin-left: 50px; margin-right: 60px;">
         <h1> {{meals?.name}}</h1>
-        <h4> {{meals?.price}}</h4>
+        <h4> {{meals?.price}} L.E</h4>
         <h5> {{meals?.description}}</h5>
-        
-        <button class="btn btn-sm rounded-pill mr-10" (click)="back()">Back</button>
+        <div class="d-flex flex-row">
+            <button class="btn btn-sm rounded-pill" style="margin-right:50px" (click)="back()">Back</button>
+            <button class="btn btn-sm rounded-pill" (click)="addToCart(meals)">Add</button>
+        </div>
         
     </div>
 </div>

@@ -1,10 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CategoryService } from 'src/app/Services/category.service';
 import { MealAPIService } from 'src/app/Services/meal-api.service';
 import { ICategory } from 'src/app/ViewModels/icategory';
 import { IMeal } from 'src/app/ViewModels/imeal';
+import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,14 +19,26 @@ export class MenuComponent implements OnInit {
   MealsList: IMeal[] = [];
   CategoryList: ICategory[] = [];
   SelectedCategory = 1;
-  constructor(private mealService:MealAPIService,
-    
-    private router:Router) { }
-    //Accessing the selected category from the parent component.
-    @Input() InputCategoryID:number=1;
-    ngOnInit(): void {
+  
+  
+  @Input() InputCategoryID:number=1;
+ 
 
-  }
+  constructor(private mealService:MealAPIService,
+    private cartService:CartService,
+    private router:Router) { }
+    
+  
+    ngOnInit(): void {
+      
+    }
+    
+    addToCart(m:IMeal){
+      this.cartService.addTocart(m);
+      alert('Your product has been added to cart')
+      console.log(m)
+    }
+  
   ngOnChanges(){
     this.mealService.getMealByCategoryID(this.InputCategoryID).subscribe(
       (response)=>{
@@ -41,4 +55,5 @@ export class MenuComponent implements OnInit {
   viewDetails(mID:number){
     this.router.navigate(['/MealDetails',mID]);
   }
+ 
 }
