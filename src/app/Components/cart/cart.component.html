@@ -1,1 +1,11 @@
-<a class="btn" routerLink="/Checkout" role="button">Check Out</a>
+
+<div  style="margin-top:100px">
+    <a class="btn" routerLink="/Checkout" role="button">Check Out</a>
+
+
+    <div class="cart-item" *ngFor="let item of items">
+        <span>{{item.name}}</span>
+        <span>{{item.price}}</span>
+        
+    </div>
+</div>

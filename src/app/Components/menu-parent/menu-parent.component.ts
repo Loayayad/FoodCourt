@@ -13,6 +13,7 @@ export class MenuParentComponent implements OnInit{
   CategoryList: ICategory[]=[];
   SelectedCategory: number = 1;
 
+  
   @ViewChild(MenuComponent) DetailsRef:any;
   subscription:Subscription|null = null;
   constructor(private catService:CategoryService) { }
@@ -28,5 +29,5 @@ export class MenuParentComponent implements OnInit{
       }
     )
   }
-
+  
 }
