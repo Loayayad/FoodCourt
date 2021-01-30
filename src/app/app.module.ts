@@ -20,13 +20,10 @@ import { MenuParentComponent } from './Components/menu-parent/menu-parent.compon
 import { MealDetailsComponent } from './Components/meal-details/meal-details.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { BlogComponent } from './Components/blog/blog.component';
-<<<<<<< HEAD
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ChefDishesComponent } from './Components/chef-dishes/chef-dishes.component';
-=======
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './Components/admin/admin.component';
->>>>>>> 24f624ef6f913259b4c925ff80215fd753af526f
 
 
 @NgModule({
@@ -48,11 +45,8 @@ import { AdminComponent } from './Components/admin/admin.component';
     MealDetailsComponent,
     SignupComponent,
     BlogComponent,
-<<<<<<< HEAD
-    ChefDishesComponent
-=======
+    ChefDishesComponent,
     AdminComponent
->>>>>>> 24f624ef6f913259b4c925ff80215fd753af526f
     
   ],
   imports: [
