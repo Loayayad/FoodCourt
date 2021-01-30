@@ -10,7 +10,9 @@ export class BlogComponent implements OnInit {
   constructor(private fb:FormBuilder) {
    this.loginFrm=this.fb.group({
       fName:['',[Validators.required]],
-      lName:['',[Validators.required]]
+      lName:['',[Validators.required]],
+      Email:['',[Validators.required]],
+      Phone:['',[Validators.required]],
     })
    }
  

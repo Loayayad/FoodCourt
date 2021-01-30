@@ -12,7 +12,6 @@ import { IMeal } from 'src/app/ViewModels/imeal';
 export class ChefDishesComponent implements OnInit {
   private subscriptionList: Subscription[]=[] ;
   meals:IMeal[]=[];
-  MealsList: IMeal[] = [];
   cID:number=0;
   @Input() InputChefID:number|undefined=1;
   constructor(private activatedRoute: ActivatedRoute,
