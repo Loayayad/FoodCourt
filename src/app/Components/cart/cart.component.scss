@@ -1,5 +1,5 @@
 .shopping-cart {
-    margin-top: 300px;
+
     background-color: #ffffff;
     font-family: 'Quicksand', sans-serif;
     color: #ffaf42;
@@ -10,7 +10,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 400;
+    font-weight: 300;
 }
 
 h1,
@@ -90,9 +90,108 @@ h1,
 }
 
 
+.product-modifiers {
+    width: 12.496358%;
+    text-align: right;
+    border-left: 1px solid #bdc3c7;
+}
 
+.product-subtract,
+.product-plus,
+.product-qty {
+    width: 33.330557%;
+    background-color: transparent;
+    color: #686868;
+    text-align: center;
+}
+
+.product-qty {
+    padding: .35em .75em;
+}
+.product-total-price {
+    border-top: 1px solid #bdc3c7;
+    color: #95a5a6;
+    font-size: 1.25em;
+    padding: .5rem;
+}
+
+.shopping-cart--list-item:hover .product-total-price {
+    background-color: #3ad635da;
+    color: #ecf0f1;
+}
+.product-remove {
+    font-size: .875em;
+    margin-top: 3.35rem;
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    width: 100%;
+    visibility: hidden;
+}
+
+.product-modifiers:hover .product-remove {
+    visibility: visible;
+}
+
+.product-remove:before {
+    margin-right: .5em;
+}
+
+.product-remove:hover {
+    background-color: #c0392b;
+}
+.cart-totals {
+    margin-bottom: 3rem;
+}
+
+.cart-totals ._column:not(:last-of-type) {
+    border-bottom: 1px solid #bdc3c7;
+}
+
+.cart-totals ._column:first-of-type {
+    padding-left: 0;
+}
+
+.cart-totals-key {
+    font-size: 1.125em;
+    color: #bdc3c7;
+}
+
+.cart-totals ._column:hover .cart-totals-value,
+.cart-totals ._column:hover .cart-totals-key {
+    color: #333;
+}
+
+.cart-totals-value {
+    font-size: 2em;
+}
+
+._column.checkout {
+    text-align: right;
+    padding: 0;
+    margin-top: 1.5em;
+    vertical-align: middle;
+}
+
+.checkout-btn:before {
+    margin-right: .5em;
+}
+
+._btn.checkout-btn:hover {
+    background-color: #fd5602;
+}
+
+.product-remove,
+.cart-totals * {
+    transition: all .2s ease;
+}
+
+.closing {
+    transition: all .5s ease;
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+}
 .btn{
-    margin-top:100px;
+   
     background-color:#FF8303;
     color:white;
 }
