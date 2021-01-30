@@ -47,6 +47,8 @@ import { AdminComponent } from './Components/admin/admin.component';
     ChefDishesComponent,
     AdminComponent
     
+   
+    
   ],
   imports: [
     BrowserModule,
