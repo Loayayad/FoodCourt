@@ -16,12 +16,12 @@
                     <div class="_grid">
                         <!-- <button class=" btn  _btn column product-subtract">-</button> -->
                        
-                        <input #itemsCount class=" _column product-qty" type="number" min="0" value="1">
+                        <input #itemsCount class=" _column product-qty" type="number" min="0" value="1"  (click)="addMeal(itemsCount.value,item.price)">
                         <!-- <button class=" btn _btn column product-plus">+</button> -->
                     </div> 
-                    <button class=" btn _btn entypo-trash product-remove" (click)="addMeal(itemsCount.value,item.price)">Add</button>
+                    <button class=" btn _btn entypo-trash product-remove" >Add</button>
                     
-                    <div class="price product-total-price" id="total" >L.E {{totalPrice[i]}} </div>
+                    <div class="price product-total-price" id="total"  >L.E {{totalPrice[i]}} </div>
                 </div>
                 
             </li>
