@@ -39,13 +39,13 @@ h2 {
     
 }
 
-.leftList li {
-    display: inline-block;
-
+.leftList a {
+    // display: inline-block;
+    text-decoration: none;
 }
 
 .leftList img {
-    width: 40%;
+    width: 80%;
 
 }
 .search a {
