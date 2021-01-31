@@ -27,9 +27,6 @@ export class CartComponent implements OnInit {
     
   }
   addMeal(count:string,price:number){
-    
-
-    
     this.totalPrice.push(parseInt(count)*price);
   }
    

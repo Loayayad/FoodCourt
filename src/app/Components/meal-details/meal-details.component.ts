@@ -16,6 +16,7 @@ export class MealDetailsComponent implements OnInit {
   private subscriptionList: Subscription[]=[] ;
   meals:IMeal|null=null;
   mID:number=0;
+  starRating=0;
   constructor(private activatedRoute: ActivatedRoute,
     private mService:MealAPIService,
     private location:Location,

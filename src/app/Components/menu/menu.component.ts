@@ -29,13 +29,12 @@ export class MenuComponent implements OnInit {
     private router:Router) { }
     
   
-    ngOnInit(): void {
-      
-    }
+    ngOnInit(): void {} 
     
     addToCart(m:IMeal){
       this.cartService.addTocart(m);
-      alert('Your product has been added to cart')
+      alert('Your product has been added to cart');
+      
       console.log(m)
     }
   
