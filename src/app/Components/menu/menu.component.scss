@@ -1,15 +1,29 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+}
 
 .card-title {
     color: #FE6E00;
-    font-family: 'Quicksand', sans-serif;
 }
 .card-body{
     display: flex;
     flex-direction: column; 
     justify-content: center;
-    font-family: 'Quicksand', sans-serif;
     
 }
+img{
+    width: 100%;
+    height: 300px;
+    padding: 0;
+}
+h2{
+    font-weight:bold;
+    color:#FD5602;
+}
+h5{
+    color:#FD5602;
+}
+
 .shadow{
     margin-bottom: 20px;
     padding:0;
@@ -18,14 +32,13 @@
     background-color: #FFAF42; 
     display: inline;
     color:white; 
-    font-size: 12px; 
-    height: 30px;
-    font-family: 'Quicksand', sans-serif;
+    font-size: larger; 
+    height: 35px;
 }
 .stepper{
     font-size: 12px; 
     height: 32px;
-    font-family: 'Quicksand', sans-serif;
+
     display: inline;
 }
 img,button:hover{

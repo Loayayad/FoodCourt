@@ -1,18 +1,20 @@
-<div class="container d-flex flex-row " style="margin-top: 70px;">
+<body>
+    <div class="container d-flex flex-row " style="margin-top: 70px;">
     
-    <img [src]="meals?.image" width="40%" class="align-self-center rounded-circle shadow-lg mb-5 rounded d-inline" style="margin-top:20px">
-    <div class="d-flex flex-column justify-content-center text-left" style="margin-left: 50px; margin-right: 60px;">
-        <h1> {{meals?.name}}</h1>
-        <h4> {{meals?.price}} L.E</h4>
-        <h5> {{meals?.description}}</h5><br><br>
-        <h5 id="rate"> Rate this meal: 
-            <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
-        </h5>
-        <div class="d-flex flex-row">
-            <button class="btn btn-sm rounded-pill" style="margin-right:50px" (click)="back()">Back</button>
-            <button class="btn btn-sm rounded-pill" (click)="addToCart(meals)">Add</button>
+        <img [src]="meals?.image" width="50%" class="align-self-center rounded-circle shadow-lg mb-5 rounded d-inline" style="margin-top:20px">
+        <div class="d-flex flex-column justify-content-center text-left" style="margin-left: 50px; margin-right: 60px;">
+            <h1 class="display-4"> {{meals?.name}}</h1>
+            <h4> {{meals?.price}} L.E</h4>
+            <h3 class="mb-3"> {{meals?.description}}</h3>
+            <h4 id="rate" class="mb-4"> Rate this meal: 
+                <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+            </h4>
+            <div class="d-flex flex-row">
+                <button class="btn btn-lg rounded-pill" style="margin-right:30px" (click)="back()">Back</button>
+                <button class="btn btn-lg rounded-pill" (click)="addToCart(meals)">Add</button>
+            </div>
+            
         </div>
-        
     </div>
-</div>
-
+            
+</body>

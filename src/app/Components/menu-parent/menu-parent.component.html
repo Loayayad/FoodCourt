@@ -1,8 +1,8 @@
 
 <!-- Filling the dropdown list with category names from the database -->
   <div class="d-flex flex-row container justify-content-start" style="margin-top:100px">
-    <label class="input-group-text" for="inputGroupSelect01" style="background-color: #FFAF42; color:white">Categories</label>
-    <select id="inputGroupSelect01" class="custom-select col-2" [(ngModel)]="SelectedCategory">
+    <label class="input-group-text" for="inputGroupSelect01" style="background-color: #FFAF42; color:white"><h4 class="text-center">Categories</h4></label>
+    <select id="inputGroupSelect01" class="custom-select w-50 " [(ngModel)]="SelectedCategory">
       <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.name}}</option>
     </select>
   </div>

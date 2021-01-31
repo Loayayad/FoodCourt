@@ -7,8 +7,8 @@
             <img [src]="meal?.image" class="card-img-top" (click)="viewDetails(meal.id)">
             <div class="card-body">
                 
-                <h4 class="card-title text-center">{{meal?.name}}</h4>
-                <h6 class="card-text text-center prices">{{meal?.price}} L.E.</h6>
+                <h2 class="card-title text-center">{{meal?.name}}</h2>
+                <h5 class="card-text text-center prices">{{meal?.price}} L.E.</h5>
                 <button style="color: #FF8303; text-align:center" type="button" class="btn btn-link" (click)="viewDetails(meal.id)"> More details</button><br>
                 <div>
                     <button class="btn btn-sm col-4 rounded-pill" (click)="addToCart(meal)">Add</button>
