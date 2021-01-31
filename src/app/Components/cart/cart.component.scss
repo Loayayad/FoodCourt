@@ -97,17 +97,19 @@ h1,
     border-left: 1px solid #bdc3c7;
 }
 
-.product-subtract,
-.product-plus,
-.product-qty {
-    width: 33.330557%;
-    background-color: transparent;
-    color: #686868;
-    text-align: center;
-}
+// .product-subtract,
+// .product-plus,
+// .product-qty {
+//     width: 33.330557%;
+//     background-color: transparent;
+//     color: #686868;
+//     text-align: center;
+// }
 
 .product-qty {
-    padding: .35em .75em;
+width:100%;
+text-align: center;
+    // padding: .35em .75em;
 }
 .product-total-price {
     border-top: 1px solid #bdc3c7;
@@ -123,7 +125,7 @@ h1,
 .product-remove {
     font-size: .875em;
     margin-top: 3.35rem;
-    background-color: #e74c3c;
+    background-color: #3ad635da;
     color: #ecf0f1;
     width: 100%;
     visibility: hidden;
