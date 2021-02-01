@@ -1,33 +1,34 @@
 
-<div class=" row shopping-cart" style="margin-top:100px">
+<div class="row shopping-cart" style="margin-top:100px">
     <ol class="ui-list shopping-cart--list col-sm-9" id="shopping-cart--list">
 
         <div id="shopping-cart--list-item-template" type="text/template" *ngFor="let item of items; let i = index">
             <li class="_grid shopping-cart--list-item">
                 <div class="_column product-image">
-                    <img class="product-image--img img-fluid" [src]="item.image" width="100px" alt="Item image" />
+                    <img class="product-image--img img-fluid" [src]="item.mealImage" width="100px" alt="Item image" />
                 </div>
                 <div class="_column product-info">
-                    <h4 class="product-name">{{item.name}}</h4>
-                    
-                    <div class="price product-single-price">{{item.price|currency:'EGP'}}</div>
+                    <h4 class="product-name">{{item.mealName}} x{{item.mealCount}}</h4>
+                    <br>
+                    <div class="price product-single-price">{{totalPrice[i]|currency:'EGP'}}</div>
                 </div>
                 <div class="_column product-modifiers" data-product-price="L.E100">
                     <div class="_grid">
                         <!-- <button class=" btn  _btn column product-subtract">-</button> -->
                        
-                        <input #itemsCount class=" _column product-qty" type="number" min="0" value="1">
+                        <!-- <input #itemsCount class=" _column product-qty" type="number" min="0" (change)="onKey($event)" [value]="item.mealCount"> -->
                         <!-- <button class=" btn _btn column product-plus">+</button> -->
                     </div> 
-                    <button class=" btn _btn entypo-trash product-remove" (click)="addMeal(itemsCount.value,item.price)">Add</button>
-                    
-                    <div class="price product-total-price" id="total" >L.E {{totalPrice[i]}} </div>
+                    <!-- <button class=" btn _btn entypo-trash product-remove" (click)="remove(i)">X</button> -->
+                    <button type="button" class="close" aria-label="Close" (click)="remove(i)">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <!-- <div class="price product-total-price" id="total" >L.E {{totalPrice[i]}} </div> -->
                 </div>
                 
             </li>
             
         </div>
-        <button class="btn btn-success" (click)="calcTotalPrice()">Confirm</button>
     </ol>
     
     <div class="_grid cart-totals col-sm-3 card">
@@ -48,6 +49,7 @@
             <div class="cart-totals-value">L.E {{total}}</div>
         </div>
         <div class="_column checkout">
+            <button class=" btn btn-danger" (click)="clear()">Clear Cart</button>
             <button class=" btn _btn checkout-btn entypo-forward" routerLink="/Checkout">Checkout</button>
         </div>
     </div>

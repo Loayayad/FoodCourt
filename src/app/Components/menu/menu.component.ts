@@ -31,11 +31,9 @@ export class MenuComponent implements OnInit {
   
     ngOnInit(): void {} 
     
-    addToCart(m:IMeal){
-      this.cartService.addTocart(m);
+    addToCart(mealImage:string, mealID:number, mealName:string, mealPrice:number, mealCount:string){
+      this.cartService.addTocart(mealImage,mealID,mealName,mealPrice,parseInt(mealCount));
       alert('Your product has been added to cart');
-      
-      console.log(m)
     }
   
   ngOnChanges(){
