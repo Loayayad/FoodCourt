@@ -1,18 +1,26 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
 h1{
     color: #fd5602;
-    font-family: 'Quicksand', sans-serif;
+    font-weight:bold;
 }
-h4{
-    color:#FFAF42
-}
+
 h5{
-    color:#3a3d3b;
-    font-family: 'Quicksand', sans-serif;
+    color:#000000;
 }
+
+
 .btn{
-    background-color:#FFAF42; color:white; height:30px; width:60px;
+    background-color:#FFAF42; 
+    color:white; 
+    height:60px; 
+    width: 100px;
+    font-size: x-large;
 }
 ngb-rating{
     color:#FFAF42;
+    font-size: larger;
     
 }
