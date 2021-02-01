@@ -7,9 +7,7 @@
             <h2 class="card-title">{{chef?.name}}</h2>
             <p class="card-title">{{chef?.description}}</p>
             <a class="nav-link p-0" routerLink="/Chefs">See Other Chefs</a><br>
-            <!-- <div class="container">
-                <span id="rateMe2"  class="empty-stars"></span>
-            </div> -->
+            <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
         </div>
   </div>
   <hr><br>
@@ -17,3 +15,10 @@
   <app-chef-dishes [InputChefID]="chef?.id"></app-chef-dishes>
  
 </div>
+
+<script>
+// Rating Initialization
+$(document).ready(function() {
+  $('#rateMe2').mdbRate();
+});
+</script>

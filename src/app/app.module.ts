@@ -23,6 +23,9 @@ import { BlogComponent } from './Components/blog/blog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChefDishesComponent } from './Components/chef-dishes/chef-dishes.component';
 import { AdminComponent } from './Components/admin/admin.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 @NgModule({
@@ -55,7 +58,9 @@ import { AdminComponent } from './Components/admin/admin.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

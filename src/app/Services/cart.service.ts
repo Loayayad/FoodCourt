@@ -9,7 +9,7 @@ export class CartService {
   items: IMeal[]=[];
   
   addTocart(meal:IMeal){
-    this.items.push(meal);
+     this.items.push(meal);
   }
 
   getItems(){

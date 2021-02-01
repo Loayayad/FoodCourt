@@ -15,6 +15,7 @@ import { ChefDishesComponent } from '../chef-dishes/chef-dishes.component';
 export class ChefProfileComponent implements OnInit {
   chef:IChefs|null=null;
   chefID:number=0;
+  starRating=0;
   @ViewChild(ChefDishesComponent) DetailsRef:any;
      private subscriptionList: Subscription[] = [];
   constructor(private router:Router, private location:Location,
