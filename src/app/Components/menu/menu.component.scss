@@ -9,31 +9,40 @@ body{
     display: flex;
     flex-direction: column; 
     justify-content: center;
-    
+    font-family: 'Quicksand', sans-serif;
 }
 img{
     width: 100%;
     height: 300px;
     padding: 0;
+    font-family: 'Quicksand', sans-serif;
 }
 h2{
     font-weight:bold;
     color:#FD5602;
+    font-family: 'Quicksand', sans-serif;
 }
 h5{
     color:#FD5602;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .shadow{
     margin-bottom: 20px;
     padding:0;
 }
-.btn-sm{
+.addBtn{
     background-color: #FFAF42; 
     display: inline;
     color:white; 
     font-size: larger; 
     height: 35px;
+}
+.product-qty{
+    height: 30px;
+    margin-right: 10px;
+    border-color: #FFAF42;
+    color:#FD5602;
 }
 .stepper{
     font-size: 12px; 
