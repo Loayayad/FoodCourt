@@ -37,14 +37,7 @@ export class MealDetailsComponent implements OnInit {
     })
     this.subscriptionList.push(routeParam);
   }
-  addToCart(m:IMeal|null){
-    if(m!==null){
-      this.cartService.addTocart(m);
-    }
-    
-    window.alert('Your product has been added to cart')
-    console.log(m)
-  }
+
   back(){
     this.location.back();
   }

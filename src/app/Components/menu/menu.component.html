@@ -11,7 +11,8 @@
                 <h5 class="card-text text-center prices">{{meal?.price}} L.E.</h5>
                 <button style="color: #FF8303; text-align:center" type="button" class="btn btn-link" (click)="viewDetails(meal.id)"> More details</button><br>
                 <div>
-                    <button class="btn btn-sm col-4 rounded-pill" (click)="addToCart(meal)">Add</button>
+                    <input #itemsCount class=" _column product-qty rounded-pill col-3" type="number" min="1" value="1">
+                    <button class="btn addBtn col-4 rounded-pill" (click)="addToCart(meal.image,meal.id,meal.name,meal.price,itemsCount.value)">Add</button>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ body{
     font-family: 'Quicksand', sans-serif;
 }
 
-h1{
+h1,h4{
     color: #fd5602;
     font-weight:bold;
 }
@@ -15,9 +15,9 @@ h5{
 .btn{
     background-color:#FFAF42; 
     color:white; 
-    height:60px; 
+    height:40px; 
     width: 100px;
-    font-size: x-large;
+    font-size: large;
 }
 ngb-rating{
     color:#FFAF42;
