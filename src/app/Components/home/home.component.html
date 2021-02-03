@@ -46,7 +46,7 @@
             <div class="col-lg-4" *ngFor="let offer of ListOffers">
                 <div class="card shadow card-light m-2" >
                     <p class="ribbon"> Discount: {{offer?.discount}}</p>
-                    <a href="#"><img class="card-img-top" [src]="offer?.image"></a>
+                    <img class="card-img-top" [src]="offer?.image">
 
                     <div class="card-body">
                         <h2>{{offer?.name}}</h2>
@@ -74,7 +74,7 @@
             <div class="col-lg-4" *ngFor="let recommended of HomeList[2].recommended">
                 <div class="card shadow card-light m-2">
 
-                    <a href="#"><img class="card-img-top" [src]="recommended?.image"></a>
+                    <img class="card-img-top" [src]="recommended?.image">
 
                     <div class="card-body">
                         <h2>{{recommended?.name}}</h2>
