@@ -1,9 +1,9 @@
 .shopping-cart {
-
     background-color: #ffffff;
     font-family: 'Quicksand', sans-serif;
     color: #ffaf42;
 }
+
 h1,
 h2,
 h3,
@@ -23,6 +23,7 @@ h1,
     font-size: .75em;
     font-weight: 300;
 }
+
 ._grid {
     /* margin-left: 0; */
     text-align: justify !important;
@@ -44,17 +45,20 @@ h1,
     text-align: left;
     text-rendering: optimizeLegibility;
 }
+
 .shopping-cart {
     width: 80%;
     max-width: 60rem;
     margin: 0 auto;
 }
+
 .shopping-cart--list-item {
     border: 1px solid #bdc3c7;
     margin-bottom: 2rem;
     height: 10rem;
     overflow: hidden;
 }
+
 .shopping-cart--list-item:hover,
 .shopping-cart--list-item:hover * {
     border-color: #fd5602;
@@ -64,21 +68,22 @@ h1,
     height: 100%;
     /* make vertical lines match */
 }
+
 .product-image {
-    padding:1%;
-    width: 20%;
-    background: no-repeat center / cover transparent;
+    padding: 1%;
+    width: 30%;
+    // background: no-repeat center / cover transparent;
 }
+
 .product-info {
-    width: 60%;
+    width: 50%;
     padding: .5rem;
 }
+
 .product-name {
     font: 300 2em/1 "Quicksand", sans-serif;
     letter-spacing: -.025em;
     margin: 0 0 .5em;
-    
-    
 }
 
 .price {
@@ -92,14 +97,12 @@ h1,
     text-align: start;
 }
 
-
-
-
 .product-qty {
-width:100%;
-text-align: center;
+    width: 100%;
+    text-align: center;
     // padding: .35em .75em;
 }
+
 .product-total-price {
     border-top: 1px solid #bdc3c7;
     color: #95a5a6;
@@ -112,12 +115,16 @@ text-align: center;
     color: #ecf0f1;
 }
 
-.close{
+.close {
     margin-left: 0;
+    width: 40px;
+    height: 40px;
 }
+
 .close:hover {
     background-color: #c0392b;
 }
+
 .cart-totals {
     margin-bottom: 3rem;
 }
@@ -145,7 +152,7 @@ text-align: center;
 }
 
 ._column.checkout {
-    text-align: right;
+    text-align: center;
     padding: 0;
     margin-top: 1.5em;
     vertical-align: middle;
@@ -154,13 +161,11 @@ text-align: center;
 ._btn.checkout-btn {
     // margin-right: .5em;
     margin: .2em;
-    background-color:#bdc3c7;
-    
+    width: 100%;
+    background-color: #bdc3c7;
 }
 
 ._btn.checkout-btn:hover {
     background-color: #fd5602;
-    color:white;
+    color: white;
 }
-
-
