@@ -1,9 +1,9 @@
 body{
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1,h4{
-    color: #fd5602;
+    color: #852600;
     font-weight:bold;
 }
 
@@ -13,14 +13,20 @@ h5{
 
 
 .btn{
-    background-color:#FFAF42; 
+    background-color:#852600; 
     color:white; 
     height:40px; 
     width: 100px;
     font-size: large;
+    transition: 0.3s;
+}
+.btn:hover {
+    background:#FD5602 ;
+    color: white;
 }
 ngb-rating{
-    color:#FFAF42;
+    color:#FFD700;
+    // color:#FFAF42;
     font-size: larger;
-    
+    outline:none;
 }

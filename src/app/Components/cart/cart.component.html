@@ -1,57 +1,51 @@
-
 <div class="row shopping-cart" style="margin-top:100px">
     <ol class="ui-list shopping-cart--list col-sm-9" id="shopping-cart--list">
 
         <div id="shopping-cart--list-item-template" type="text/template" *ngFor="let item of items; let i = index">
             <li class="_grid shopping-cart--list-item">
                 <div class="_column product-image">
-                    <img class="product-image--img img-fluid" [src]="item.mealImage" width="100px" alt="Item image" />
+                    <img class="product-image--img img-fluid" [src]="item.mealImage" width="300px" alt="Item image" />
                 </div>
                 <div class="_column product-info">
                     <h4 class="product-name">{{item.mealName}} x{{item.mealCount}}</h4>
                     <br>
                     <div class="price product-single-price">{{totalPrice[i]|currency:'EGP'}}</div>
                 </div>
-                <div class="_column product-modifiers" data-product-price="L.E100">
-                    <div class="_grid">
-                        <!-- <button class=" btn  _btn column product-subtract">-</button> -->
-                       
-                        <!-- <input #itemsCount class=" _column product-qty" type="number" min="0" (change)="onKey($event)" [value]="item.mealCount"> -->
-                        <!-- <button class=" btn _btn column product-plus">+</button> -->
-                    </div> 
-                    <!-- <button class=" btn _btn entypo-trash product-remove" (click)="remove(i)">X</button> -->
-                    <button type="button" class="close" aria-label="Close" (click)="remove(i)">
+
+
+                <button type="button" class="close" style="margin-right: 0px;" aria-label="Close" (click)="remove(i)">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <!-- <div class="price product-total-price" id="total" >L.E {{totalPrice[i]}} </div> -->
-                </div>
-                
+
+
+
             </li>
-            
+
         </div>
     </ol>
-    
+
     <div class="_grid cart-totals col-sm-3 card">
         <div class="_column subtotal" id="subtotalCtr">
             <div class="cart-totals-key">Sub Total</div>
             <div class="cart-totals-value">L.E {{subTotal}}</div><br>
         </div>
         <div class="_column shipping" id="shippingCtr">
-            <div class="cart-totals-key">Shipping</div>
-            <div class="cart-totals-value">L.E 20</div>
+            <div class="cart-totals-key">Delivery</div>
+            <div class="cart-totals-value">L.E {{shipping}}</div>
         </div>
         <div class="_column taxes" id="taxesCtr">
             <div class="cart-totals-key">Taxes (14%)</div>
-            <!-- <div class="cart-totals-value">L.E0.00</div> -->
+            <div class="cart-totals-value">L.E {{taxes}}</div>
+
         </div>
         <div class="_column total" id="totalCtr">
             <div class="cart-totals-key">Total</div>
             <div class="cart-totals-value">L.E {{total}}</div>
         </div>
         <div class="_column checkout">
-            <button class=" btn btn-danger" (click)="clear()">Clear Cart</button>
+            <button class=" btn _btn checkout-btn" routerLink="/MenuParent">Continue Shopping</button>
             <button class=" btn _btn checkout-btn entypo-forward" routerLink="/Checkout">Checkout</button>
         </div>
     </div>
-    
+
 </div>
