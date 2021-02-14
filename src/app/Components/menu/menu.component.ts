@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
   subscription: Subscription|null = null;
   MealsList: any[] = [];
   CategoryList: ICategory[] = [];
-  SelectedCategory = 1;
+  // SelectedCategory = 2;
   AllMeals: any[]=[];
   
   mID:number=0;
@@ -48,22 +48,9 @@ export class MenuComponent implements OnInit {
         this.selectedMeal.mealPrice,
         parseInt(mealCount))
     }
-    // addToCart(mealImage:string, mealID:number, mealName:string, mealPrice:number, mealCount:string){
-    //   this.cartService.addTocart(mealImage,mealID,mealName,mealPrice,parseInt(mealCount));
-      
-    // }
   
   ngOnChanges(){
-    // this.mealService.getMealByCategoryID(this.InputCategoryID).subscribe(
-    //   (response)=>{
-    //     this.MealsList = response;
-    //   },
-    //   (error)=>{
-    //     console.log(error)
-    //   }
-    // )
-    //this.getAllMeals();
-    //this.getMealbyCatID();
+    this.getMealbyCatID();
   }
 
   // getAllMeals(){
@@ -86,24 +73,25 @@ export class MenuComponent implements OnInit {
 
   // }
 
-  // getMealbyCatID(){
-  //   this.mealService.getMealByCategoryID(this.SelectedCategory).subscribe(
-  //     (res) =>{
-  //       //console.log(res);
-  //       res.forEach((element)=>{
-  //         //console.log(element.payload.doc.data());
-  //         this.MealsList.push(element.payload.doc.data())
-  //       })
-
-  //       this.MealsList.forEach((element)=>{
-  //         console.log(element);
-  //       })
-  //     },
-  //     (err)=>{
-  //       console.log(err);
-  //     }
-  //   )
-  // }
+  getMealbyCatID(){
+    this.mealService.getMealByCategoryID(this.InputCategoryID).subscribe(
+      (res) =>{
+        this.MealsList=[];
+        //console.log(res);
+        res.forEach((element)=>{
+          //console.log(element.payload.doc.data());
+          this.MealsList.push(element.payload.doc.data())
+        })
+        
+        this.MealsList.forEach((element)=>{
+          console.log(element);
+        })
+      },
+      (err)=>{
+        console.log(err);
+      }
+    )
+  }
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
