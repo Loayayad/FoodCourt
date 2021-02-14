@@ -4,14 +4,24 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ICategory } from '../ViewModels/icategory';
 
+import {AngularFireDatabase, AngularFireList, AngularFireObject} from '@angular/fire/database';
+import { AngularFirestore} from '@angular/fire/firestore'
+
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) { }
-  getAllCategories(): Observable <ICategory[]>
+  userRef: AngularFireList<any>[]=[];
+  userRed: AngularFireObject<any>[]=[];
+
+  constructor(
+    private http: HttpClient,
+    private db: AngularFireDatabase,
+    private afs: AngularFirestore
+    ) { }
+  getAllCategories()
   {
-    return this.http.get<ICategory[]>(`${environment.API_URL}/categories`)
+    return this.afs.collection("categories").snapshotChanges();
   }
 }

@@ -23,24 +23,24 @@ export class ChefProfileComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    let chefSubscription:Subscription|null=null;
-    let routeParamSubscription: Subscription=
-    this.activatedRout.paramMap.subscribe((params)=>{
-      let chefIDParam:string|null=params.get('cID');
-      this.chefID=(chefIDParam)? parseInt(chefIDParam):0;
-      chefSubscription=this.chefService.getChefsByID(this.chefID).subscribe(
-        (res)=>{
-          this.chef=res;
-        },
-        (err)=>{console.log(err)}
-      )
-      this.subscriptionList.push(chefSubscription);
-     console.log(this.chefID)
-     console.log( this.chef)
-     });
-     this.subscriptionList.push(routeParamSubscription);
-    }
+    // let chefSubscription:Subscription|null=null;
+    // let routeParamSubscription: Subscription=
+    // this.activatedRout.paramMap.subscribe((params)=>{
+    //   let chefIDParam:string|null=params.get('cID');
+    //   this.chefID=(chefIDParam)? parseInt(chefIDParam):0;
+    //   chefSubscription=this.chefService.getChefsByID(this.chefID).subscribe(
+    //     (res)=>{
+    //       this.chef=res;
+    //     },
+    //     (err)=>{console.log(err)}
+    //   )
+    //   this.subscriptionList.push(chefSubscription);
+    //  console.log(this.chefID)
+    //  console.log( this.chef)
+    //  });
+    //  this.subscriptionList.push(routeParamSubscription);
+    // }
     
   }
 
-
+}

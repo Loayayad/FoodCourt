@@ -1,6 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+//firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+
+import { environment } from '../environments/environment';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -50,8 +60,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ChefDishesComponent,
     AdminComponent
     
-   
-    
   ],
   imports: [
     BrowserModule,
@@ -59,7 +67,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule
     
   ],
   providers: [],
