@@ -17,6 +17,7 @@ export class MealDetailsComponent implements OnInit {
   meals:IMeal|null=null;
   mID:number=0;
   starRating=0;
+  count:number=1;
   constructor(private activatedRoute: ActivatedRoute,
     private mService:MealAPIService,
     private location:Location,
@@ -37,7 +38,13 @@ export class MealDetailsComponent implements OnInit {
     // })
     // this.subscriptionList.push(routeParam);
   }
-
+  addToCart(count:string){
+    if(this.meals)
+    {
+      this.cartService.addTocart(this.meals.image,this.meals.id,this.meals.name,this.meals.price,parseInt(count));
+    }
+    
+  }
   back(){
     this.location.back();
   }

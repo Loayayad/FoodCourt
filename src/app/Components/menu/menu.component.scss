@@ -1,56 +1,93 @@
 body{
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .card-title {
-    color: #FE6E00;
+    color: #852600;
 }
 .card-body{
     display: flex;
     flex-direction: column; 
     justify-content: center;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 img{
     width: 100%;
     height: 300px;
-    padding: 0;
-    font-family: 'Quicksand', sans-serif;
+    
+    font-family: 'Roboto', sans-serif;
 }
 h2{
     font-weight:bold;
     color:#FD5602;
-    font-family: 'Quicksand', sans-serif;
-}
+    font-family: 'Roboto', sans-serif;}
 h5{
-    color:#FD5602;
-    font-family: 'Quicksand', sans-serif;
+    color:rgb(121, 121, 121);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+.add{
+    background-color:#852600 ;
+    color: white;
+    height:35px;
+    transition: 0.3s;
+}
+.cont {
+    background: #852600; 
+    color: white;
+    transition: 0.3s;
+}
+.add:hover {
+    background:#FD5602 ;
+    color: white;
+}
+.cont:hover {
+    background: #FD5602;
+    color: white;
 }
 
 .shadow{
     margin-bottom: 20px;
     padding:0;
 }
-.addBtn{
-    background-color: #FFAF42; 
-    display: inline;
-    color:white; 
-    font-size: larger; 
-    height: 35px;
-}
-.product-qty{
-    height: 30px;
-    margin-right: 10px;
-    border-color: #FFAF42;
-    color:#FD5602;
-}
+
 .stepper{
     font-size: 12px; 
-    height: 32px;
-
+    height: 34px;
+    outline: none;
     display: inline;
+    margin-right: 10px;
 }
 img,button:hover{
     cursor: pointer;
 }
+.img__wrap {
+    position: relative;
+    font-size: large;
+    text-align: center;
+    text-justify: center;
+  }
+  
+  .img__description {
+    position: absolute;
+    padding:20% 5% 20% 5%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(217, 205, 189, 0.6);
+    color: #852600;
+    visibility: hidden;
+    opacity: 0;
+    font-size: larger;
+    font-weight: 500;
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+  }
+  
+  .img__wrap:hover .img__description {
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
+  }
 

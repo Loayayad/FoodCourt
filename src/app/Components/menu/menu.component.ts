@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CategoryService } from 'src/app/Services/category.service';
@@ -22,6 +22,15 @@ export class MenuComponent implements OnInit {
   SelectedCategory = 1;
   AllMeals: any[]=[];
   
+  mID:number=0;
+  selectedMeal: {mealImage:string, mealID:number, mealName:string, mealPrice:number, mealDescription:string}=
+  {
+    mealImage:'',
+    mealID:0,
+    mealDescription:'',
+    mealName:'',
+    mealPrice:0
+  };
   
   @Input() InputCategoryID:number=1;
  
@@ -32,11 +41,17 @@ export class MenuComponent implements OnInit {
     
   
     ngOnInit(): void {} 
-    
-    addToCart(mealImage:string, mealID:number, mealName:string, mealPrice:number, mealCount:string){
-      this.cartService.addTocart(mealImage,mealID,mealName,mealPrice,parseInt(mealCount));
-      alert('Your product has been added to cart');
+    addToCart(mealCount:string){
+      this.cartService.addTocart(this.selectedMeal.mealImage,
+        this.selectedMeal.mealID,
+        this.selectedMeal.mealName,
+        this.selectedMeal.mealPrice,
+        parseInt(mealCount))
     }
+    // addToCart(mealImage:string, mealID:number, mealName:string, mealPrice:number, mealCount:string){
+    //   this.cartService.addTocart(mealImage,mealID,mealName,mealPrice,parseInt(mealCount));
+      
+    // }
   
   ngOnChanges(){
     // this.mealService.getMealByCategoryID(this.InputCategoryID).subscribe(
@@ -96,5 +111,16 @@ export class MenuComponent implements OnInit {
   viewDetails(mID:number){
     this.router.navigate(['/MealDetails',mID]);
   }
- 
+  add(mealImage:string, mealID:number, mealName:string, mealPrice:number, mealDescription:string){
+    if(this.selectedMeal)
+    {
+      this.selectedMeal.mealImage = mealImage;
+      this.selectedMeal.mealID = mealID;
+      this.selectedMeal.mealName = mealName;
+      this.selectedMeal.mealPrice = mealPrice;
+      this.selectedMeal.mealDescription = mealDescription;
+    }  
+    
+
+  }
 }
