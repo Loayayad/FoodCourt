@@ -25,18 +25,18 @@ export class MealDetailsComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
-    let mealSubscription:Subscription|null=null;
-    let routeParam:Subscription = this.activatedRoute.paramMap.subscribe((params)=>{
-      let mealID:string|null = params.get('mID');
-      this.mID=(mealID)? parseInt(mealID):0;
+    // let mealSubscription:Subscription|null=null;
+    // let routeParam:Subscription = this.activatedRoute.paramMap.subscribe((params)=>{
+    //   let mealID:string|null = params.get('mID');
+    //   this.mID=(mealID)? parseInt(mealID):0;
 
-      mealSubscription = this.mService.getMealByID(this.mID).subscribe(
-        (res)=>{this.meals = res},
-        (err)=>{console.log(err)}
-      )
-      this.subscriptionList.push(mealSubscription);
-    })
-    this.subscriptionList.push(routeParam);
+    //   mealSubscription = this.mService.getMealByID(this.mID).subscribe(
+    //     (res)=>{this.meals = res},
+    //     (err)=>{console.log(err)}
+    //   )
+    //   this.subscriptionList.push(mealSubscription);
+    // })
+    // this.subscriptionList.push(routeParam);
   }
   addToCart(count:string){
     if(this.meals)

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
 import { Subscription } from 'rxjs';
 import { HomeAPIService } from 'src/app/Services/home-api.service';
 
@@ -16,12 +17,38 @@ export class HomeComponent implements OnInit {
   constructor(private homeService:HomeAPIService) { }
 
   ngOnInit(): void {
+    // this.homeService.getHomeItems().subscribe(
+    //   (res) =>{
+    //     this.HomeList = res;
+    //     this.homeListOffers();
+    //     console.log(this.HomeList)
+    //     console.log(this.HomeList[1].offers[1].image)
+    //   },
+    //   (err)=>{
+    //     console.log(err);
+    //   }
+    // )
+    this.getCarousel();
+  }
+
+  getCarousel(){
     this.homeService.getHomeItems().subscribe(
       (res) =>{
-        this.HomeList = res;
-        this.homeListOffers();
-        console.log(this.HomeList)
-        console.log(this.HomeList[1].offers[1].image)
+        console.log(res);
+        res.forEach((element)=>{
+          console.log(element.payload.doc.data());
+          this.HomeList.push(element.payload.doc.data())
+        })
+        //this.ListOffers = this.HomeList
+        this.HomeList.forEach((element)=>{
+          console.log(element)
+        })
+        console.log(this.HomeList);
+        //console.log()
+        // this.HomeList = res;
+        // this.homeListOffers();
+        // console.log(this.HomeList)
+        // console.log(this.HomeList[1].offers[1].image)
       },
       (err)=>{
         console.log(err);
@@ -29,22 +56,22 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  homeListOffers(): void{
-    let homeoffers=this.HomeList[1].offers;
+  // homeListOffers(): void{
+  //   let homeoffers=this.HomeList[1].offers;
 
-    for(var ele in homeoffers){
-      if(homeoffers[ele].show){
-        this.ListOffers.push(homeoffers[ele])
-        console.log(homeoffers[ele])
-      }
-    }
-    // homeoffers.forEach( => {
-    //   console.log(elem)
-    //   // if(offer[){
-    //   //   console.log(offer[1].show)
-    //   // }
+  //   for(var ele in homeoffers){
+  //     if(homeoffers[ele].show){
+  //       this.ListOffers.push(homeoffers[ele])
+  //       console.log(homeoffers[ele])
+  //     }
+  //   }
+  //   // homeoffers.forEach( => {
+  //   //   console.log(elem)
+  //   //   // if(offer[){
+  //   //   //   console.log(offer[1].show)
+  //   //   // }
 
-    // });
-  }
+  //   // });
+  // }
 
 }

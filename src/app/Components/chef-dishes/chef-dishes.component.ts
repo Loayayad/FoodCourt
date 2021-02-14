@@ -25,13 +25,13 @@ export class ChefDishesComponent implements OnInit {
   
   }
   ngOnChanges(){
-    if(this.InputChefID!==undefined)
-    {
-      this.mService.getMealByChefID(this.InputChefID).subscribe(
-        (res)=>{this.meals = res},
-        (err)=>{console.log(err)}
-      )
-    }
+    // if(this.InputChefID!==undefined)
+    // {
+    //   this.mService.getMealByChefID(this.InputChefID).subscribe(
+    //     (res)=>{this.meals = res},
+    //     (err)=>{console.log(err)}
+    //   )
+    // }
     
   }
 

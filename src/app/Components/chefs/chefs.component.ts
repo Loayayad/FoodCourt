@@ -18,12 +18,12 @@ export class ChefsComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
-    this.subscription= this.chefServiceApi.getAllChefs().subscribe(
-      (response)=>{
-        this.ChefList = response;
-      },
-      (err)=>{console.log(err)}
-    );
+    // this.subscription= this.chefServiceApi.getAllChefs().subscribe(
+    //   (response)=>{
+    //     this.ChefList = response;
+    //   },
+    //   (err)=>{console.log(err)}
+    // );
 
   }
   viewChef(ChefID:number|undefined){
