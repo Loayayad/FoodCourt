@@ -1,11 +1,24 @@
 <!-- Viewing dishes for each chef -->
 <div class="container">
 <div class="row">
-        <div class="text-start col-6" *ngFor = "let meal of meals" >
-            <img [src]="meal?.image"class="img-fluid rounded " ><br><br>
+        <div class="text-start col-lg-5 col-md-6 col-sm-6  col-xs-12" *ngFor = "let meal of meals" >
+           
+            <div class="img__wrap">
+                <img [src]="meal?.image"class="img-fluid rounded " ><br><br>
+                <a class="nav-link text-center  img__description" routerLink="/MenuParent">Get in the main menu</a><br>
+              </div>
              <h4>{{meal.name}}</h4>
              <p>{{meal.description}}</p>
-             <a class="nav-link p-0" routerLink="/MenuParent">Get in the main menu</a><br>
+            
+            <!-- <div>
+                <a class="nav-link p-0" routerLink="/MenuParent">Get in the main menu</a><br>
+            </div> -->
+           
         </div>
 </div>
 </div>
+
+
+
+
+

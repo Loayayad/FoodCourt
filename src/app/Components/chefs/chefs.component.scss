@@ -10,9 +10,9 @@ img{
     font-family:'Quicksand', sans-serif;
 
 }
-button{
-    font-size: large;
-}
+// button{
+//     font-size: large;
+// }
 h3{
     font-weight:600;
     color:#FD5602;
@@ -20,7 +20,35 @@ h3{
 .chefN {
     color: #FE6E00;
 }
-.btn-link{
-    color: #FF8303;
+// .btn-link{
+//     color: #FF8303;
     
-}
+// }
+
+  /* relevant styles */
+  .img__wrap {
+    position: relative;
+  }
+  
+  .img__description {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background: rgba(217, 205, 189, 0.6);
+    color:#ffff;;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 25px;
+    font-weight:600;
+    text-decoration: none;
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+  }
+  
+  .img__wrap:hover .img__description {
+    visibility: visible;
+    opacity: 1;
+    width: 100%;
+  }

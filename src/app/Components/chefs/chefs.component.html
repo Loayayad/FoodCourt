@@ -1,16 +1,21 @@
-<!-- Viewing all chefs -->
+
 <div class="container-fluid">
     <div class="row d-flex justify-content-center">
         <div id="ourChefs" class="text-center col-12">Our Chefs</div><br><br>
 
-        <div class="shadow rounded card text-left col-3 card-light p-0" style="margin-right: 20px; margin-bottom: 10px;"
+        <div class="shadow rounded card text-left col-3 card-light p-0 " style="margin-right: 20px; margin-bottom: 20px;"
             *ngFor="let chef of ChefList">
-            <img [src]="chef?.image" class="card-image-top rounded-top" (click)="viewChef(chef.id)">
-            <div class="card-body">
+
+           <div class="img__wrap ">
+            <img [src]="chef?.image">
+            <button type="button" class="btn btn-link  img__description" (click)="viewChef(chef.id)">Know them
+                    better</button>
+           </div>
+              
+            <div class="card-body  ">
                 <h3 class="chefN">{{chef?.name}}</h3>
                 <p>{{chef?.description}}</p>
-                <button type="button" class="btn btn-link text-left p-0" (click)="viewChef(chef.id)">Know them
-                    better</button>
+                
             </div>
         </div>
 
