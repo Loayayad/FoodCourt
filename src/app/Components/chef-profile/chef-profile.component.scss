@@ -1,5 +1,5 @@
 body{
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1{
@@ -7,11 +7,14 @@ h1{
     color:#FD5602;
 }
 h2 {
-    color: #FE6E00;  
+    color: #FD5602; 
+    font-display: 3; 
+    font-weight:bold;
     
 }
 .nav-link{
     color: #FE6E00;
+    
 }
 ngb-rating{
     color:#FFAF42;

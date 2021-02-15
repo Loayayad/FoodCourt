@@ -5,7 +5,7 @@
         <img class="card-img-top rounded-circle img-fluid col-3 " [src]="chef?.image" alt="Card image cap">
         <div class="col-7 ">
             <br>
-            <h2 class="card-title display-4">{{chef?.name}}</h2>
+            <h2 class="card-title ">{{chef?.name}}</h2>
             <p class="card-title">{{chef?.description}}</p>
             <a class="nav-link p-0" routerLink="/Chefs">See Other Chefs</a><br>
             <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>

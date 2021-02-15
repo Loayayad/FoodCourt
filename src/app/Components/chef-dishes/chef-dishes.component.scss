@@ -1,9 +1,10 @@
 .container{
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 img {
     width: 60%;
     height: 300px;
+    border-radius: 3%;
 }
 h4{
     font-weight:bold;
@@ -13,41 +14,30 @@ p{
     width: 70%;
     height: 12%;
 }
-a{
-    color:#FD5602;
-    font-weight: bold;
-}
-.col-6 a {
-    color: #FF8303;
-}
-
-.col-6 a:hover {
-    color: #000000;
+ a:hover {
     cursor: pointer;
 }
 
-h5 {
-    color: #FD5602;
-   
-}
 /* relevant styles */
 .img__wrap {
     position: relative;
+   
   }
   
   .img__description {
     position: absolute;
+    border-radius: 3%;
     top: 0;
     bottom:0;
     left: 0;
     right: 0;
-    padding-top:30%;
+    padding:30% 5% 20% 5%;
     background: rgba(217, 205, 189, 0.6);
-    color:#FD5602;;
+    color:#852600;;
     visibility: hidden;
     opacity: 0;
     font-size: 20px;
-    font-weight:500;
+    font-weight:bold;
     text-decoration: none;
     /* transition effect. not necessary */
     transition: opacity .2s, visibility .2s;
@@ -57,5 +47,6 @@ h5 {
     visibility: visible;
     opacity: 1;
     width: 60%;
-    height: 87%;
+    height: 300px;
+    
   }
