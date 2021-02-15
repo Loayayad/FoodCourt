@@ -14,7 +14,7 @@ import { IMeal } from 'src/app/ViewModels/imeal';
 })
 export class MealDetailsComponent implements OnInit {
   private subscriptionList: Subscription[]=[] ;
-  meals:IMeal|null=null;
+  meals:any;
   mID:number=0;
   starRating=0;
   count:number=1;
@@ -22,22 +22,35 @@ export class MealDetailsComponent implements OnInit {
     private mService:MealAPIService,
     private location:Location,
     private cartService:CartService,
-    private router:Router) { }
+    private router:Router,
+    private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    // let mealSubscription:Subscription|null=null;
-    // let routeParam:Subscription = this.activatedRoute.paramMap.subscribe((params)=>{
-    //   let mealID:string|null = params.get('mID');
-    //   this.mID=(mealID)? parseInt(mealID):0;
-
-    //   mealSubscription = this.mService.getMealByID(this.mID).subscribe(
-    //     (res)=>{this.meals = res},
-    //     (err)=>{console.log(err)}
-    //   )
-    //   this.subscriptionList.push(mealSubscription);
-    // })
-    // this.subscriptionList.push(routeParam);
+    
+    this.getMealByID();
   }
+
+
+  getMealByID(){
+    let mealSubscription:Subscription|null=null;
+    let routeParam:Subscription = this.activatedRoute.paramMap.subscribe((params)=>{
+      let mealID:string|null = params.get('mID');
+      this.mID=(mealID)? parseInt(mealID):0;
+
+      mealSubscription = this.mService.getMealByID(this.mID).subscribe(
+        (res)=>{
+          res.forEach((element)=>{
+            console.log(element.payload.doc.data());
+            this.meals = element.payload.doc.data()
+          })},
+        (err)=>{console.log(err)}
+      )
+      this.subscriptionList.push(mealSubscription);
+    })
+    this.subscriptionList.push(routeParam);
+  }
+
+  
   addToCart(count:string){
     if(this.meals)
     {
