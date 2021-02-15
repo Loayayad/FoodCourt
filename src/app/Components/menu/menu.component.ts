@@ -97,6 +97,7 @@ export class MenuComponent implements OnInit {
     this.subscription?.unsubscribe();
   }
   viewDetails(mID:number){
+    
     this.router.navigate(['/MealDetails',mID]);
   }
   add(mealImage:string, mealID:number, mealName:string, mealPrice:number, mealDescription:string){

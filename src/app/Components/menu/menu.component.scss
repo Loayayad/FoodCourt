@@ -2,6 +2,7 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 .fa-shopping-cart{
+    margin-left: 10px;
     font-size: 25px;
     color: #FD5602;
     transition: 0.3s;
@@ -9,6 +10,7 @@ body{
 .fa-shopping-cart:hover{
     cursor: pointer;
     color:#fd8709 ;
+    
 }
 .card-title {
     color: #FD5602;
@@ -38,6 +40,7 @@ h5{
     background-color:#FD5602 ;
     color: white;
     height:35px;
+    margin-left: 10px;
     transition: 0.3s;
 }
 .cont {
@@ -64,6 +67,7 @@ img,button:hover{
   }
   
   .img__description {
+    border-radius: 30px;
     position: absolute;
     padding:20% 5% 20% 5%;
     top: 0;

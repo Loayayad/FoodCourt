@@ -6,7 +6,7 @@
             <h1 class="display-4"> {{meals?.name}}</h1>
             <h4> {{meals?.price|currency:'EGP'}}</h4>
             <br><br>
-            <h3 class="mb-3"> {{meals?.description}}</h3>
+            <h5 class="mb-3"> {{meals?.description}}</h5>
             <br>
             <h4 id="rate" class="mb-4"> Rate this meal: 
                 <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>

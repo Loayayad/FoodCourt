@@ -15,12 +15,11 @@ option{
     font-family: 'Roboto', sans-serif;
     background-color: #fff;
     color:#fd8709;
-    border: 3px solid #fd8709; 
+    border: 2px solid #fd8709; 
     outline: none;
     width:150px;
     font-size: larger;
     font-weight:bold;
-
     transition: 0.3s;
 }
 .CatBtn:hover{
@@ -28,7 +27,7 @@ option{
     background-color:#fd8709 ;
     color: #fff;
     font-weight:bold;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 12px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .CatBtn:focus{
