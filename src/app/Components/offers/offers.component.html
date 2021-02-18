@@ -1,7 +1,7 @@
 <body class="mx-auto">
     <div class="row d-flex col-lg-12 mx-auto" style="margin-top: 50px;">
 
-        <div class="col-lg-4" *ngFor="let offer of HomeList[1].offers">
+        <div class="col-lg-4" *ngFor="let offer of ListOffers">
             <div class="card shadow card-light m-2">
                 <p class="ribbon"> Discount: {{offer?.discount}}</p>
                 <a href="#"><img class="card-img-top" [src]="offer?.image"></a>

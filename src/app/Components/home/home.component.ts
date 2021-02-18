@@ -13,42 +13,39 @@ export class HomeComponent implements OnInit {
   subscription: Subscription|null = null;
   HomeList: any[] = [];
   ListOffers: any[]=[];
-
+  ListRecommended: any[]=[];
+  generalProducts: any[]=[];
   constructor(private homeService:HomeAPIService) { }
 
   ngOnInit(): void {
-    // this.homeService.getHomeItems().subscribe(
-    //   (res) =>{
-    //     this.HomeList = res;
-    //     this.homeListOffers();
-    //     console.log(this.HomeList)
-    //     console.log(this.HomeList[1].offers[1].image)
-    //   },
-    //   (err)=>{
-    //     console.log(err);
-    //   }
-    // )
-    this.getCarousel();
+    //this.getCarousel();
+    this.getHomeGeneralProduct();
+    this.getHomeOffers();
+    this.getHomeRecommended();
   }
 
-  getCarousel(){
-    this.homeService.getHomeItems().subscribe(
-      (res) =>{
-        console.log(res);
+  getHomeGeneralProduct(){
+    this.homeService.getHomeGeneralProducts().subscribe(
+      (res)=>{
+        
         res.forEach((element)=>{
-          console.log(element.payload.doc.data());
-          this.HomeList.push(element.payload.doc.data())
+          //console.log(element.payload.doc.data());
+          this.generalProducts.push(element.payload.doc.data());
         })
-        //this.ListOffers = this.HomeList
-        this.HomeList.forEach((element)=>{
-          console.log(element)
+      },(err)=>{
+        console.log(err);
+      }
+    )
+  }
+
+  getHomeOffers(){
+    this.homeService.getHomeOffer().subscribe(
+      (res)=>{
+        
+        res.forEach((element)=>{
+          //console.log(element.payload.doc.data());
+          this.ListOffers.push(element.payload.doc.data());
         })
-        console.log(this.HomeList);
-        //console.log()
-        // this.HomeList = res;
-        // this.homeListOffers();
-        // console.log(this.HomeList)
-        // console.log(this.HomeList[1].offers[1].image)
       },
       (err)=>{
         console.log(err);
@@ -56,22 +53,43 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  // homeListOffers(): void{
-  //   let homeoffers=this.HomeList[1].offers;
+  getHomeRecommended(){
+    this.homeService.getHomeRecommended().subscribe(
+      (res)=>{
+        
+        res.forEach((element)=>{
+          //console.log(element.payload.doc.data());
+          this.ListRecommended.push(element.payload.doc.data());
+        })
+      },
+      (err)=>{
+        console.log(err);
+      }
+    )
+  }
 
-  //   for(var ele in homeoffers){
-  //     if(homeoffers[ele].show){
-  //       this.ListOffers.push(homeoffers[ele])
-  //       console.log(homeoffers[ele])
+  // getCarousel(){
+  //   this.homeService.getHomeItems().subscribe(
+  //     (res) =>{
+  //       console.log(res);
+  //       res.forEach((element)=>{
+  //         console.log(element.payload.doc.data());
+  //         this.HomeList.push(element.payload.doc.data())
+  //       })
+  //       //this.ListOffers = this.HomeList
+  //       this.HomeList.forEach((element)=>{
+  //         console.log(element)
+  //       })
+  //       console.log(this.HomeList);
+  //       //console.log()
+  //       // this.HomeList = res;
+  //       // this.homeListOffers();
+  //       // console.log(this.HomeList)
+  //       // console.log(this.HomeList[1].offers[1].image)
+  //     },
+  //     (err)=>{
+  //       console.log(err);
   //     }
-  //   }
-  //   // homeoffers.forEach( => {
-  //   //   console.log(elem)
-  //   //   // if(offer[){
-  //   //   //   console.log(offer[1].show)
-  //   //   // }
-
-  //   // });
+  //   )
   // }
-
 }

@@ -1,7 +1,7 @@
 <body>
 
     <!-- carousel for the slider images  -->
-    <div id="myCarousel" class="carousel slide mx-auto" style="width: 90%;" data-ride="carousel">
+    <!-- <div id="myCarousel" class="carousel slide mx-auto" style="width: 90%;" data-ride="carousel">
 
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -26,15 +26,59 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div> -->
+
+    <!-- general view of a product -->
+    <div class="row featurette">
+        <div class="col-md-12 d-flex mx-auto">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <h1 class="featurette-heading">Food Made With Love.<span class="text-muted">It’ll blow your
+                        mind.</span>
+                </h1>
+                <p class="featurette-body" >Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                    euismod
+                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
+                    ac cursus
+                    commodo.</p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <img src={{generalProducts[0].image}} class="img-fluid " alt="">
+            </div>
+        </div>
     </div>
 
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-12 d-flex mx-auto">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <img src={{generalProducts[1].image}} class="img-fluid" alt="">
+            </div>
+            
+            <div class="col-md-4">
+                <h1 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for
+                        yourself.</span></h1>
+                <p class="featurette-body">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                    euismod
+                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
+                    ac cursus
+                    commodo.</p>
+            </div>
+            
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
     <!-- Marketing messaging and featurettes
   ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-
+    
+    <!-- Offers Section -->
     <div class="container-fluid mx-auto" style="width: 80%;">
 
-        <!-- Offers Section -->
         <div class="container-fluid d-inline-flex">
             <h1 class="display-3">Offers</h1>
             <div class="container text-right mt-5">
@@ -62,6 +106,7 @@
     </div>
 
     <hr class="featurette-divider">
+
     <!-- Recommended Section -->
     <div class="container-fluid mx-auto" style="width: 80%;">
         <div class="container-fluid d-inline-flex">
@@ -72,7 +117,7 @@
         </div>
 
         <div class="row d-flex col-lg-12 mx-auto">
-            <!-- <div class="col-lg-4" *ngFor="let recommended of Home[2].recommended">
+            <div class="col-lg-4" *ngFor="let recommended of ListRecommended">
                 <div class="card shadow card-light m-2">
 
                     <img class="card-img-top" [src]="recommended?.image">
@@ -84,54 +129,13 @@
                     </div>
 
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 
     <!-- START THE FEATURETTES -->
 
     <hr class="featurette-divider">
-
-    <!-- general view of a product -->
-    <div class="row featurette">
-        <div class="col-md-12 d-flex mx-auto">
-            <div class="col-md-1"></div>
-            <div class="col-md-4">
-                <h2 class="featurette-heading">Food Made With Love.<span class="text-muted">It’ll blow your
-                        mind.</span>
-                </h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod
-                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
-                    ac cursus
-                    commodo.</p>
-            </div>
-            <div class="col-md-6">
-                <!-- <img src={{Home[3].general[0].image}} class="img-fluid " alt=""> -->
-            </div>
-        </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-        <div class="col-md-11 d-flex mx-auto">
-            <div class="col-md-1"></div>
-            <div class="col-md-4 order-md-2">
-                <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for
-                        yourself.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod
-                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
-                    ac cursus
-                    commodo.</p>
-            </div>
-            <div class="col-md-6">
-                <!-- <img src={{Home[3].general[1].image}} class="img-fluid" alt=""> -->
-            </div>
-        </div>
-    </div>
-
 
 </body>
 
