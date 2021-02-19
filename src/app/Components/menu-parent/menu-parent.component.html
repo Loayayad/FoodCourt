@@ -1,17 +1,15 @@
-<div></div>
+<header style="margin-top:100px; text-align: center;" class="d-flex flex-column justify-content-center">
+  <h1>What will <span class="headerElement">you</span> eat today</h1>
+  <h4 id="subTitle">We bring professional chefs to your home to prepare delicious, 
+    <br>
+    customized meals at a fraction of the cost.</h4>
+</header>
 <!-- Filling the dropdown list with category names from the database -->
-  <div class="d-flex flex-row container justify-content-start" style="margin-top:100px">
-
-    <!-- <label class="input-group-text" for="inputGroupSelect01" style="background-color: #FFAF42; color:white"><h4 class="text-center">Categories</h4></label>
-    <select id="inputGroupSelect01" class="custom-select w-50 " [(ngModel)]="SelectedCategory">
-      <option *ngFor="let cat of CategoryList" [value]="cat.name">{{cat.name}}</option>
-     -->
-    <!-- <label class="input-group-text" for="inputGroupSelect01" style="background-color: white; color:black"><h4 class="text-center">Categories</h4></label> -->
-    <select id="inputGroupSelect01" class="custom-select col-lg-2" [(ngModel)]="SelectedCategory">
-      <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.name}}</option>
-    </select>
-  </div>
-
+<div class="d-flex flex-row container justify-content-between" style="margin-top: 50px">
+    <button class="btn CatBtn rounded-pill active" *ngFor="let cat of CategoryList" (click)="setCatID(cat.id)">
+      {{cat.name}}
+    </button>
+</div>
 
 <!-- Calling the menu elements based on the category id -->
 <app-menu [InputCategoryID]="SelectedCategory"></app-menu>

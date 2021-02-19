@@ -19,16 +19,26 @@ export class HomeAPIService {
     private afs: AngularFirestore
     ) { }
 
-  // getHomeItems(): Observable <any[]>
-  // {
-  //   return this.http.get<any[]>(`${environment.API_URL}/home`);
-  // }
-
-  // getHomeItems() {
-  //   return this.afs.collection("root").doc("home").collection("carousel").snapshotChanges();
-  // }
-
   getHomeItems() {
     return this.afs.collection("home").snapshotChanges();
+  }
+
+  getHomeGeneralProducts(){
+    return this.afs.collection("home").doc("general").collection("items").snapshotChanges();
+  }
+
+  getHomeMealByID(pID:number)
+  {
+    return this.afs.collection("meals",ref => ref.where('id','==',pID)).snapshotChanges();
+  }
+
+  getHomeOffer()
+  {
+    return this.afs.collection("meals",ref=>ref.where('show','==',true).limit(6)).snapshotChanges();
+  }
+
+  getHomeRecommended()
+  {
+    return this.afs.collection("meals",ref=> ref.limit(9)).snapshotChanges();
   }
 }

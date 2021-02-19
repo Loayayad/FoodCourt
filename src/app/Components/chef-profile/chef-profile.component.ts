@@ -13,9 +13,10 @@ import { ChefDishesComponent } from '../chef-dishes/chef-dishes.component';
   styleUrls: ['./chef-profile.component.scss']
 })
 export class ChefProfileComponent implements OnInit {
-  chef:IChefs|null=null;
+  chef:any;
   chefID:number=0;
   starRating=0;
+ 
   @ViewChild(ChefDishesComponent) DetailsRef:any;
      private subscriptionList: Subscription[] = [];
   constructor(private router:Router, private location:Location,
@@ -23,24 +24,35 @@ export class ChefProfileComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    // let chefSubscription:Subscription|null=null;
-    // let routeParamSubscription: Subscription=
-    // this.activatedRout.paramMap.subscribe((params)=>{
-    //   let chefIDParam:string|null=params.get('cID');
-    //   this.chefID=(chefIDParam)? parseInt(chefIDParam):0;
-    //   chefSubscription=this.chefService.getChefsByID(this.chefID).subscribe(
-    //     (res)=>{
-    //       this.chef=res;
-    //     },
-    //     (err)=>{console.log(err)}
-    //   )
-    //   this.subscriptionList.push(chefSubscription);
-    //  console.log(this.chefID)
-    //  console.log( this.chef)
-    //  });
-    //  this.subscriptionList.push(routeParamSubscription);
-    // }
-    
+  
+    this.getChefsByID();
   }
+  setChefID(id:number){
+    this.chefID = id ;
+  }
+  
+  getChefsByID(){​​​​
 
-}
+   let chefSubscription:Subscription|null=null;
+    let routeParamSubscription: Subscription=
+    this.activatedRout.paramMap.subscribe((params)=>{
+      let chefIDParam:string|null=params.get('cID');
+      this.chefID=(chefIDParam)? parseInt(chefIDParam):0;
+      chefSubscription=this.chefService.getChefsByID(this.chefID).subscribe(
+        (res)=>{
+          // this.chef=res;
+          res.forEach((element)=>{
+            this.chef = element.payload.doc.data()
+          })
+        },
+        (err)=>{console.log(err)}
+      )
+      this.subscriptionList.push(chefSubscription);
+     console.log(this.chefID)
+     console.log( this.chef)
+     });
+     this.subscriptionList.push(routeParamSubscription);
+    }
+  }​​​​
+
+ 

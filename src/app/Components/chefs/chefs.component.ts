@@ -10,23 +10,40 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./chefs.component.scss']
 })
 export class ChefsComponent implements OnInit {
-   ChefList:IChefs[]=[];
+   ChefList:any[]=[];
    subscription: Subscription|null=null;
+   chefID:number=0;
   constructor(
     private router:Router,
     private chefServiceApi:ChefService,
   ) { }
   
   ngOnInit(): void {
-    // this.subscription= this.chefServiceApi.getAllChefs().subscribe(
-    //   (response)=>{
-    //     this.ChefList = response;
-    //   },
-    //   (err)=>{console.log(err)}
-    // );
+    this.getAllChefs();
+  }
+  getAllChefs(){
+    this.chefServiceApi.getAllChefs().subscribe(
+          (res) =>{
+            this.ChefList=[];
+            //console.log(res);
+            res.forEach((element)=>{
+              //console.log(element.payload.doc.data());
+              this.ChefList.push(element.payload.doc.data())
+            })
+    
+            this.ChefList.forEach((element)=>{
+              console.log(element);
+            })
+          },
+          (err)=>{
+            console.log(err);
+          }
+        )
+    
 
   }
-  viewChef(ChefID:number|undefined){
+  viewChef(ChefID:number){
+   
     this.router.navigate(['/Profile',ChefID])
   }
   ngOnDestroy(): void {

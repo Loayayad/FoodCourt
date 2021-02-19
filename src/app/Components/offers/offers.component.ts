@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { HomeAPIService } from 'src/app/Services/home-api.service';
+import { OfferService } from 'src/app/Services/offer.service';
 
 @Component({
   selector: 'app-offers',
@@ -11,20 +12,21 @@ import { HomeAPIService } from 'src/app/Services/home-api.service';
 export class OffersComponent implements OnInit {
 
   subscription: Subscription|null = null;
-  HomeList: any[] = [];
   ListOffers: any[]=[];
 
   constructor(
-    private homeService:HomeAPIService,
+    private offerService:OfferService,
     private router:Router
     ) { }
 
   ngOnInit(): void {
-    this.homeService.getHomeItems().subscribe(
-      (res) =>{
-        this.HomeList = res;
-        console.log(this.HomeList)
-        console.log(this.HomeList[1].offers[1].image)
+    this.offerService.getOffers().subscribe(
+      (res)=>{
+        
+        res.forEach((element)=>{
+          //console.log(element.payload.doc.data());
+          this.ListOffers.push(element.payload.doc.data());
+        })
       },
       (err)=>{
         console.log(err);

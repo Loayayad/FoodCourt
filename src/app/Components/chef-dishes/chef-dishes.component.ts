@@ -11,9 +11,10 @@ import { IMeal } from 'src/app/ViewModels/imeal';
 })
 export class ChefDishesComponent implements OnInit {
   private subscriptionList: Subscription[]=[] ;
-  meals:IMeal[]=[];
+  meals:any[]=[];
   cID:number=0;
-  @Input() InputChefID:number|undefined=1;
+
+  @Input() InputChefID:number=1;
   constructor(private activatedRoute: ActivatedRoute,
     private mService:MealAPIService,
     private location:Location,
@@ -25,14 +26,29 @@ export class ChefDishesComponent implements OnInit {
   
   }
   ngOnChanges(){
-    // if(this.InputChefID!==undefined)
-    // {
-    //   this.mService.getMealByChefID(this.InputChefID).subscribe(
-    //     (res)=>{this.meals = res},
-    //     (err)=>{console.log(err)}
-    //   )
-    // }
+   
+    this.getMealByChefID();
+  }
+  getMealByChefID(){
     
+    this.mService.getMealByChefID(this.InputChefID).subscribe(
+      
+      (res) =>{
+        //console.log(res);
+        this.meals=[];
+        res.forEach((element)=>{
+          //console.log(element.payload.doc.data());
+          this.meals.push(element.payload.doc.data())
+        })
+
+        this.meals.forEach((element)=>{
+          console.log(element);
+        })
+      },
+      (err)=>{
+        console.log(err);
+      }
+    )
   }
 
 }
