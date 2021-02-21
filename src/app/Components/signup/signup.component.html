@@ -1,63 +1,26 @@
 <div class="text-center">
-  <form class="form-signin">
-    <img
-      class="mb-4 img-fluid"
-      src="./assets/3.png"
-      alt=""
-      width="100px"
-      height="75px"
-    />
+    <form [formGroup]="signUpForm" class="form-signin">
+        <img class="mb-4 img-fluid" src="./assets/3.png" alt="" width="100px" height="75px" />
 
-    <h1 class="h3 mb-3 font-weight-normal">Please Sign up</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Please Sign up</h1>
 
-    <label for="username" class="sr-only">User Name</label>
-    <input
-      type="text"
-      id="inputUserName"
-      class="form-control"
-      placeholder="User Name"
-      required
-      autofocus
-    />
+        <label for="username" class="sr-only">User Name</label>
+        <input type="text" id="inputUserName" class="form-control" formControlName="userName" placeholder="User Name" required autofocus />
 
-    <label for="username" class="sr-only">Email</label>
-    <input
-      type="email"
-      id="inputEmail"
-      class="form-control"
-      placeholder="Email"
-      required
-      autofocus
-      #emailSignup
-    />
+        <label for="email" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" class="form-control" formControlName="email" placeholder="Email" required autofocus #emailSignup />
 
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input
-      type="password"
-      id="inputPassword"
-      class="form-control"
-      placeholder="Password"
-      required
-      #passwordSignup
-    />
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" required #passwordSignup />
 
-    <label for="inputPassword" class="sr-only"> Re-enter Password</label>
-    <input
-      type="password"
-      id="RewritePassword"
-      class="form-control"
-      placeholder=" Re-enter Password"
-      required
-    />
+        <label for="inputPassword" class="sr-only"> Re-enter Password</label>
+        <input type="password" id="RewritePassword" class="form-control" formControlName="rewritePass" placeholder=" Re-enter Password" required />
 
-    <div class="checkbox mb-3">
-      <label> <input type="checkbox" value="remember-me" /> Remember me </label>
-    </div>
+        <div class="checkbox mb-3">
+            <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+        </div>
 
-    <a
-      class="btn btn-lg btn-block"
-      (click)="onSignUp(emailSignup.value, passwordSignup.value)"
-      >Sign up</a
+        <a class="btn btn-lg btn-block" (click)="onSignUp(emailSignup.value, passwordSignup.value)">Sign up</a
     >
     <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
   </form>

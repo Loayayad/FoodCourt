@@ -34,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChefDishesComponent } from './Components/chef-dishes/chef-dishes.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CreateProfileComponent } from './Components/create-profile/create-profile.component';
 
 
 
@@ -58,7 +59,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SignupComponent,
     BlogComponent,
     ChefDishesComponent,
-    AdminComponent
+    AdminComponent,
+    CreateProfileComponent
     
   ],
   imports: [
