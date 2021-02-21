@@ -50,7 +50,10 @@ export class ChefDishesComponent implements OnInit {
       }
     )
   }
-
+  viewDetails(mID:number){
+    
+    this.router.navigate(['/MealDetails',mID]);
+  }
 }
 
   
