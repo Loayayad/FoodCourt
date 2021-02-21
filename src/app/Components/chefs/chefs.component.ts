@@ -4,10 +4,12 @@ import {ChefService} from 'src/app/Services/chef.service';
 import {IChefs} from 'src/app/ViewModels/ichefs';
 import {Subscription} from 'rxjs';
 
+
 @Component({
   selector: 'app-chefs',
   templateUrl: './chefs.component.html',
-  styleUrls: ['./chefs.component.scss']
+  styleUrls: ['./chefs.component.scss'],
+  
 })
 export class ChefsComponent implements OnInit {
    ChefList:any[]=[];
@@ -16,6 +18,7 @@ export class ChefsComponent implements OnInit {
   constructor(
     private router:Router,
     private chefServiceApi:ChefService,
+
   ) { }
   
   ngOnInit(): void {
@@ -25,9 +28,9 @@ export class ChefsComponent implements OnInit {
     this.chefServiceApi.getAllChefs().subscribe(
           (res) =>{
             this.ChefList=[];
-            //console.log(res);
+            console.log(res);
             res.forEach((element)=>{
-              //console.log(element.payload.doc.data());
+              // console.log(element.payload.doc.data());
               this.ChefList.push(element.payload.doc.data())
             })
     
