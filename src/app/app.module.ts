@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ChefsComponent } from './Components/chefs/chefs.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './Components/menu/menu.component';
 import { OffersComponent } from './Components/offers/offers.component';
 import { CartComponent } from './Components/cart/cart.component';
@@ -34,9 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChefDishesComponent } from './Components/chef-dishes/chef-dishes.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-
+import { CreateProfileComponent } from './Components/create-profile/create-profile.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +56,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SignupComponent,
     BlogComponent,
     ChefDishesComponent,
-    AdminComponent
+    AdminComponent,
+    CreateProfileComponent
     
   ],
   imports: [
@@ -71,7 +70,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+  
     
   ],
   providers: [],

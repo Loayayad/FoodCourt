@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    
+
     if(localStorage.getItem('user') !== null){
       //console.log(this.user);
       this.isSignedIn = true;
@@ -26,22 +27,31 @@ export class LoginComponent implements OnInit {
     }
     else{
       this.isSignedIn = false;
+
     }
   }
 
   async onSignIn(email:string,password:string){
+
     await this.firebaseSignIn.signIn(email,password)
     .then(res =>{
       console.log(res);
       if(this.firebaseSignIn.isLoggedIn){
         this.isSignedIn = true;
         this.route.navigate(['/Home'])
+
       }
+      },(err)=>{
+        console.log(err);
+        alert('Email or password is incorrect')
+
+
     })
-    
+
+
   }
 
-  
+
 // route(){
 //   this.Router.navigate(['/Home'])
 // }
