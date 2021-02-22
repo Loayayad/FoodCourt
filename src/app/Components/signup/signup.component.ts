@@ -31,6 +31,9 @@ signUpForm:any;
       rewritePass: new FormControl('')
     })
   }
+  get userName() { return this.signUpForm.get('userName'); }
+  get email() { return this.signUpForm.get('email'); }
+  get password() { return this.signUpForm.get('password'); }
 
   async onSignUp(email:string,password:string){
     await this.firebaseSignUp.signUp(email,password)

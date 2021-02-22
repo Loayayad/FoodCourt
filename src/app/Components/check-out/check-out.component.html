@@ -19,23 +19,28 @@
         font-family: 'Quicksand', sans-serif;
         color: #ff8303;
         justify-content: center;
-        
     }
 </style>
 <div class="container">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="logoBlack.png" alt="" width="100px">
         <h2>Checkout form</h2>
-
+        <div *ngFor="let item of purchasedMeals" class="d-flex flex-column justify-content-start">
+            <div class="d-flex flex-row justify-content-center">
+                <p>{{item?.mealName}} x </p>
+                <p> {{item?.mealCount}}</p>
+            </div>
+        </div>
+        <p>Total Price: {{totalPrice}}</p>
     </div>
 
     <div class="container row">
-       
 
-           
-        
+
+
+
         <div class="col-md-8 order-md-1 ">
-            <h4 class="mb-3 ">Delivery address</h4>
+
             <form class="needs-validation " novalidate>
 
 
@@ -43,54 +48,7 @@
 
 
 
-                <div class="mb-3 ">
-                    <label for="address ">Address</label>
-                    <input type="text " class="form-control " id="address " placeholder="1234 Main St " required>
-                    <div class="invalid-feedback ">
-                        Please enter your shipping address.
-                    </div>
-                </div>
 
-                <div class="mb-3 ">
-                    <label for="address2 ">Address 2 <span class="text-muted ">(Optional)</span></label>
-                    <input type="text " class="form-control " id="address2 " placeholder="Apartment or suite ">
-                </div>
-                <div class="mb-3 ">
-                    <label for="mobile ">Mobile Number <span class="text-muted ">Please Enter your phone number</span></label>
-                    <input type="number " class="form-control " id="mobile " placeholder="+20 ">
-                    <div class="invalid-feedback ">
-                        Please enter a valid phone number.
-                    </div>
-                </div>
-
-                <div class="row ">
-                    <div class="col-md-5 mb-3 ">
-                        <label for="country ">Country</label>
-                        <select class="custom-select d-block w-100 " id="country " required>
-          <option value=" ">Choose...</option>
-          <option>Egypt</option>
-        </select>
-                        <div class="invalid-feedback ">
-                            Please select a valid country.
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 ">
-                        <label for="state ">Governate</label>
-                        <select class="custom-select d-block w-100 " id="Governate " required>
-          <option value=" ">Choose...</option>
-          <option>Cairo</option>
-        </select>
-                        <div class="invalid-feedback ">
-                            Please provide a valid governate.
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="custom-control custom-checkbox ">
-                    <input type="checkbox " class="custom-control-input " id="save-info ">
-                    <label class="custom-control-label " for="save-info ">Save this information for next time</label>
-                </div>
                 <hr class="mb-4 ">
 
                 <h4 class="mb-3 ">Payment Method</h4>

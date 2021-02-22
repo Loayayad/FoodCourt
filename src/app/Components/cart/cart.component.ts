@@ -18,6 +18,7 @@ export class CartComponent implements OnInit, OnChanges {
 
   items = this.cartService.getItems();
 
+
   constructor(private cartService:CartService) { }
   ngOnChanges(changes: SimpleChanges): void {
     for(var i=0; i<this.items.length; i++)
@@ -30,6 +31,14 @@ export class CartComponent implements OnInit, OnChanges {
 
   }
 
+  moveToCheckout(){
+
+    this.items.forEach(i => {
+      this.cartService.moveToCheckOut(i.mealName, i.mealCount, i.mealPrice)
+    });
+    this.cartService.setTotal(this.total)
+    // console.log(this.cartService.getPurchasedItems(), this.cartService.getTotal())
+  }
   ngOnInit(): void {
 
 
