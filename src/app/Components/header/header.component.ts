@@ -28,9 +28,9 @@ export class HeaderComponent implements OnInit {
     this.headerLang.getHeaderLang().subscribe(
       (res)=>{
         
-        console.log(res.payload.data());
+        //console.log(res.payload.data());
         this.HeaderItems = res.payload.data();
-        console.log(this.HeaderItems.home);
+        //console.log(this.HeaderItems.home);
       },(err)=>{
         console.log(err);
       }

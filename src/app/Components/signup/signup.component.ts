@@ -32,15 +32,22 @@ signUpForm:any;
     })
   }
 
-  async onSignUp(email:string,password:string){
-    await this.firebaseSignUp.signUp(email,password)
-    .then((res)=>{
+  async onSignUp(username:string,email:string,password:string){
+    
+    await this.firebaseSignUp.signUpAuthentication(email,password)
+    .then(async()=>{
+      await this.firebaseSignUp.signUpFireStore(username,email)
+
+      localStorage.setItem('username',username);
+      
       if(this.firebaseSignUp.isLoggedIn){
         this.isSignUp = true
         this.route.navigate(['/CreateProfile'])
       }
     })
-    console.warn(this.signUpForm.value);
+
+    
+    //console.warn(this.signUpForm.value);
 
   }
 
