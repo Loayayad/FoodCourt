@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-create-profile',
@@ -10,11 +12,19 @@ import { Validators } from '@angular/forms';
 export class CreateProfileComponent implements OnInit {
   profileForm:any;
   mobilePattern="^((\\+20-?)|0)?[0-9]{10}$";
+  Username:string|null="user1";
 
-  constructor() {}
+  constructor(
+    private firebaseProfile: AuthService,
+    private route: Router
+  ) {}
 
 
   ngOnInit(): void {
+    
+    //this.getUsername();
+    this.Username = localStorage.getItem('username');
+    
     this.profileForm = new FormGroup({
       firstName: new FormControl('', [Validators.required,Validators.minLength(4)]),
       lastName: new FormControl('', [Validators.required,Validators.minLength(4)]),
@@ -36,9 +46,16 @@ export class CreateProfileComponent implements OnInit {
   // get street() { return this.profileForm.adress.get('street'); }
 
 
-  onSubmit() {
+  async onSubmit() {
 
-    console.warn(this.profileForm.value);
+  console.log(this.profileForm.value)
+   await this.firebaseProfile.profile(this.profileForm.value)
+   .then(()=>{
+    this.route.navigate(['/Home'])
+   }).catch((err)=>{
+     console.log(err)
+   })
+   
   }
 
 

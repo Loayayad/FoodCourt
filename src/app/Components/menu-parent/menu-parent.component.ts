@@ -16,7 +16,9 @@ export class MenuParentComponent implements OnInit{
   @ViewChild(MenuComponent) DetailsRef:any;
   subscription:Subscription|null = null;
 
-  constructor(private catService:CategoryService) { }
+  constructor(
+    private catService:CategoryService
+    ) { }
 
   //Changing the selected category when the button is clicked.
   setCatID(id:number): void {
@@ -29,13 +31,26 @@ export class MenuParentComponent implements OnInit{
 
   //Filling the button values from the data base.
   getAllCategories(){
+    this.CategoryList.forEach(()=>{
+        var x = this.CategoryList.pop();
+        console.log(x);
+
+    })
     this.subscription = this.catService.getAllCategories().subscribe(
       (res)=>{
-        console.log(res);
-        res.forEach((element)=>{
-          console.log(element.payload.doc.data());
-          this.CategoryList.push(element.payload.doc.data())
-        })
+        console.log(res.length);
+        for (let i = 0; i < res.length; i++) {
+          console.log(res[i].payload.doc.data().id);
+          if(!this.CategoryList.includes(res[i].payload.doc.data().id))
+          console.log(this.CategoryList.includes(res[i].payload.doc.data().id));
+          this.CategoryList.push(res[i].payload.doc.data())
+        }
+        // res.forEach((element)=>{
+        //   console.log(element.payload.doc.data().id);
+        //   if(!this.CategoryList.includes(element.payload.doc.data().id))
+        //   console.log(this.CategoryList.includes(element.payload.doc.data().id));
+        //   this.CategoryList.push(element.payload.doc.data())
+        // })
         
         console.log(this.CategoryList);
       },

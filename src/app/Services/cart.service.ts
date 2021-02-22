@@ -15,7 +15,6 @@ export class CartService {
   }
 
   moveToCheckOut(mealName:string, mealCount:number, totalPrice:number){
-
     this.purchasedItems.push({mealName,mealCount,totalPrice});
   }
 
