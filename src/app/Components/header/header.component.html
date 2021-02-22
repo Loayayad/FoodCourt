@@ -54,19 +54,25 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav nav-pills nav-fill d-flex col-lg-12">
           <li class="nav-item col-lg-3">
-            <a class="nav-link" aria-current="page" routerLink="/Home">Home</a>
+            <a class="nav-link" aria-current="page" routerLink="/Home">
+              {{ HeaderItems.home }}
+            </a>
           </li>
           <li class="nav-item col-lg-3">
-            <a class="nav-link" routerLink="/MenuParent">Menu</a>
+            <a class="nav-link" routerLink="/MenuParent">{{
+              HeaderItems.menu
+            }}</a>
           </li>
           <li class="nav-item col-lg-3">
-            <a class="nav-link" routerLink="/Chefs">Chefs</a>
+            <a class="nav-link" routerLink="/Chefs">{{ HeaderItems.chefs }}</a>
           </li>
           <li class="nav-item col-lg-3">
-            <a class="nav-link" routerLink="/Offers">Offers</a>
+            <a class="nav-link" routerLink="/Offers">{{
+              HeaderItems.offers
+            }}</a>
           </li>
           <li class="nav-item col-lg-3">
-            <a class="nav-link" routerLink="/Blog">Blog</a>
+            <a class="nav-link" routerLink="/Blog">{{ HeaderItems.blog }}</a>
           </li>
           <!-- <li class="nav-item  col-lg-3 ">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"

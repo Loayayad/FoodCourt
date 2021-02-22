@@ -1,6 +1,5 @@
 <footer class="mainfooter" role="contentinfo">
-    
-    <div class="footer-middle">
+  <div class="footer-middle">
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6">
@@ -34,19 +33,35 @@
 
         <div class="col-md-3">
           <h4>Follow Us</h4>
-              <ul class="social-network social-circle">
-               <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="#" class="icoLinkedin" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-              </ul>				
+          <ul class="social-network social-circle">
+            <li>
+              <a href="#" class="icoFacebook" title="Facebook"
+                ><i class="fa fa-facebook"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" class="icoLinkedin" title="Instagram"
+                ><i class="fa fa-instagram"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2">
+          <select class="custom-select" (change)="changeLang($event)">
+            <option value="en" [selected]="lang == 'en'">English</option>
+            <option value="de" [selected]="lang == 'de'">Deutsch</option>
+            <option value="ar" [selected]="lang == 'ar'">عربى</option>
+          </select>
+        </div>
       </div>
-      </div>
-    <div class="row">
-      <div class="col-md-12 copy">
-        <p class="text-center">&copy; Copyright 2021 - FoodCourt.  All rights reserved.</p>
+      <div class="row">
+        <div class="col-md-12 copy">
+          <p class="text-center">
+            &copy; Copyright 2021 - FoodCourt. All rights reserved.
+          </p>
+        </div>
       </div>
     </div>
-  
-  
-    </div>
-    </div>
-  </footer>
+  </div>
+</footer>

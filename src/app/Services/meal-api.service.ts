@@ -27,7 +27,7 @@ export class MealAPIService {
   // }
 
   getAllMeals() {
-    return this.afs.collection("meals").snapshotChanges();
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en").snapshotChanges();
   }
 
   // getMealByCategoryID(catID: number): Observable <IMeal[]>
@@ -37,7 +37,7 @@ export class MealAPIService {
 
   getMealByCategoryID(catID: number)
   {
-    return this.afs.collection("meals",ref => ref.where('category','==',catID)).snapshotChanges();
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('categoryID','==',catID)).snapshotChanges();
   }
 
   // getMealByID(pID:number): Observable <IMeal>
@@ -48,7 +48,7 @@ export class MealAPIService {
   
   getMealByID(pID:number)
   {
-    return this.afs.collection("meals",ref => ref.where('id','==',pID)).snapshotChanges();
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('id','==',pID)).snapshotChanges();
   }
 
   // getMealByChefID(cID:number): Observable <IMeal[]>
@@ -58,6 +58,6 @@ export class MealAPIService {
 
   getMealByChefID(cID:number)
   {
-    return this.afs.collection("meals",ref => ref.where('chef','==',cID)).snapshotChanges()
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('chefID','==',cID)).snapshotChanges()
   }
 }
