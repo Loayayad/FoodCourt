@@ -5,5 +5,7 @@ export interface IMeal {
     chefID:number,
     categoryID:number,
     price:number,
-    description:string
+    description:string,
+    discount:string,
+    show:boolean
 }

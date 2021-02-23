@@ -23,13 +23,17 @@ export class MenuComponent implements OnInit {
   AllMeals: any[]=[];
   
   mID:number=0;
-  selectedMeal: {mealImage:string, mealID:number, mealName:string, mealPrice:number, mealDescription:string}=
+  selectedMeal: IMeal =
   {
-    mealImage:'',
-    mealID:0,
-    mealDescription:'',
-    mealName:'',
-    mealPrice:0
+    id:0,
+    name:'',
+    image:'',
+    chefID:0,
+    categoryID:0,
+    price:0,
+    description:'',
+    discount:'',
+    show:false
   };
   
   @Input() InputCategoryID:number=1;
@@ -42,10 +46,12 @@ export class MenuComponent implements OnInit {
   
     ngOnInit(): void {} 
     addToCart(mealCount:string){
-      this.cartService.addTocart(this.selectedMeal.mealImage,
-        this.selectedMeal.mealID,
-        this.selectedMeal.mealName,
-        this.selectedMeal.mealPrice,
+      this.cartService.addTocart(this.selectedMeal.image,
+        this.selectedMeal.id,
+        this.selectedMeal.name,
+        this.selectedMeal.price,
+        this.selectedMeal.show,
+        this.selectedMeal.discount,
         parseInt(mealCount))
     }
   
@@ -100,14 +106,10 @@ export class MenuComponent implements OnInit {
     
     this.router.navigate(['/MealDetails',mID]);
   }
-  add(mealImage:string, mealID:number, mealName:string, mealPrice:number, mealDescription:string){
+  add(meal:IMeal){
     if(this.selectedMeal)
     {
-      this.selectedMeal.mealImage = mealImage;
-      this.selectedMeal.mealID = mealID;
-      this.selectedMeal.mealName = mealName;
-      this.selectedMeal.mealPrice = mealPrice;
-      this.selectedMeal.mealDescription = mealDescription;
+      this.selectedMeal = meal;
     }  
     
 

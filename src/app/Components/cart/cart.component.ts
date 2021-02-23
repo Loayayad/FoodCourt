@@ -23,7 +23,6 @@ export class CartComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     for(var i=0; i<this.items.length; i++)
     {
-
       this.subTotal += this.totalPrice[i] ;
       this.taxes=0.14*this.subTotal;
     }
@@ -31,12 +30,12 @@ export class CartComponent implements OnInit, OnChanges {
 
   }
 
-  moveToCheckout(){
-
+  moveToCheckout(){   
     this.items.forEach(i => {
       this.cartService.moveToCheckOut(i.mealName, i.mealCount, i.mealPrice)
     });
     this.cartService.setTotal(this.total)
+    
     // console.log(this.cartService.getPurchasedItems(), this.cartService.getTotal())
   }
   ngOnInit(): void {
@@ -44,10 +43,19 @@ export class CartComponent implements OnInit, OnChanges {
 
       for(var i=0; i<this.items.length; i++)
       {
-        this.totalPrice.push(this.items[i].mealCount*this.items[i].mealPrice);
-        this.subTotal += this.totalPrice[i] ;
-        this.taxes=Number((0.14*this.subTotal).toFixed(2));
-
+        
+        if(this.items[i].mealShow){
+          let percentage = this.items[i].mealDiscount.substring(0,2);
+          let priceAfterDiscount = this.items[i].mealPrice - (parseInt(percentage) * this.items[i].mealPrice/100);
+          this.totalPrice.push(this.items[i].mealCount*priceAfterDiscount);
+          this.subTotal += this.totalPrice[i] ;
+          this.taxes=Number((0.14*this.subTotal).toFixed(2));
+        }
+        else {
+          this.totalPrice.push(this.items[i].mealCount*this.items[i].mealPrice);
+          this.subTotal += this.totalPrice[i] ;
+          this.taxes=Number((0.14*this.subTotal).toFixed(2));
+        }
         this.shipping=20;
       }
 

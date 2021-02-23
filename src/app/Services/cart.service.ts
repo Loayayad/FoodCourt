@@ -6,12 +6,12 @@ import { IMeal } from '../ViewModels/imeal';
   providedIn: 'root'
 })
 export class CartService {
-  items: {mealImage:string,mealID:number, mealName:string, mealPrice:number, mealCount:number}[]=[];
+  items: {mealImage:string,mealID:number, mealName:string, mealPrice:number, mealShow:boolean, mealDiscount:string, mealCount:number}[]=[];
 
   purchasedItems: {mealName:string, mealCount:number, totalPrice:number}[]=[];
   totalPrice:number=0;
-  addTocart(mealImage:string,mealID:number, mealName:string, mealPrice:number, mealCount:number){
-     this.items.push({mealImage,mealID,mealName,mealPrice,mealCount});
+  addTocart(mealImage:string,mealID:number, mealName:string, mealPrice:number, mealShow:boolean, mealDiscount:string, mealCount:number){
+     this.items.push({mealImage,mealID,mealName,mealPrice, mealShow, mealDiscount, mealCount});
   }
 
   moveToCheckOut(mealName:string, mealCount:number, totalPrice:number){
