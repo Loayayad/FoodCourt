@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router}from '@angular/router';
 import {ChefService} from 'src/app/Services/chef.service';
-import {IChefs} from 'src/app/ViewModels/ichefs';
+
 import {Subscription} from 'rxjs';
 
 
