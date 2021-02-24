@@ -8,7 +8,7 @@ import { AngularFirestore} from '@angular/fire/firestore'
 @Injectable({
   providedIn: 'root'
 })
-export class HeaderService {
+export class FooterService {
 
   userRef: AngularFireList<any>[]=[];
   userRed: AngularFireObject<any>[]=[];
@@ -18,8 +18,8 @@ export class HeaderService {
   ) {}
 
 
-  getHeaderLang(){
+  getFooterLang(){
 
-    return this.afs.collection("static").doc("header").collection(localStorage.getItem("lang")||"en").doc(localStorage.getItem("lang")||"en").snapshotChanges();
+    return this.afs.collection("static").doc("footer").collection(localStorage.getItem("lang")||"en").doc(localStorage.getItem("lang")||"en").snapshotChanges();
   }
 }

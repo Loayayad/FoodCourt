@@ -3,8 +3,9 @@
     <!-- Displaying The details of each meal -->
         <img [src]="meals?.image" width="50%" class="align-self-center shadow-lg mb-5 d-inline" style="margin-top:20px">
         <div class="d-flex flex-column justify-content-center text-left" style="margin-left: 50px; margin-right: 60px;">
-            <h1 class="display-4"> {{meals?.name}}</h1>
+            <h1 class="display-4"> {{meals?.name}} </h1>
             <h4> {{meals?.price|currency:'EGP'}}</h4>
+            <h5 *ngIf="meals?.show == true" style="color: gray;">{{meals?.discount}} OFF</h5>
             <br><br>
             <h5 class="mb-3"> {{meals?.description}}</h5>
             <br>
