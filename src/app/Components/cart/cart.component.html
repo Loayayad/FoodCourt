@@ -8,6 +8,8 @@
                 </div>
                 <div class="_column product-info">
                     <h4 class="product-name">{{item.mealName}} x{{item.mealCount}}</h4>
+                    <p id="discount" *ngIf="item.mealShow == true"> Discount: {{item.mealDiscount}}
+                      Price was: <span class="price"> {{item.mealPrice | currency:'EGP'}}</span></p>
                     <br>
                     <div class="price product-single-price">{{totalPrice[i]|currency:'EGP'}}</div>
                 </div>

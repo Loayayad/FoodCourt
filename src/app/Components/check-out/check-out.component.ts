@@ -9,14 +9,23 @@ import { CartService } from 'src/app/Services/cart.service';
 export class CheckOutComponent implements OnInit {
 
   purchasedMeals = this.cartService.getPurchasedItems();
-  // mealPrices:number[]=[];
+  
+  
+  userID = localStorage.getItem('user');
   totalPrice = this.cartService.getTotal();
+
+  orders:{meals:[], userID:string}[]=[] ;
   constructor(private cartService:CartService) { }
 
   ngOnInit(): void {
-
-
-
+    console.log(localStorage.getItem('user'));
   }
 
+  sendOrder(){
+    if(localStorage.getItem('user') !== null)
+    {
+      this.cartService.postOrders(this.purchasedMeals, localStorage.getItem('user'))
+    }
+    console.log(this.cartService.getOrders())
+  }
 }
