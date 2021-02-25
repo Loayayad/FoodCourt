@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IChefs } from 'src/app/ViewModels/ichefs';
 import {Location} from '@angular/common';
 import { Subscription } from 'rxjs';
 import { ChefService } from 'src/app/Services/chef.service';
