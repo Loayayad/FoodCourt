@@ -16,7 +16,8 @@ export class BlogService {
   ) { }
 
   getAllPosts() {
-    return this.afs.collection("posts").snapshotChanges();
+    // return this.afs.collection("posts").snapshotChanges();
+    return this.afs.collection("posts").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en").snapshotChanges();
   }
 
   getAllComments() {
