@@ -2,7 +2,7 @@ import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   isSignedIn = false;
   user: string |null='{}';
+  loginForm:any;
   constructor(
     private firebaseSignIn: AuthService,
     private route: Router
@@ -29,8 +30,16 @@ export class LoginComponent implements OnInit {
       this.isSignedIn = false;
 
     }
-  }
 
+    this.loginForm= new FormGroup({
+
+      userEmail: new FormControl('',[Validators.email,Validators.required]),
+      userPassword: new FormControl('',[Validators.required,Validators.minLength(6)]),
+
+    })
+  }
+  get userEmail() { return this.loginForm.get('userEmail'); }
+  get userPassword() { return this.loginForm.get('userPassword'); }
   async onSignIn(email:string,password:string){
 
     await this.firebaseSignIn.signIn(email,password)
