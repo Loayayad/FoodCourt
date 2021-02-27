@@ -18,17 +18,37 @@
 }
 h2 {
     color: #fd5602;
+
 }
+.commentBody{
+   font-size: 20px;
+}
+.commentDate{
+   font-size: 12px;
+   color: rgb(177, 173, 173);
+}
+// .commentName{
+//     font-weight: bold;
+//     font-size:25px;
+// }
 .postDetails{
     background-color: rgb(240, 234, 234);
     width: 80%;
+    
 }
+hr{
+   font-weight: bolder;
+}
+
 .postTitle{
     color: #fd5602;
     font-weight: bolder;
     font-size:25px;
 }
-
+.alert{
+ width: 41.5%;
+ height: 40px;
+}
 // .social .leftList {
 //     list-style: none;
 // }
@@ -53,7 +73,7 @@ h2 {
 
 .form_title {
     margin-bottom: 50px;
-    margin-left: 8%;
+    margin-left: 11%;
     text-transform: uppercase;
 
 }
@@ -74,13 +94,13 @@ h2 {
     position: relative;
     transform: translateZ(0px);
     transition-duration: 0.5s;
-    margin-left: 45%;
+    margin-left: 8%;
 
 }
-.ng-valid:not(form)  {
-    border-left: 5px solid #42A948; /* green */
-  }
+// .ng-valid:not(form)  {
+//     border-left: 5px solid #42A948; /* green */
+//   }
   
-  .ng-invalid:not(form)  {
-    border-left: 5px solid #a94442; /* red */
-  }
+//   .ng-invalid:not(form)  {
+//     border-left: 5px solid #a94442; /* red */
+//   }

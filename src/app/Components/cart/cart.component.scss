@@ -169,3 +169,22 @@ h1,
     background-color: #fd5602;
     color: white;
 }
+
+.btnDone{
+    background-color:#FD5602; 
+    color:white; 
+    height:40px; 
+    width: 100px;
+    font-size: large;
+    transition: 0.3s;
+}
+.btnDone:hover {
+    background:#fd8709 ;
+    color: white;
+}
+p>.price{
+    text-decoration: line-through;
+}
+#discount{
+    color:black;
+}

@@ -7,6 +7,7 @@
                 <img [src]="meal?.image" class="rounded-corners card-img-top img__img">
                 
                 <div class="img__description">{{meal?.description}} <br>
+                    <h4 *ngIf="meal?.show == true" class="ribbon">Discount: {{meal?.discount}}</h4>
                     <button style="color: white; text-align:center" type="button" class="btn btn-link" (click)="viewDetails(meal.id)"> More details</button>
                 </div>
             </div>
@@ -14,10 +15,10 @@
             <div class="card-body">
                 
                 <h2 class="card-title text-center">{{meal?.name}}</h2>
-                
+                <!-- <h5 *ngIf="meal?.show == true">-{{meal?.discount}}</h5> -->
                 <div class="container d-flex flex-row justify-content-between col-6">
                     <h5 class="card-text text-center prices">{{meal?.price|currency:'EGP'}}</h5>
-                    <i class="fas fa-shopping-cart" (click)="add(meal.image,meal.id,meal.name,meal.price,meal.description)" data-toggle="modal" data-target="#myModal"></i>
+                    <i class="fas fa-shopping-cart" (click)="add(meal)" data-toggle="modal" data-target="#myModal"></i>
                 </div>
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog modal-lg">
@@ -27,14 +28,13 @@
                         </div>
                         <div class="modal-body d-flex flex-row">
                             <div class="column">
-                                <img [src]="selectedMeal?.mealImage" class="img-fluid">
+                                <img [src]="selectedMeal?.image" class="img-fluid">
                         </div>
                             
                         <div class="column d-flex flex-column col-lg-5">
-                                <h2 style="margin-top: 15px;">{{selectedMeal?.mealName}}</h2>
-                                <h5 style="margin-top: 25px;">{{selectedMeal?.mealDescription}}</h5>
-                                <h3 style="margin-top: 15px;">{{selectedMeal?.mealPrice | currency:'EGP'}}</h3>
-
+                                <h2 style="margin-top: 15px;">{{selectedMeal?.name}}</h2>
+                                <h5 style="margin-top: 25px;">{{selectedMeal?.description}}</h5>
+                                <h3 style="margin-top: 15px;">{{selectedMeal?.price | currency:'EGP'}}</h3>
                                 <div class="d-flex flex-row justify-content-center" style="margin-top: 15px;">   
                                     <input #itemsCount class=" _column product-qty rounded-pill col-lg-3" type="number" min="1" value="1">
                                     <button class="btn add rounded-pill col-lg-3 btn-sm" (click)="addToCart(itemsCount.value)" 

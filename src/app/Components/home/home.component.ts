@@ -11,10 +11,9 @@ import { HomeAPIService } from 'src/app/Services/home-api.service';
 export class HomeComponent implements OnInit {
 
   subscription: Subscription|null = null;
-  HomeList: any[] = [];
   ListOffers: any[]=[];
   ListRecommended: any[]=[];
-  generalProducts: any[]=[];
+  HomeItems: any;
   constructor(private homeService:HomeAPIService) { }
 
   ngOnInit(): void {
@@ -25,13 +24,9 @@ export class HomeComponent implements OnInit {
   }
 
   getHomeGeneralProduct(){
-    this.homeService.getHomeGeneralProducts().subscribe(
+    this.homeService.getHomeItems().subscribe(
       (res)=>{
-        
-        res.forEach((element)=>{
-          //console.log(element.payload.doc.data());
-          this.generalProducts.push(element.payload.doc.data());
-        })
+        this.HomeItems=res.payload.data();
       },(err)=>{
         console.log(err);
       }
@@ -67,29 +62,4 @@ export class HomeComponent implements OnInit {
       }
     )
   }
-
-  // getCarousel(){
-  //   this.homeService.getHomeItems().subscribe(
-  //     (res) =>{
-  //       console.log(res);
-  //       res.forEach((element)=>{
-  //         console.log(element.payload.doc.data());
-  //         this.HomeList.push(element.payload.doc.data())
-  //       })
-  //       //this.ListOffers = this.HomeList
-  //       this.HomeList.forEach((element)=>{
-  //         console.log(element)
-  //       })
-  //       console.log(this.HomeList);
-  //       //console.log()
-  //       // this.HomeList = res;
-  //       // this.homeListOffers();
-  //       // console.log(this.HomeList)
-  //       // console.log(this.HomeList[1].offers[1].image)
-  //     },
-  //     (err)=>{
-  //       console.log(err);
-  //     }
-  //   )
-  // }
 }

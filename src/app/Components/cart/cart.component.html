@@ -8,6 +8,8 @@
                 </div>
                 <div class="_column product-info">
                     <h4 class="product-name">{{item.mealName}} x{{item.mealCount}}</h4>
+                    <p id="discount" *ngIf="item.mealShow == true"> Discount: {{item.mealDiscount}}
+                      Price was: <span class="price"> {{item.mealPrice | currency:'EGP'}}</span></p>
                     <br>
                     <div class="price product-single-price">{{totalPrice[i]|currency:'EGP'}}</div>
                 </div>
@@ -44,8 +46,29 @@
         </div>
         <div class="_column checkout">
             <button class=" btn _btn checkout-btn" routerLink="/MenuParent">Continue Shopping</button>
-            <button class=" btn _btn checkout-btn entypo-forward" routerLink="/Checkout" (click)="moveToCheckout()">Checkout</button>
+            <button [disabled]="total==0" class=" btn _btn checkout-btn entypo-forward" data-toggle="modal" data-target="#myModal">Checkout</button>
         </div>
     </div>
 
 </div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Oh Hello There! </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to checkout ?
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btnDone cont col-5" data-dismiss="modal">Back to Cart</button>
+          <button type="button" class="btn btnDone add col-5" data-dismiss="modal" routerLink="/Checkout"  (click)="moveToCheckout()">Check Out</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -103,10 +103,16 @@
               <i class="fa fa-user" style="font-size: x-large"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" routerLink="/LogIn">Login</a>
-              <a class="dropdown-item" routerLink="/Signup">SignUp</a>
-              <a class="dropdown-item" routerLink="/Admin">Admin</a>
-              <a class="dropdown-item" (click)="logout()">Log Out</a>
+              <a class="dropdown-item" routerLink="/LogIn">{{
+                HeaderItems.login
+              }}</a>
+              <a class="dropdown-item" routerLink="/Signup">{{
+                HeaderItems.register
+              }}</a>
+              <!-- <a class="dropdown-item" routerLink="/Admin">Admin</a> -->
+              <a class="dropdown-item" (click)="logout()">{{
+                HeaderItems.logout
+              }}</a>
             </div>
           </li>
           <!-- <li class="nav-item col-lg-2">

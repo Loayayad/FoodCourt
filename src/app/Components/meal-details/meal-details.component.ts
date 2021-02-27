@@ -54,7 +54,7 @@ export class MealDetailsComponent implements OnInit {
   addToCart(count:string){
     if(this.meals)
     {
-      this.cartService.addTocart(this.meals.image,this.meals.id,this.meals.name,this.meals.price,parseInt(count));
+      this.cartService.addTocart(this.meals.image,this.meals.id,this.meals.name,this.meals.price,this.meals.show,this.meals.discount,parseInt(count));
     }
     
   }
