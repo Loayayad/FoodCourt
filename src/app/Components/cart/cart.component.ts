@@ -29,6 +29,8 @@ export class CartComponent implements OnInit, OnChanges {
       this.taxes=0.14*this.subTotal;
     }
     this.total = this.taxes+this.subTotal+20;
+
+    
   }
 
   moveToCheckout(){   
@@ -68,10 +70,18 @@ export class CartComponent implements OnInit, OnChanges {
     this.total.toFixed(2);
   }
   remove(index:number){
+    
     this.items.splice(index, 1);
     this.subTotal -= this.totalPrice[index];
-    this.total = (this.taxes*this.subTotal)+this.subTotal+20;
-    this.totalPrice.splice(index, 1);
+    if(this.subTotal == 0)
+    {
+      this.total = 0;
+    }
+    else{
+      this.total = (this.taxes*this.subTotal)+this.subTotal+20;
+      this.totalPrice.splice(index, 1);
+    }
+    
   }
 
   // clear(){

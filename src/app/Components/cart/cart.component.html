@@ -46,7 +46,7 @@
         </div>
         <div class="_column checkout">
             <button class=" btn _btn checkout-btn" routerLink="/MenuParent">Continue Shopping</button>
-            <button class=" btn _btn checkout-btn entypo-forward" data-toggle="modal" data-target="#myModal">Checkout</button>
+            <button [disabled]="total==0" class=" btn _btn checkout-btn entypo-forward" data-toggle="modal" data-target="#myModal">Checkout</button>
         </div>
     </div>
 
