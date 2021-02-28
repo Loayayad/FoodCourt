@@ -21,6 +21,6 @@ export class OfferService {
     ) { }
 
     getOffers(){
-      return this.afs.collection("meals",ref=>ref.where('show','==',true)).snapshotChanges();
+      return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('show','==',true)).snapshotChanges();
     }
 }
