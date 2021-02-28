@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class CreateProfileComponent implements OnInit {
   profileForm:any;
+  address:any;
   mobilePattern="^((\\+20-?)|0)?[0-9]{10}$";
   Username:string|null="user1";
 
@@ -21,10 +22,10 @@ export class CreateProfileComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+
     //this.getUsername();
     this.Username = localStorage.getItem('username');
-    
+
     this.profileForm = new FormGroup({
       firstName: new FormControl('', [Validators.required,Validators.minLength(4)]),
       lastName: new FormControl('', [Validators.required,Validators.minLength(4)]),
@@ -43,7 +44,7 @@ export class CreateProfileComponent implements OnInit {
 
   get phoneNumber() { return this.profileForm.get('phoneNumber'); }
 
-  // get street() { return this.profileForm.adress.get('street'); }
+  get street() { return this.profileForm.get('street'); }
 
 
   async onSubmit() {
@@ -55,7 +56,7 @@ export class CreateProfileComponent implements OnInit {
    }).catch((err)=>{
      console.log(err)
    })
-   
+
   }
 
 

@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   getHomeOffers(){
     this.homeService.getHomeOffer().subscribe(
       (res)=>{
-        
+
         res.forEach((element)=>{
           //console.log(element.payload.doc.data());
           this.ListOffers.push(element.payload.doc.data());
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   getHomeRecommended(){
     this.homeService.getHomeRecommended().subscribe(
       (res)=>{
-        
+
         res.forEach((element)=>{
           //console.log(element.payload.doc.data());
           this.ListRecommended.push(element.payload.doc.data());
