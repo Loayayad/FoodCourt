@@ -10,7 +10,7 @@ import { IMeal } from '../ViewModels/imeal';
 export class CartService {
   id:number=1;
   items: {mealImage:string,mealID:number, mealName:string, mealPrice:number, mealShow:boolean, mealDiscount:string, mealCount:number}[]=[];
-  orders: {purchasedMeals:{mealName:string, mealCount:number,mealPrice:number, mealDiscount:string}[], totalPrice:number
+  orders: {purchasedMeals:{mealName:string, mealCount:number,mealPrice:number, mealDiscount:string}[]
            ,userID:string|null}[]=[];
   purchasedItems: {mealName:string, mealCount:number,mealPrice:number, mealDiscount:string}[]=[];
   totalPrice:number=0;
@@ -28,9 +28,9 @@ export class CartService {
   
   }
 
-  moveToCheckOut(mealName:string, mealCount:number, mealPrice:number, mealDiscount:string, totalPrice:number){
+  moveToCheckOut(mealName:string, mealCount:number, mealPrice:number, mealDiscount:string){
     this.purchasedItems.push({mealName,mealCount, mealPrice, mealDiscount});
-    this.totalPrice = totalPrice;
+    
   }
 
   setTotal(total:number){
@@ -50,16 +50,20 @@ export class CartService {
   }
 
   postOrders(purchasedMeals:{mealName:string, mealCount:number,mealPrice:number, 
-    mealDiscount:string}[], totalPrice:number, userID:string|null){
-    this.orders.push({purchasedMeals, totalPrice, userID});
+    mealDiscount:string}[], userID:string|null){
+    this.orders.push({purchasedMeals, userID});
     for(var i=0; i<this.orders.length; i++){
+      for(var j=0; j<this.purchasedItems.length; j++)
+      {
         this.afs.collection("orders").add({
           id: this.orders[i].userID,
-          meals: this.purchasedItems,
-          totalPrice: totalPrice,
+          mealName: this.purchasedItems[j].mealName,
+          mealCount: this.purchasedItems[j].mealCount,
+          mealPrice: this.purchasedItems[j].mealPrice,
           userID: this.orders[i].userID,
           date: new Date()
         })
+      } 
     }
   }
 

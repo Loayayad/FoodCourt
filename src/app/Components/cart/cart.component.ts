@@ -36,7 +36,7 @@ export class CartComponent implements OnInit, OnChanges {
   moveToCheckout(){   
     this.cartService.setTotal(this.total)
     this.items.forEach(i => {
-      this.cartService.moveToCheckOut(i.mealName, i.mealCount, i.mealPrice, i.mealDiscount, this.cartService.getTotal())
+      this.cartService.moveToCheckOut(i.mealName, i.mealCount, i.mealPrice, i.mealDiscount)
     });
     
 
