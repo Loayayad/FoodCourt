@@ -13,6 +13,7 @@ export class OffersComponent implements OnInit {
 
   subscription: Subscription|null = null;
   ListOffers: any[]=[];
+  offerIndex:number=6;
 
   constructor(
     private offerService:OfferService,
@@ -20,9 +21,13 @@ export class OffersComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.offerService.getOffers().subscribe(
+    this.getOffers();
+  }
+
+  getOffers(){
+    this.offerService.getOffers(this.offerIndex).subscribe(
       (res)=>{
-        
+        this.ListOffers=[];
         res.forEach((element)=>{
           //console.log(element.payload.doc.data());
           this.ListOffers.push(element.payload.doc.data());
@@ -34,6 +39,10 @@ export class OffersComponent implements OnInit {
     )
   }
 
+  nextIndex(){
+    this.offerIndex+=6;
+    this.getOffers();
+  }
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
