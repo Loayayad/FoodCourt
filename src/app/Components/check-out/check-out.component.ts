@@ -24,7 +24,7 @@ export class CheckOutComponent implements OnInit {
   sendOrder(){
     if(localStorage.getItem('user') !== null)
     {
-      this.cartService.postOrders(this.purchasedMeals, localStorage.getItem('user'))
+      this.cartService.postOrders(this.purchasedMeals, this.totalPrice, localStorage.getItem('user'))
     }
     console.log(this.cartService.getOrders())
   }

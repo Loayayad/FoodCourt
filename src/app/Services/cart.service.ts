@@ -10,9 +10,9 @@ import { IMeal } from '../ViewModels/imeal';
 export class CartService {
   id:number=1;
   items: {mealImage:string,mealID:number, mealName:string, mealPrice:number, mealShow:boolean, mealDiscount:string, mealCount:number}[]=[];
-  orders: {purchasedMeals:{mealName:string, mealCount:number,mealPrice:number, mealDiscount:string, totalPrice:number}[]
+  orders: {purchasedMeals:{mealName:string, mealCount:number,mealPrice:number, mealDiscount:string}[], totalPrice:number
            ,userID:string|null}[]=[];
-  purchasedItems: {mealName:string, mealCount:number,mealPrice:number, mealDiscount:string, totalPrice:number}[]=[];
+  purchasedItems: {mealName:string, mealCount:number,mealPrice:number, mealDiscount:string}[]=[];
   totalPrice:number=0;
   constructor(private afs: AngularFirestore){}
   addTocart(mealImage:string,mealID:number, mealName:string, mealPrice:number, mealShow:boolean, mealDiscount:string, mealCount:number){
@@ -29,7 +29,8 @@ export class CartService {
   }
 
   moveToCheckOut(mealName:string, mealCount:number, mealPrice:number, mealDiscount:string, totalPrice:number){
-    this.purchasedItems.push({mealName,mealCount, mealPrice, mealDiscount,totalPrice});
+    this.purchasedItems.push({mealName,mealCount, mealPrice, mealDiscount});
+    this.totalPrice = totalPrice;
   }
 
   setTotal(total:number){
@@ -48,23 +49,17 @@ export class CartService {
     return this.purchasedItems;
   }
 
-  postOrders(purchasedMeals:{mealName:string, mealCount:number,mealPrice:number, mealDiscount:string, totalPrice:number}[],
-             userID:string|null){
-    this.orders.push({purchasedMeals, userID});
+  postOrders(purchasedMeals:{mealName:string, mealCount:number,mealPrice:number, 
+    mealDiscount:string}[], totalPrice:number, userID:string|null){
+    this.orders.push({purchasedMeals, totalPrice, userID});
     for(var i=0; i<this.orders.length; i++){
-      for(var j=0; j<this.orders[i].purchasedMeals.length; j++)
-      {
-        this.afs.collection("orders").doc(`${this.orders[i].userID}`).set({
+        this.afs.collection("orders").add({
           id: this.orders[i].userID,
-          name: this.orders[i].purchasedMeals[j].mealName,
-          count: Number(this.orders[i].purchasedMeals[j].mealCount),
-          price: Number(this.orders[i].purchasedMeals[j].mealPrice),
-          total: Number(this.orders[i].purchasedMeals[j].totalPrice),
-          discount: this.orders[i].purchasedMeals[j].mealDiscount,
-          userID: this.orders[i].userID
+          meals: this.purchasedItems,
+          totalPrice: totalPrice,
+          userID: this.orders[i].userID,
+          date: new Date()
         })
-      }
-      
     }
   }
 
