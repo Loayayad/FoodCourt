@@ -70,12 +70,20 @@
     <div class="row d-flex col-lg-12 mx-auto">
       <div class="col-lg-4" *ngFor="let offer of ListOffers">
         <div class="card shadow card-light m-2">
-          <p class="ribbon">Discount: {{ offer?.discount }}</p>
+          <p class="ribbon">{{ HomeItems.discount }} : {{ offer?.discount }}</p>
           <img class="card-img-top" [src]="offer?.image" />
 
           <div class="card-body">
             <h2>{{ offer?.name }}</h2>
             <h5>{{ offer?.price }} L.E.</h5>
+            <p>
+              <a
+                class="btn buttonColor"
+                (click)="viewDetails(offer?.id)"
+                role="button"
+                >{{ HomeItems.viewDetails }} &raquo;</a
+              >
+            </p>
             <!-- <p>{{offer?.description}}</p> -->
             <!-- <p><a class="btn buttonColor" href="./Menu-main.html" role="button">View details &raquo;</a></p> -->
           </div>
@@ -111,7 +119,10 @@
             <h2>{{ recommended?.name }}</h2>
             <h5>{{ recommended?.price }} L.E.</h5>
             <p>
-              <a class="btn buttonColor" href="./Menu-main.html" role="button"
+              <a
+                class="btn buttonColor"
+                (click)="viewDetails(recommended?.id)"
+                role="button"
                 >{{ HomeItems.viewDetails }} &raquo;</a
               >
             </p>

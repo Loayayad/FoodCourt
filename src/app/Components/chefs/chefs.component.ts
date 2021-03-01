@@ -15,6 +15,7 @@ export class ChefsComponent implements OnInit {
    ChefList:any[]=[];
    subscription: Subscription|null=null;
    chefID:number=0;
+   chefIndex:number=6;
   constructor(
     private router:Router,
     private chefServiceApi:ChefService,
@@ -25,7 +26,7 @@ export class ChefsComponent implements OnInit {
     this.getAllChefs();
   }
   getAllChefs(){
-    this.chefServiceApi.getAllChefs().subscribe(
+    this.chefServiceApi.getAllChefs(this.chefIndex).subscribe(
           (res) =>{
             this.ChefList=[];
             console.log(res);
@@ -44,6 +45,10 @@ export class ChefsComponent implements OnInit {
         )
     
 
+  }
+  nextIndex(){
+    this.chefIndex+=6;
+    this.getAllChefs();
   }
   viewChef(ChefID:number){
    

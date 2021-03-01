@@ -25,16 +25,16 @@ export class HomeAPIService {
 
   getHomeMealByID(pID:number)
   {
-    return this.afs.collection("meals",ref => ref.where('id','==',pID)).snapshotChanges();
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('id','==',pID)).snapshotChanges();
   }
 
   getHomeOffer()
   {
-    return this.afs.collection("meals",ref=>ref.where('show','==',true).limit(6)).snapshotChanges();
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('show','==',true).limit(3)).snapshotChanges();
   }
 
   getHomeRecommended()
   {
-    return this.afs.collection("meals",ref=> ref.limit(9)).snapshotChanges();
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref=> ref.limit(6)).snapshotChanges();
   }
 }

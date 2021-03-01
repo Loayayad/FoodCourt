@@ -23,6 +23,17 @@ h3 {
   position: relative;
 }
 
+.buttonColor {
+  background-color: #ffaf42;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-size: x-large;
+  //width: 150px;
+}
+
 .img__description {
   position: absolute;
   top: 0;

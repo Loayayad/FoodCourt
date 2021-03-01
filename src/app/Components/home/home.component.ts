@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { Subscription } from 'rxjs';
 import { HomeAPIService } from 'src/app/Services/home-api.service';
@@ -14,7 +15,11 @@ export class HomeComponent implements OnInit {
   ListOffers: any[]=[];
   ListRecommended: any[]=[];
   HomeItems: any;
-  constructor(private homeService:HomeAPIService) { }
+  mID:number=0;
+  constructor(
+    private homeService:HomeAPIService,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
     //this.getCarousel();
@@ -61,5 +66,10 @@ export class HomeComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  viewDetails(mID:number){
+    
+    this.router.navigate(['/MealDetails',mID]);
   }
 }

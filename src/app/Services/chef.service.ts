@@ -26,9 +26,9 @@ export class ChefService {
   //   return this.http.get<IChefs[]>(`${environment.API_URL}/chefs`);
   // }
   
-  getAllChefs()
+  getAllChefs(chefIndex:number)
   {
-    return this.afs.collection("chefs").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en").snapshotChanges();
+    return this.afs.collection("chefs").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref=> ref.limit(chefIndex)).snapshotChanges();
   }
 
   // getChefsByID(cID:number):Observable<IChefs>
