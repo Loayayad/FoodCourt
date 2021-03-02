@@ -115,12 +115,24 @@
               }}</a>
             </div>
           </li>
-          <!-- <li class="nav-item col-lg-2">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2 col-lg-11" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn my-2 my-sm-0" type="submit" style="color:white; background-color: #FFAF42;"><i class="fas fa-search"></i></button>
-                  </form>
-              </li> -->
+
+          <li class="nav-item col-lg-3">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {{ HeaderItems.lang }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" (click)="changeLang('en')">English</a>
+              <a class="dropdown-item" (click)="changeLang('ar')">عربى</a>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
