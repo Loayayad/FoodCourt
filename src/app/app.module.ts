@@ -35,6 +35,7 @@ import { ChefDishesComponent } from './Components/chef-dishes/chef-dishes.compon
 import { AdminComponent } from './Components/admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateProfileComponent } from './Components/create-profile/create-profile.component';
+import { LastpageComponent } from './lastpage/lastpage.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { CreateProfileComponent } from './Components/create-profile/create-profi
     BlogComponent,
     ChefDishesComponent,
     AdminComponent,
-    CreateProfileComponent
+    CreateProfileComponent,
+    LastpageComponent
     
   ],
   imports: [
