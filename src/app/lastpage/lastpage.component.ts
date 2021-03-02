@@ -11,9 +11,10 @@ export class LastpageComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    window.location.reload();
+    
   }
   refresh(){
+    
     this.router.navigate(['/Home']);
   }
 }
