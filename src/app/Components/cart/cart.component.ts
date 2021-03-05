@@ -19,6 +19,7 @@ export class CartComponent implements OnInit, OnChanges {
 
   //getting the selected meals into the cart
   items = this.cartService.getItems();
+  isUserlogged:string|null=localStorage.getItem('user');
   
 
   constructor(private cartService:CartService) { }
