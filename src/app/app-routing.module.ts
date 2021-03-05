@@ -16,6 +16,7 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { OffersComponent } from './Components/offers/offers.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { CreateProfileComponent } from './Components/create-profile/create-profile.component';
+import { LastpageComponent } from './lastpage/lastpage.component';
 
 const routes: Routes = [
   {path: 'Home', component:HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'Checkout', component:CheckOutComponent},
   {path:'Admin', component:AdminComponent},
   {path:'CreateProfile', component:CreateProfileComponent},
+  {path:'Lastpage', component:LastpageComponent},
   {path:'Profile/:cID',component:ChefProfileComponent},
   {path:'Dishes/:cID',component:ChefDishesComponent},
   {path:'MealDetails/:mID', component:MealDetailsComponent},
