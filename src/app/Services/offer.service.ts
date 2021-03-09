@@ -23,4 +23,14 @@ export class OfferService {
     getOffers(offerIndex:number){
       return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.limit(offerIndex).where('show','==',true)).snapshotChanges();
     }
+
+    getOffersOrderByName(offerIndex:number){
+        return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.limit(offerIndex).where('show','==',true).orderBy("name")).snapshotChanges();
+      
+    }
+
+    getOffersOrderByPrice(offerIndex:number){
+      return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.limit(offerIndex).where('show','==',true).orderBy("price")).snapshotChanges();
+    
+  }
 }
