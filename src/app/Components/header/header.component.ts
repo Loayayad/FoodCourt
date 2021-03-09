@@ -11,6 +11,7 @@ import { HeaderService } from 'src/app/Services/header.service';
 export class HeaderComponent implements OnInit {
 
   HeaderItems: any;
+  isUserlogged:string|null=localStorage.getItem('user');
 
   @Output() isLogout = new EventEmitter<void>()
   constructor(
@@ -44,9 +45,11 @@ export class HeaderComponent implements OnInit {
   }
   
   logout(){
+    localStorage.removeItem('user');
     this.firebaselogout.logout()
     this.isLogout.emit()
-    this.route.navigate(['/LogIn'])
+    window.location.reload();
+    //this.route.navigate(['/LogIn'])
   }
 
 }

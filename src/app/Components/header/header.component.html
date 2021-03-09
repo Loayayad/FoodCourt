@@ -102,10 +102,14 @@
             >
               <i class="fa fa-user" style="font-size: x-large"></i>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" routerLink="/LogIn">{{
+            <div
+              *ngIf="isUserlogged; else login"
+              class="dropdown-menu"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <!-- <a class="dropdown-item" routerLink="/LogIn">{{
                 HeaderItems.login
-              }}</a>
+              }}</a> -->
               <a class="dropdown-item" routerLink="/Signup">{{
                 HeaderItems.register
               }}</a>
@@ -114,6 +118,24 @@
                 HeaderItems.logout
               }}</a>
             </div>
+
+            <ng-template #login>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" routerLink="/LogIn">{{
+                  HeaderItems.login
+                }}</a>
+                <a class="dropdown-item" routerLink="/Signup">{{
+                  HeaderItems.register
+                }}</a>
+                <!-- <a class="dropdown-item" routerLink="/Admin">Admin</a> -->
+                <!-- <a class="dropdown-item" (click)="logout()">{{
+                HeaderItems.logout
+              }}</a> -->
+              </div>
+            </ng-template>
           </li>
 
           <li class="nav-item col-lg-3">
