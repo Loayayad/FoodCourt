@@ -9,11 +9,11 @@ import { CartService } from 'src/app/Services/cart.service';
 export class CheckOutComponent implements OnInit {
 
   purchasedMeals = this.cartService.getPurchasedItems();
-  
-  
+
+
   userID = localStorage.getItem('user');
   totalPrice = this.cartService.getTotal();
-
+  options ='';
   orders:{meals:[], userID:string}[]=[] ;
   constructor(private cartService:CartService) { }
 
