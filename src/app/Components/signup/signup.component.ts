@@ -28,28 +28,29 @@ signUpForm:any;
       userName: new FormControl('',[Validators.required,Validators.minLength(4)]),
       email: new FormControl('',[Validators.email,Validators.required]),
       password: new FormControl('',[Validators.required,Validators.minLength(6)]),
-      rewritePass: new FormControl('')
+      rewritePass: new FormControl('',Validators.required)
     })
   }
   get userName() { return this.signUpForm.get('userName'); }
   get email() { return this.signUpForm.get('email'); }
   get password() { return this.signUpForm.get('password'); }
+  get rewritePass() { return this.signUpForm.get('rewritePass'); }
 
   async onSignUp(username:string,email:string,password:string){
-    
+
     await this.firebaseSignUp.signUpAuthentication(email,password)
     .then(async()=>{
       await this.firebaseSignUp.signUpFireStore(username,email)
 
       localStorage.setItem('username',username);
-      
+
       if(this.firebaseSignUp.isLoggedIn){
         this.isSignUp = true
         this.route.navigate(['/CreateProfile'])
       }
     })
 
-    
+
     //console.warn(this.signUpForm.value);
 
   }

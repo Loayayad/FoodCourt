@@ -1,4 +1,20 @@
 <body class="mx-auto">
+  <a
+    class="nav-link dropdown-toggle mt-5"
+    href="#"
+    id="navbarDropdownMenuLink"
+    role="button"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    Filter By:
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+    <a class="dropdown-item" (click)="getOffersOrderByName()">Name</a>
+    <a class="dropdown-item" (click)="getOffersOrderByPrice()">Price</a>
+  </div>
+
   <div class="row d-flex col-lg-12 mx-auto" style="margin-top: 50px">
     <div class="col-lg-4" *ngFor="let offer of ListOffers">
       <div class="card shadow card-light m-2">

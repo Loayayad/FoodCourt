@@ -35,9 +35,9 @@ export class MealAPIService {
   //   return this.http.get<IMeal[]>(`${environment.API_URL}/meals?categoryID=${catID}`)
   // }
 
-  getMealByCategoryID(catID: number)
+  getMealByCategoryID(catID: number,catIndex:number)
   {
-    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('categoryID','==',catID)).snapshotChanges();
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('categoryID','==',catID).limit(catIndex)).snapshotChanges();
   }
 
   // getMealByID(pID:number): Observable <IMeal>

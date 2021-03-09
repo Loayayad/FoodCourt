@@ -40,6 +40,12 @@
         </div>
         <label for="inputPassword" class="sr-only"> Re-enter Password</label>
         <input type="password" id="RewritePassword" class="form-control" formControlName="rewritePass" placeholder=" Re-enter Password" required />
+        <div *ngIf="rewritePass.invalid&& (rewritePass.dirty || rewritePass.touched)" class="alert alert-danger">
+
+            <div *ngIf="rewritePass.errors.required">
+                Re-enter Password is required.
+            </div>
+        </div>
         <div *ngIf="signUpForm.value.password !== signUpForm.value.rewritePass" class="alert alert-danger">
             Passwords didn't match.
         </div>

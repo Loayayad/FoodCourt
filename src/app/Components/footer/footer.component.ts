@@ -23,11 +23,12 @@ export class FooterComponent implements OnInit {
     this.getFooterLang();
   }
 
-  changeLang(event: any){
-    console.log(event.target.value);
-    localStorage.setItem('lang',event.target.value);
-    window.location.reload();
-  }
+  // changeLang(event: any){
+  //   console.log(event.target.value);
+  //   localStorage.setItem('lang',event.target.value);
+  //   window.location.reload();
+  // }
+
   getHeaderLang(){
     this.headerLang.getHeaderLang().subscribe(
       (res)=>{

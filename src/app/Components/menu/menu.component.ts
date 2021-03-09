@@ -21,6 +21,7 @@ export class MenuComponent implements OnInit {
   CategoryList: ICategory[] = [];
   // SelectedCategory = 2;
   AllMeals: any[]=[];
+  catIndex:number=6;
   
   mID:number=0;
   selectedMeal: IMeal =
@@ -57,6 +58,7 @@ export class MenuComponent implements OnInit {
   
   ngOnChanges(){
     this.getMealbyCatID();
+    this.catIndex=6;
   }
 
   // getAllMeals(){
@@ -80,7 +82,7 @@ export class MenuComponent implements OnInit {
   // }
 
   getMealbyCatID(){
-    this.mealService.getMealByCategoryID(this.InputCategoryID).subscribe(
+    this.mealService.getMealByCategoryID(this.InputCategoryID,this.catIndex).subscribe(
       (res) =>{
         this.MealsList=[];
         //console.log(res);
@@ -97,6 +99,11 @@ export class MenuComponent implements OnInit {
         console.log(err);
       }
     )
+  }
+
+  nextIndex(){
+    this.catIndex+=6;
+    this.getMealbyCatID();
   }
 
   ngOnDestroy(): void {

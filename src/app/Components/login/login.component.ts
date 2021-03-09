@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     if(localStorage.getItem('user') !== null){
       //console.log(this.user);
       this.isSignedIn = true;
+      this.route.navigate(['/Home']);
 
     }
     else{
@@ -47,7 +48,8 @@ export class LoginComponent implements OnInit {
       console.log(res);
       if(this.firebaseSignIn.isLoggedIn){
         this.isSignedIn = true;
-        this.route.navigate(['/Home'])
+        //this.route.navigate(['/Home'])
+        window.location.reload();
 
       }
       },(err)=>{
