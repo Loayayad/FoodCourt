@@ -13,9 +13,13 @@
     }
 }
 
-.container {
+.container , .secondContainer {
     background-color: white;
-    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
     color: #ff8303;
     justify-content: center;
+    align-items: center;
+    text-align: cenetr;
 }

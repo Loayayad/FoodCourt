@@ -31,7 +31,7 @@ h3 {
   align-items: center;
   height: 50px;
   font-size: x-large;
-  //width: 150px;
+
 }
 
 .img__description {
@@ -56,4 +56,17 @@ h3 {
   visibility: visible;
   opacity: 1;
   width: 100%;
+}
+
+.seemore{
+  
+  font-size: 22px;
+  color: #fd8709;
+}
+
+.seemore:hover{
+  
+  text-decoration: none;
+  color: #fd5602;
+  
 }

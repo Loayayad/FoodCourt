@@ -16,7 +16,7 @@
 
     .container {
         background-color: white;
-        font-family: 'Quicksand', sans-serif;
+        font-family: 'Roboto', sans-serif;
         color: #ff8303;
         justify-content: center;
     }
@@ -24,7 +24,7 @@
 <div class="container">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="logoBlack.png" alt="" width="100px">
-        <h2>Checkout form</h2>
+        <h2 style="font-weight: bold;">Checkout form</h2>
         <div *ngFor="let item of purchasedMeals" class="d-flex flex-column justify-content-start">
             <div class="d-flex flex-row justify-content-center">
                 <p>{{item?.mealName}} x </p>
@@ -43,17 +43,11 @@
 
             <form class="needs-validation " novalidate (ngSubmit)="sendOrder()">
 
-
-
-
-
-
-
                 <hr class="mb-4 ">
 
-                <h4 class="mb-3 ">Payment Method</h4>
+                <h4 class="mb-3 " style="font-weight: bold;">Payment Method</h4>
 
-                <div class="d-block my-3 ">
+                <div class="d-block my-3 " style="color: rgb(122, 122, 122);">
                     <div class="custom-control custom-radio ">
                         <input id="credit " name="paymentMethod " type="radio " class="custom-control-input " checked required>
                         <label class="custom-control-label " for="credit ">Credit card</label>
@@ -101,7 +95,7 @@
                     </div>
                 </div>
                 <hr class="mb-4 ">
-                <a class="btn  btn-lg btn-block" (click)="sendOrder()" type="submit " routerLink="/Lastpage" style="background-color: #fd5602;">Submit order</a>
+                <a class="btn  btn-lg btn-block" (click)="sendOrder()" type="submit " routerLink="/Lastpage" style="background-color: #fd5602; color: white;">Submit order</a>
             </form>
         </div>
     </div>

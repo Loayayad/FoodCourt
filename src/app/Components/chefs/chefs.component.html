@@ -19,15 +19,15 @@
         </button>
       </div>
 
-      <div class="card-body">
+      <div class="card-body text-center">
         <h3 class="chefN">{{ chef?.name }}</h3>
         <p>{{ chef?.description }}</p>
       </div>
     </div>
   </div>
-  <p class="mx-auto">
-    <a class="btn buttonColor" (click)="nextIndex()" role="button"
-      >See More &raquo;</a
-    >
-  </p>
+  <div class="d-flex flex-column mx-auto align-items-center">
+    <a class="btn btn-link seemore" (click)="nextIndex()" role="button"
+      >See More</a>
+    <i class="fas fa-chevron-down seemore" (click)="nextIndex()"></i>
+  </div>
 </div>

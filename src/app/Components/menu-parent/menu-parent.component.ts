@@ -45,12 +45,6 @@ export class MenuParentComponent implements OnInit{
           console.log(this.CategoryList.includes(res[i].payload.doc.data().id));
           this.CategoryList.push(res[i].payload.doc.data())
         }
-        // res.forEach((element)=>{
-        //   console.log(element.payload.doc.data().id);
-        //   if(!this.CategoryList.includes(element.payload.doc.data().id))
-        //   console.log(this.CategoryList.includes(element.payload.doc.data().id));
-        //   this.CategoryList.push(element.payload.doc.data())
-        // })
         
         console.log(this.CategoryList);
       },

@@ -1,6 +1,33 @@
 <body>
+  <div class= "container-fluid d-flex flex-column align-items-center">
+    <div class="container-fluid d-flex flex-row flex-wrap justify-content-center">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 align-items-center d-inline content">
+          <h1>{{ HomeItems.firstGeneralTextHeader1 }}</h1>
+          <h2 class="secondHeader">{{HomeItems.firstGeneralTextHeader2}}</h2>
+          <h4>{{ HomeItems.firstGeneralTextFooter }}</h4>
+        </div>
+        <div class="col-md-1 d-none d-sm-block"></div>
+        <img class="col-lg-5 col-md-5 col-sm-12 col-xs-12 img-fluid firstImage" src="{{HomeItems.firstGeneralImage}}">
+    </div>
+
+    <hr class="featurette-divider" />
+
+    <div class="container-fluid d-flex flex-row flex-wrap justify-content-center">
+      <img class="col-lg-5 col-md-5 col-sm-12 col-xs-12 img-fluid secondImage" src="{{HomeItems.secondGeneralImage}}">
+      <div class="col-md-1 d-none d-sm-block"></div>
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 align-items-center d-inline content">
+        <h1>{{ HomeItems.secondGeneralTextHeader1 }}</h1>
+        <h2 class="secondHeader">{{HomeItems.secondGeneralTextHeader2}}</h2>
+        <h4>{{ HomeItems.secondGeneralTextFooter }}</h4>
+      </div>
+    </div>
+  </div>
+
+  <hr class="featurette-divider" />
+
+
   <!-- general view of a product -->
-  <div class="row featurette">
+  <!-- <div class="row featurette">
     <div class="col-md-12 d-flex mx-auto">
       <div class="col-md-1"></div>
       <div class="col-md-4">
@@ -46,7 +73,7 @@
     </div>
   </div>
 
-  <hr class="featurette-divider" />
+  <hr class="featurette-divider" /> -->
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -54,8 +81,8 @@
   <!-- Offers Section -->
   <div class="container-fluid mx-auto" style="width: 80%">
     <div class="container-fluid d-inline-flex">
-      <h1 class="display-3">{{ HomeItems.offers }}</h1>
-      <div class="container text-right mt-5">
+      <h1 class="offers">{{ HomeItems.offers }}</h1>
+      <div class="container text-right mt-4">
         <p>
           <a
             class="btn btn-sm buttonColor"
@@ -68,12 +95,12 @@
     </div>
 
     <div class="row d-flex col-lg-12 mx-auto">
-      <div class="col-lg-4" *ngFor="let offer of ListOffers">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" *ngFor="let offer of ListOffers">
         <div class="card shadow card-light m-2">
           <p class="ribbon">{{ HomeItems.discount }} : {{ offer?.discount }}</p>
           <img class="card-img-top" [src]="offer?.image" />
 
-          <div class="card-body">
+          <div class="card-body text-center">
             <h2>{{ offer?.name }}</h2>
             <h5>{{ offer?.price }} L.E.</h5>
             <p>
@@ -97,8 +124,8 @@
   <!-- Recommended Section -->
   <div class="container-fluid mx-auto" style="width: 80%">
     <div class="container-fluid d-inline-flex">
-      <h1 class="display-3">{{ HomeItems.recommended }}</h1>
-      <div class="container text-right mt-5">
+      <h1 class="d-none recommended d-sm-block">{{ HomeItems.recommended }}</h1>
+      <div class="container text-right mt-4">
         <p>
           <a
             class="btn btn-sm buttonColor"
@@ -111,11 +138,11 @@
     </div>
 
     <div class="row d-flex col-lg-12 mx-auto">
-      <div class="col-lg-4" *ngFor="let recommended of ListRecommended">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" *ngFor="let recommended of ListRecommended">
         <div class="card shadow card-light m-2">
           <img class="card-img-top" [src]="recommended?.image" />
 
-          <div class="card-body">
+          <div class="card-body text-center">
             <h2>{{ recommended?.name }}</h2>
             <h5>{{ recommended?.price }} L.E.</h5>
             <p>
@@ -131,8 +158,7 @@
       </div>
     </div>
   </div>
+<!-- 
 
-  <!-- START THE FEATURETTES -->
-
-  <hr class="featurette-divider" />
+  <hr class="featurette-divider" /> -->
 </body>

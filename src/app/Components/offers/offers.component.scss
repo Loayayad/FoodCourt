@@ -7,7 +7,7 @@ body {
   /* padding-bottom: 3rem; */
   color: #5a5a5a;
   //background-color: #fed9a6;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Roboto", sans-serif;
   width: 80%;
 }
 a img {
@@ -53,9 +53,13 @@ h2 {
   color: #fd5602;
 }
 h1,
-h5,
 a {
   color: #fd5602;
+}
+
+h5{
+  color: #5a5a5a;
+  font-weight: bold;
 }
 
 .dropdown-menu {
@@ -89,7 +93,7 @@ h1 {
   font-family: sans-serif;
 }
 h2 {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 /* RESPONSIVE CSS
   -------------------------------------------------- */
@@ -126,4 +130,32 @@ h2 {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
+}
+.seemore{
+  
+  font-size: 22px;
+  color: #fd8709;
+}
+
+.seemore:hover{
+  
+  text-decoration: none;
+  color: #fd5602;
+  
+}
+
+.filter{
+  color: darkgray;
+  font-size: 18px;
+}
+
+.filter:hover{
+  text-decoration: none;
+}
+
+.filter:focus{
+  text-decoration: underline;
+  line-height: 1.5;
+  border: solid 1px darkgray;
+  
 }

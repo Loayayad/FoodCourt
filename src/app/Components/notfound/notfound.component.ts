@@ -11,7 +11,5 @@ export class NotfoundComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  goToAdmin(){
-    location.replace("http://localhost:4200/");
-  }
+  
 }

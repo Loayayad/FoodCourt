@@ -1,9 +1,9 @@
-<div class="container row">
+<div class="container">
 
-    <h2 style="margin-top:100px">Welcome! Please complete your profile details:)</h2>
+    <h2 style="margin-top:100px">Welcome! Please complete your profile details :)</h2>
 
 
-    <div class="col-md-8 order-md-1 ">
+    <div class="col-md-8 order-md-1 secondContainer">
 
         <!-- <form [formGroup]="profileForm" class="form-group " (ngSubmit)="onSubmit()">
             <div class="mb-3 ">
@@ -125,15 +125,15 @@
         </div>
 
         <div class="row">
-          <div class="col-md-5 mb-3">
+          <div class="col-md-6 mb-3">
             <label for="country ">Country</label>
-                    <input formControlName="country" class="custom-select d-block w-100" id="country " required />
+                    <input formControlName="country" class="form-control d-block w-100" id="country " required />
 
                     <div class="invalid-feedback">Please select a valid country.</div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="state ">Governate</label>
-                    <input formControlName="governate" class="custom-select d-block w-100" id="Governate " required />
+                    <input formControlName="governate" class="form-control d-block w-100" id="Governate " required />
 
                     <div class="invalid-feedback">
                         Please provide a valid governate.
@@ -142,7 +142,7 @@
         </div>
         </form>
         <hr class="mb-4" />
-        <button class="btn btn-lg btn-block" type="submit " [disabled]="!profileForm.valid" style="background-color: #fd5602">
+        <button class="btn btn-lg btn-block" type="submit " [disabled]="!profileForm.valid" style="background-color: #fd5602; color:white">
         Continue to FoodCourt
       </button>
         </form>

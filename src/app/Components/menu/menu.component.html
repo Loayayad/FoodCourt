@@ -3,7 +3,7 @@
 <div class="container-fluid justify-content-center">
   <div class="row justify-content-center">
     <div
-      class="col-sm-10 col-xs-12 col-xl-3 col-lg-4 col-md-4 rounded card text-center card-light"
+      class="col-sm-6 col-xs-12 col-xl-3 col-lg-4 col-md-4 rounded card text-center card-light"
       style="margin: 20px; border-color: white"
       *ngFor="let meal of MealsList"
     >
@@ -92,9 +92,9 @@
       </div>
     </div>
   </div>
-  <p class="mx-auto">
-    <a class="btn buttonColor" (click)="nextIndex()" role="button"
-      >See More &raquo;</a
-    >
-  </p>
+  <div class="d-flex flex-column mx-auto align-items-center">
+    <a class="btn btn-link seemore" (click)="nextIndex()" role="button"
+      >See More</a>
+    <i class="fas fa-chevron-down seemore" (click)="nextIndex()"></i>
+  </div>
 </div>
