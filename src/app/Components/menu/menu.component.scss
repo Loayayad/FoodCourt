@@ -127,3 +127,19 @@ button:hover {
   color: #fd5602;
   
 }
+
+.filter{
+  color: darkgray;
+  font-size: 18px;
+}
+
+.filter:hover{
+  text-decoration: none;
+}
+
+.filter:focus{
+  text-decoration: underline;
+  line-height: 1.5;
+  border: solid 1px darkgray;
+  
+}
