@@ -106,7 +106,7 @@ export class OffersComponent implements OnInit {
   }
 
   getOffersOrderByDiscountDesc(){
-    localStorage.setItem("filter","discount");
+    localStorage.setItem("filter","discountDesc");
     this.offerService.getOffersOrderByDiscountDesc(this.offerIndex).subscribe(
       (res)=>{
         this.ListOffers=[];
