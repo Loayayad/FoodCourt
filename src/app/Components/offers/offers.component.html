@@ -10,25 +10,43 @@
   >
     Filter By:
   </a> -->
-  <div class="d-flex flex-row ml-4 mb-4 flex-wrap"> 
-    <h3>Filter By: </h3>
+  <div class="d-flex flex-row ml-4 mb-4 flex-wrap">
+    <h3>Filter By:</h3>
     <div class="d-flex flex-row flex-wrap">
-      <button class="btn btn-link mr-2 ml-5 filter" (click)="getOffersOrderByName()">
-          Name (from A to Z)
+      <button
+        class="btn btn-link mr-2 ml-5 filter"
+        (click)="getOffersOrderByName()"
+      >
+        Name (from A to Z)
       </button>
       <button class="btn btn-link filter" (click)="getOffersOrderByPrice()">
-          Price (from Lowest to Highest)
+        Price (from Lowest to Highest)
+      </button>
+      <button class="btn btn-link filter" (click)="getOffersOrderByPriceDesc()">
+        Price (from Highest to Lowest)
+      </button>
+      <button class="btn btn-link filter" (click)="getOffersOrderByDiscount()">
+        Discount (from Lowest to Highest)
+      </button>
+      <button
+        class="btn btn-link filter"
+        (click)="getOffersOrderByDiscountDesc()"
+      >
+        Discount (from Highest to Lowest)
       </button>
     </div>
   </div>
-  
+
   <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
     <a class="dropdown-item" (click)="getOffersOrderByName()">Name</a>
     <a class="dropdown-item" (click)="getOffersOrderByPrice()">Price</a>
   </div> -->
 
   <div class="row d-flex col-lg-12 mx-auto">
-    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" *ngFor="let offer of ListOffers">
+    <div
+      class="col-lg-4 col-md-6 col-sm-6 col-xs-12"
+      *ngFor="let offer of ListOffers"
+    >
       <div class="card shadow card-light m-2">
         <p class="ribbon">Discount: {{ offer?.discount }}</p>
         <a href="#"><img class="card-img-top" [src]="offer?.image" /></a>
@@ -36,7 +54,7 @@
         <div class="card-body text-center">
           <h2>{{ offer?.name }}</h2>
           <h5>{{ offer?.price }} L.E.</h5>
-          
+
           <p>
             <a
               style="color: #ff8303"
@@ -53,7 +71,8 @@
   </div>
   <div class="d-flex flex-column mx-auto align-items-center">
     <a class="btn btn-link seemore" (click)="nextIndex()" role="button"
-      >See More</a>
+      >See More</a
+    >
     <i class="fas fa-chevron-down seemore" (click)="nextIndex()"></i>
   </div>
 </body>
