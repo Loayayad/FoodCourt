@@ -10,29 +10,29 @@
   >
     Filter By:
   </a> -->
-  <div class="d-flex flex-row ml-4 mb-4 flex-wrap">
+  <div class="d-flex flex-row justify-content-center ml-4 mb-4 flex-wrap">
     <h3>Filter By:</h3>
     <div class="d-flex flex-row flex-wrap">
       <button
-        class="btn btn-link mr-2 ml-5 filter"
+        class="btn btn-link mr-2 ml-2 filter"
         (click)="getOffersOrderByName()"
       >
-        Name (from A to Z)
+        Name (A-Z)
       </button>
       <button class="btn btn-link filter" (click)="getOffersOrderByPrice()">
-        Price (from Lowest to Highest)
+        Price (Low-High)
       </button>
       <button class="btn btn-link filter" (click)="getOffersOrderByPriceDesc()">
-        Price (from Highest to Lowest)
+        Price (High-Low)
       </button>
       <button class="btn btn-link filter" (click)="getOffersOrderByDiscount()">
-        Discount (from Lowest to Highest)
+        Discount (Low-High)
       </button>
       <button
         class="btn btn-link filter"
         (click)="getOffersOrderByDiscountDesc()"
       >
-        Discount (from Highest to Lowest)
+        Discount (High-Low)
       </button>
     </div>
   </div>
