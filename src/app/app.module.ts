@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPayPalModule } from 'ngx-paypal';
+
 
 
 //firebase
@@ -60,7 +62,7 @@ import { LastpageComponent } from './lastpage/lastpage.component';
     AdminComponent,
     CreateProfileComponent,
     LastpageComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -73,8 +75,9 @@ import { LastpageComponent } from './lastpage/lastpage.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-  
-    
+    NgxPayPalModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
