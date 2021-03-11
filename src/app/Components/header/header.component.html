@@ -1,6 +1,11 @@
-
 <header>
-  <nav class="navbar navbar-expand-md fixed-top" style="background-color: white; box-shadow: 4px 4px 10px rgba(165, 166, 175, 0.2);">
+  <nav
+    class="navbar navbar-expand-md fixed-top"
+    style="
+      background-color: white;
+      box-shadow: 4px 4px 10px rgba(165, 166, 175, 0.2);
+    "
+  >
     <div class="container-fluid d-flex">
       <button
         class="navbar-toggler"
@@ -38,7 +43,7 @@
           <li class="nav-item col-lg-3">
             <a class="nav-link" routerLink="/Blog">{{ HeaderItems.blog }}</a>
           </li>
-          
+
           <li class="nav-item col-lg-3">
             <a class="nav-link" routerLink="/Cart"
               ><i class="fa fa-shopping-cart" style="font-size: 25px"></i
@@ -64,9 +69,9 @@
               <!-- <a class="dropdown-item" routerLink="/LogIn">{{
                 HeaderItems.login
               }}</a> -->
-              <a class="dropdown-item" routerLink="/Signup">{{
+              <!-- <a class="dropdown-item" routerLink="/Signup">{{
                 HeaderItems.register
-              }}</a>
+              }}</a> -->
               <!-- <a class="dropdown-item" routerLink="/Admin">Admin</a> -->
               <a class="dropdown-item" (click)="logout()">{{
                 HeaderItems.logout
@@ -84,7 +89,7 @@
                 <a class="dropdown-item" routerLink="/Signup">{{
                   HeaderItems.register
                 }}</a>
-                
+
                 <!-- <a class="dropdown-item" (click)="logout()">{{
                 HeaderItems.logout
               }}</a> -->
@@ -106,25 +111,27 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <div class="d-flex flex-row" (click)="changeLang('en')">
-                <a class="dropdown-item col-6" (click)="changeLang('en')">English</a>
-                <img src="https://firebasestorage.googleapis.com/v0/b/foodcourt-2f1f1.appspot.com/o/flags%2FUK.png?alt=media&token=43b55e79-b581-4fe6-be3a-d8f281dd6ea0"
+                <a class="dropdown-item col-6" (click)="changeLang('en')"
+                  >English</a
+                >
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/foodcourt-2f1f1.appspot.com/o/flags%2FUK.png?alt=media&token=43b55e79-b581-4fe6-be3a-d8f281dd6ea0"
                   width="40px"
                   height="25px"
-                  
-                  style="padding-top: 10px; padding-left: 15px;"
-                >
+                  style="padding-top: 10px; padding-left: 15px"
+                />
               </div>
               <div class="d-flex flex-row" (click)="changeLang('ar')">
-                <a class="dropdown-item col-6" (click)="changeLang('ar')">عربى</a>
-                <img src="https://firebasestorage.googleapis.com/v0/b/foodcourt-2f1f1.appspot.com/o/flags%2Fegypt.png?alt=media&token=944f679e-17dd-406c-942a-142d9cf6662a"
+                <a class="dropdown-item col-6" (click)="changeLang('ar')"
+                  >عربى</a
+                >
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/foodcourt-2f1f1.appspot.com/o/flags%2Fegypt.png?alt=media&token=944f679e-17dd-406c-942a-142d9cf6662a"
                   width="40px"
                   height="25px"
-                  
-                  style="padding-top: 10px; padding-left: 15px;"
-                >
+                  style="padding-top: 10px; padding-left: 15px"
+                />
               </div>
-              
-              
             </div>
           </li>
         </ul>

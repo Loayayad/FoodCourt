@@ -48,8 +48,9 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('user');
     this.firebaselogout.logout()
     this.isLogout.emit()
+    this.route.navigate(['/Home'])
     window.location.reload();
-    //this.route.navigate(['/LogIn'])
+    //this.route.navigate(['/Home'])
   }
 
 }

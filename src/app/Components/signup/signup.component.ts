@@ -21,6 +21,7 @@ signUpForm:any;
   ngOnInit(): void {
     if(localStorage.getItem('user')!== null){
       this.isSignUp=true
+      this.route.navigate(['/CreateProfile'])
     }else{
       this.isSignUp = false
     }
@@ -46,7 +47,7 @@ signUpForm:any;
 
       if(this.firebaseSignUp.isLoggedIn){
         this.isSignUp = true
-        this.route.navigate(['/CreateProfile'])
+        window.location.reload();
       }
     })
 

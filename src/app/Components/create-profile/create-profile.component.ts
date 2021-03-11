@@ -52,7 +52,7 @@ export class CreateProfileComponent implements OnInit {
   console.log(this.profileForm.value)
    await this.firebaseProfile.profile(this.profileForm.value)
    .then(()=>{
-    this.route.navigate(['/Home'])
+    this.route.navigate(['/Home']);
    }).catch((err)=>{
      console.log(err)
    })

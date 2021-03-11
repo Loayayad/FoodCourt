@@ -10,6 +10,7 @@ export class AuthService {
 
   isLoggedIn = false;
   userID:string|undefined='';
+  user:string|null='';
   constructor(
     private firebaseAuth : AngularFireAuth,
     private firebaseFirestore : AngularFirestore,
@@ -43,10 +44,18 @@ export class AuthService {
   }
 
   async signUpFireStore(userName: string,email: string){
+    this.user=localStorage.getItem('user');
+    if(this.user){
+      this.userID=this.user;
+    }
     await this.firebaseFirestore.collection("users").doc(this.userID).set({userID:this.userID,email: email,username: userName})
   }
   
   async profile(data: object){
+    this.user=localStorage.getItem('user');
+    if(this.user){
+      this.userID=this.user;
+    }
     await this.firebaseFirestore.collection("users").doc(this.userID).set(data,{merge:true});
   }
 }
