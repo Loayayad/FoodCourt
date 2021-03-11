@@ -19,13 +19,15 @@ export class CheckOutComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(localStorage.getItem('user'));
+    
   }
 
   sendOrder(){
     if(localStorage.getItem('user') !== null)
     {
-      this.cartService.postOrders(this.purchasedMeals, localStorage.getItem('user'))
-      localStorage.setItem("orderSent",'true');
+      this.cartService.postOrders(this.purchasedMeals, localStorage.getItem('user'), this.options)
+      console.log(this.options)
+      // localStorage.setItem("orderSent",'true');
     }
     console.log(this.cartService.getOrders())
   }

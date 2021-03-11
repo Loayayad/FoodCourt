@@ -27,8 +27,8 @@ export class CartComponent implements OnInit, OnChanges {
     for(var i=0; i<this.items.length; i++)
     {
       this.subTotal += this.totalPrice[i] ;
-      this.taxes=0.14*this.subTotal;
     }
+    this.taxes=Number((14*this.subTotal/100).toFixed(2));
     this.total = this.taxes+this.subTotal+20;
 
     
@@ -40,16 +40,11 @@ export class CartComponent implements OnInit, OnChanges {
       this.cartService.moveToCheckOut(i.mealName, i.mealCount, i.mealPrice, i.mealDiscount)
     });
     
-
-    //Trial Code For Preventing Duplication.
-    // this.items.forEach(()=>{
-    //   this.items.pop();
-    // })
-    // console.log(this.cartService.getPurchasedItems(), this.cartService.getTotal())
   }
 
   //Automatically caculating the price when the page is loaded.
   ngOnInit(): void {
+     
       for(var i=0; i<this.items.length; i++)
       {
         //If the discount is activated
@@ -58,16 +53,18 @@ export class CartComponent implements OnInit, OnChanges {
           this.priceAfterDiscount = this.items[i].mealPrice - (parseInt(percentage) * this.items[i].mealPrice/100);
           this.totalPrice.push(this.items[i].mealCount*this.priceAfterDiscount);
           this.subTotal += this.totalPrice[i] ;
-          this.taxes=Number((0.14*this.subTotal).toFixed(2));
+          
         }
         //If the discount is not activated
         else {
           this.totalPrice.push(this.items[i].mealCount*this.items[i].mealPrice);
           this.subTotal += this.totalPrice[i] ;
-          this.taxes=Number((0.14*this.subTotal).toFixed(2));
+          
         }
-        this.shipping=20;
+        this.shipping=10;
       }
+    
+    this.taxes=Number((14*this.subTotal/100).toFixed(2));
     this.total = this.taxes+this.subTotal+this.shipping;
     this.total.toFixed(2);
   }
@@ -78,18 +75,15 @@ export class CartComponent implements OnInit, OnChanges {
     if(this.subTotal == 0)
     {
       this.total = 0;
+      this.taxes = 0;
+      this.shipping = 0;
     }
     else{
-      this.total = (this.taxes*this.subTotal)+this.subTotal+20;
+      this.taxes = Number((14*this.subTotal/100).toFixed(2));
+      this.total = this.taxes+this.subTotal+10;
       this.totalPrice.splice(index, 1);
+      this.total.toFixed(2);
     }
     
   }
-
-  // clear(){
-  //   this.items = this.cartService.clearCart()
-  //   this.totalPrice=[];
-  //   this.subTotal=0;
-  //   this.total=0;
-  // }
 }
