@@ -11,6 +11,10 @@ export class LastpageComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('orderSent')){
+      localStorage.removeItem('orderSent');
+      window.location.reload();
+    }
     
   }
   refresh(){

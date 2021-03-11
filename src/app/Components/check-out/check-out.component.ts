@@ -25,6 +25,7 @@ export class CheckOutComponent implements OnInit {
     if(localStorage.getItem('user') !== null)
     {
       this.cartService.postOrders(this.purchasedMeals, localStorage.getItem('user'))
+      localStorage.setItem("orderSent",'true');
     }
     console.log(this.cartService.getOrders())
   }
