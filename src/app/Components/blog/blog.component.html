@@ -14,7 +14,7 @@
         <img [src]="post.image" style="width: 80%" />
         <div class="postDetails p-3">
           <h5 class="postTitle">{{ post.title }}</h5>
-          <p>{{ post.date.toDate() | date: "yyyy/MM/dd h:mm:ss a" }}</p>
+          <p>{{ post.date.toDate() | date: "dd/MM/yyyy h:mm:ss a" }}</p>
           <p>{{ post.postBody }}</p>
         </div>
       </div>
@@ -44,7 +44,7 @@
           </p>
 
           <p class="p-2 commentDate">
-            {{ comment.date.toDate() | date: "yyyy/MM/dd h:mm:ss a" }}
+            {{ comment.date.toDate() | date: "dd/MM/yyyy h:mm:ss a" }}
           </p>
         </div>
       </div>
