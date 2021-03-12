@@ -1,80 +1,97 @@
 <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
     }
+  }
 
-    .container {
-        background-color: white;
-        font-family: 'Roboto', sans-serif;
-        color: #ff8303;
-        justify-content: center;
-    }
+  .container {
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    color: #ff8303;
+    justify-content: center;
+  }
 </style>
 <div class="container">
-    <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="logoBlack.png" alt="" width="100px">
-        <h2 style="font-weight: bold;">Checkout form</h2>
-        <div *ngFor="let item of purchasedMeals" class="d-flex flex-column justify-content-start">
-            <div class="d-flex flex-row justify-content-center">
-                <p>{{item?.mealName}} x </p>
-                <p> {{item?.mealCount}}</p>
-            </div>
-        </div>
-        <p>Total Price: {{totalPrice}}</p>
-
+  <div class="py-5 text-center">
+    <img
+      class="d-block mx-auto mb-4"
+      src="logoBlack.png"
+      alt=""
+      width="100px"
+    />
+    <h2 style="font-weight: bold">{{ CheckOutItems.header }}</h2>
+    <div
+      *ngFor="let item of purchasedMeals"
+      class="d-flex flex-column justify-content-start"
+    >
+      <div class="d-flex flex-row justify-content-center">
+        <p>{{ item?.mealName }} x</p>
+        <p>{{ item?.mealCount }}</p>
+      </div>
     </div>
+    <p>{{ CheckOutItems.totalPrice }} {{ totalPrice }}</p>
+  </div>
 
-    <div class="container row">
+  <div class="container row">
+    <div class="col-md-8 order-md-1">
+      <form class="needs-validation" novalidate (ngSubmit)="sendOrder()">
+        <hr class="mb-4" />
 
-
-
-
-        <div class="col-md-8 order-md-1 ">
-
-            <form class="needs-validation " novalidate (ngSubmit)="sendOrder()">
-
-                <hr class="mb-4 ">
-
-                <h4 class="mb-3 " style="font-weight: bold;">Payment Method</h4>
-                <div class="d-block my-3  " style="color: rgb(122, 122, 122);">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" [value]="true" [checked]="options" [(ngModel)]="options">
-                        <label class="form-check-label" for="exampleRadios1">
-                    Credit Card(PayPal)
-                  </label>
-                    </div>
-                    <!-- <div class="form-check">
+        <h4 class="mb-3" style="font-weight: bold">
+          {{ CheckOutItems.payment }}
+        </h4>
+        <div class="d-block my-3" style="color: rgb(122, 122, 122)">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios1"
+              [value]="true"
+              [checked]="options"
+              [(ngModel)]="options"
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              {{ CheckOutItems.credit }}
+            </label>
+          </div>
+          <!-- <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                         <label class="form-check-label" for="exampleRadios2">
                     Debit Card
                   </label>
                     </div> -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" [value]="false" [checked]="!options" [(ngModel)]="options">
-                        <label class="form-check-label" for="exampleRadios3">
-                    Cash on Delivery(COD)
-                  </label>
-                    </div>
-                </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios3"
+              [value]="false"
+              [checked]="!options"
+              [(ngModel)]="options"
+            />
+            <label class="form-check-label" for="exampleRadios3">
+              {{ CheckOutItems.cod }}
+            </label>
+          </div>
+        </div>
 
-
-
-                <div *ngIf="options">
-                    <div>
-                        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-                    </div>
-                    <!-- <div class="row ">
+        <div *ngIf="options">
+          <div>
+            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+          </div>
+          <!-- <div class="row ">
                         <div class="col-md-6 mb-3 ">
                             <label for="cc-name ">Name on card</label>
                             <input type="text " class="form-control " id="cc-name " placeholder=" ">
@@ -102,9 +119,17 @@
 
                         </div>
                     </div> -->
-                </div>
-                <hr class="mb-4 ">
-                <a class="btn  btn-lg btn-block" (click)="sendOrder()" type="submit " routerLink="/Lastpage" style="background-color: #fd5602; color: white;">Submit order</a>
-            </form>
         </div>
+        <hr class="mb-4" />
+        <a
+          class="btn btn-lg btn-block"
+          (click)="sendOrder()"
+          type="submit "
+          routerLink="/Lastpage"
+          style="background-color: #fd5602; color: white"
+          >{{ CheckOutItems.button }}</a
+        >
+      </form>
     </div>
+  </div>
+</div>

@@ -25,6 +25,10 @@ export class ChefService {
 
   //   return this.http.get<IChefs[]>(`${environment.API_URL}/chefs`);
   // }
+
+  getChefItems() {
+    return this.afs.collection("static").doc("chefs").collection(localStorage.getItem("lang")||"en").doc(localStorage.getItem("lang")||"en").snapshotChanges();
+  }
   
   getAllChefs(chefIndex:number)
   {

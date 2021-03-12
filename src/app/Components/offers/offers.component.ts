@@ -14,6 +14,7 @@ export class OffersComponent implements OnInit {
   subscription: Subscription|null = null;
   ListOffers: any[]=[];
   offerIndex:number=6;
+  OfferItems: any;
   
 
   constructor(
@@ -23,6 +24,17 @@ export class OffersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOffers();
+    this.getOfferItems()
+  }
+
+  getOfferItems(){
+    this.offerService.getOfferItems().subscribe(
+      (res)=>{
+        this.OfferItems=res.payload.data();
+      },(err)=>{
+        console.log(err);
+      }
+    )
   }
 
   getOffers(){

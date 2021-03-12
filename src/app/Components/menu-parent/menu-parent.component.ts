@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CategoryService } from 'src/app/Services/category.service';
+import { MealAPIService } from 'src/app/Services/meal-api.service';
 import { MenuComponent } from '../menu/menu.component';
 
 @Component({
@@ -11,12 +12,14 @@ import { MenuComponent } from '../menu/menu.component';
 export class MenuParentComponent implements OnInit{
   CategoryList: any[]=[];
   SelectedCategory: number = 1;
+  ParentMenuItems: any;
 
   //For accessing the child component to send the category id to it.
   @ViewChild(MenuComponent) DetailsRef:any;
   subscription:Subscription|null = null;
 
   constructor(
+    private mealService:MealAPIService,
     private catService:CategoryService
     ) { }
 
@@ -26,9 +29,21 @@ export class MenuParentComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.getMenuGeneralProduct();
     this.getAllCategories();
+    
   }
 
+  getMenuGeneralProduct(){
+    this.mealService.getMenuItems().subscribe(
+      (res)=>{
+        this.ParentMenuItems=res.payload.data();
+        //console.log(res.payload.data());
+      },(err)=>{
+        console.log(err);
+      }
+    )
+  }
   //Filling the button values from the data base.
   getAllCategories(){
     this.CategoryList.forEach(()=>{

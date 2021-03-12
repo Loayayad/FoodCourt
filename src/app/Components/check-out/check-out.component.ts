@@ -17,13 +17,28 @@ export class CheckOutComponent implements OnInit {
   totalPrice = this.cartService.getTotal();
   options ='';
   orders:{meals:[], userID:string}[]=[] ;
+  
+  CheckOutItems: any;
+
   constructor(private cartService:CartService) { }
 
   ngOnInit(): void {
+    this.getCheckOutItems();
     console.log(localStorage.getItem('user'));
     this.initConfig();
 
   }
+
+  getCheckOutItems(){
+    this.cartService.getCheckOutItems().subscribe(
+      (res)=>{
+        this.CheckOutItems=res.payload.data();
+      },(err)=>{
+        console.log(err);
+      }
+    )
+  }
+
   private initConfig(): void {
     this.payPalConfig = {
         currency: 'EUR',

@@ -28,6 +28,14 @@ export class CartService {
     
   }
 
+  getCartItems() {
+    return this.afs.collection("static").doc("cart").collection(localStorage.getItem("lang")||"en").doc(localStorage.getItem("lang")||"en").snapshotChanges();
+  }
+
+  getCheckOutItems() {
+    return this.afs.collection("static").doc("checkout").collection(localStorage.getItem("lang")||"en").doc(localStorage.getItem("lang")||"en").snapshotChanges();
+  }
+
   setTotal(total:number){
     this.totalPrice = total;
   }

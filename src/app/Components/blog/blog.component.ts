@@ -17,6 +17,7 @@ export class BlogComponent implements OnInit {
   //  loginFrm:FormGroup;
    AllPosts: any[]=[];
    AllComments:any[]=[];
+   BlogItems: any;
   constructor(builder: FormBuilder,private router: Router ,private blog:BlogService) {
   //  this.loginFrm=builder.group({
   //     Name:['',[Validators.required,Validators.minLength(3)]],
@@ -40,8 +41,20 @@ export class BlogComponent implements OnInit {
     
   }
   ngOnInit(): void {
-   this.getAllPosts();
+   this.getBlogItems();
+    this.getAllPosts();
    this.getAllComments();
+   
+  }
+
+  getBlogItems(){
+    this.blog.getBlogItems().subscribe(
+      (res)=>{
+        this.BlogItems=res.payload.data();
+      },(err)=>{
+        console.log(err);
+      }
+    )
   }
 
   getAllPosts(){

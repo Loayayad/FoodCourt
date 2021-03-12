@@ -19,7 +19,7 @@
             {{ item.mealName }} x{{ item.mealCount }}
           </h4>
           <p id="discount" *ngIf="item.mealShow == true">
-            Discount: {{ item.mealDiscount }} Price was:
+            {{ CartItems.discount }} {{ item.mealDiscount }} Price was:
             <span class="price"> {{ item.mealPrice | currency: "EGP" }}</span>
           </p>
           <br />
@@ -43,25 +43,25 @@
 
   <div class="_grid cart-totals col-sm-3 card">
     <div class="_column subtotal" id="subtotalCtr">
-      <div class="cart-totals-key">Sub Total</div>
+      <div class="cart-totals-key">{{ CartItems.subtotal }}</div>
       <div class="cart-totals-value">L.E {{ subTotal }}</div>
       <br />
     </div>
     <div class="_column shipping" id="shippingCtr">
-      <div class="cart-totals-key">Delivery</div>
+      <div class="cart-totals-key">{{ CartItems.delivery }}</div>
       <div class="cart-totals-value">L.E {{ shipping }}</div>
     </div>
     <div class="_column taxes" id="taxesCtr">
-      <div class="cart-totals-key">Taxes (14%)</div>
+      <div class="cart-totals-key">{{ CartItems.taxes }}</div>
       <div class="cart-totals-value">L.E {{ taxes }}</div>
     </div>
     <div class="_column total" id="totalCtr">
-      <div class="cart-totals-key">Total</div>
+      <div class="cart-totals-key">{{ CartItems.total }}</div>
       <div class="cart-totals-value">L.E {{ total }}</div>
     </div>
     <div *ngIf="isUserlogged; else login" class="_column checkout">
       <button class="btn _btn checkout-btn" routerLink="/MenuParent">
-        Continue Shopping
+        {{ CartItems.firstButton }}
       </button>
       <button
         [disabled]="total == 0"
@@ -69,20 +69,20 @@
         data-toggle="modal"
         data-target="#myModal"
       >
-        Checkout
+        {{ CartItems.secButton }}
       </button>
     </div>
 
     <ng-template #login>
       <button class="btn _btn checkout-btn" routerLink="/MenuParent">
-        Continue Shopping
+        {{ CartItems.firstButton }}
       </button>
       <button
         type="button"
         class="btn _btn checkout-btn entypo-forward"
         routerLink="/LogIn"
       >
-        Login
+        {{ CartItems.login }}
       </button>
     </ng-template>
   </div>
@@ -99,7 +99,9 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Oh Hello There!</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          {{ CartItems.popupText }}
+        </h5>
         <button
           type="button"
           class="close"
@@ -109,14 +111,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">Are you sure you want to checkout ?</div>
+      <div class="modal-body">{{ CartItems.popupMessage }}</div>
       <div class="modal-footer justify-content-center">
         <button
           type="button"
           class="btn btnDone cont col-5"
           data-dismiss="modal"
         >
-          Back to Cart
+          {{ CartItems.popupRespond1 }}
         </button>
         <button
           type="button"
@@ -125,7 +127,7 @@
           routerLink="/Checkout"
           (click)="moveToCheckout()"
         >
-          Check Out
+          {{ CartItems.secButton }}
         </button>
       </div>
     </div>

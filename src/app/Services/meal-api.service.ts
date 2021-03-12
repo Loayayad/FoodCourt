@@ -26,6 +26,10 @@ export class MealAPIService {
   //   return this.http.get<IMeal[]>(`${environment.API_URL}/meals`);
   // }
 
+  getMenuItems() {
+    return this.afs.collection("static").doc("menu").collection(localStorage.getItem("lang")||"en").doc(localStorage.getItem("lang")||"en").snapshotChanges();
+  }
+
   getAllMeals() {
     return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en").snapshotChanges();
   }
@@ -38,6 +42,23 @@ export class MealAPIService {
   getMealByCategoryID(catID: number,catIndex:number)
   {
     return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('categoryID','==',catID).limit(catIndex)).snapshotChanges();
+  }
+
+  getMealByCategoryIDOrderByName(catID: number,catIndex:number)
+  {
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('categoryID','==',catID).limit(catIndex).orderBy("name")).snapshotChanges();
+  }
+
+
+  getMealByCategoryIDOrderByPrice(catID: number,catIndex:number)
+  {
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('categoryID','==',catID).limit(catIndex).orderBy("price")).snapshotChanges();
+  }
+
+
+  getMealByCategoryIDOrderByPriceDesc(catID: number,catIndex:number)
+  {
+    return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.where('categoryID','==',catID).limit(catIndex).orderBy("price","desc")).snapshotChanges();
   }
 
   // getMealByID(pID:number): Observable <IMeal>

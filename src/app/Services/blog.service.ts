@@ -17,6 +17,10 @@ export class BlogService {
     private afs: AngularFirestore
   ) { }
 
+  getBlogItems() {
+    return this.afs.collection("static").doc("blog").collection(localStorage.getItem("lang")||"en").doc(localStorage.getItem("lang")||"en").snapshotChanges();
+  }
+
   getAllPosts() {
     // return this.afs.collection("posts").snapshotChanges();
     return this.afs.collection("posts").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en").snapshotChanges();
