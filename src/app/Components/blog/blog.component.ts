@@ -37,8 +37,8 @@ export class BlogComponent implements OnInit {
   onSubmit() {
     
       this.blog.addComment(this.addComment);
-      this.router.navigate(['/Blog']);
-    
+      this.addComment.comment='';
+  
   }
   ngOnInit(): void {
    this.getBlogItems();
