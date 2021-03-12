@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   HomeItems: any;
   mID:number=0;
   user: any;
+  userID = localStorage.getItem('user');
   constructor(
     private homeService:HomeAPIService,
     private router:Router
@@ -28,15 +29,6 @@ export class HomeComponent implements OnInit {
     this.getHomeGeneralProduct();
     this.getHomeOffers();
     this.getHomeRecommended();
-    
-    
-    if(localStorage.getItem('user')!=null)
-    {
-      this.user = 'Welcome Back!' ; 
-    }
-    else {
-      this.user = "Have a look around, we'll be happy if you join us :)"
-    }
   }
 
   getHomeGeneralProduct(){
