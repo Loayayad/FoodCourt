@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     
     if(localStorage.getItem('user')!=null)
     {
-      this.user = 'Welcome back friend :)' ; 
+      this.user = 'Welcome Back!' ; 
     }
     else {
       this.user = "Have a look around, we'll be happy if you join us :)"

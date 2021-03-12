@@ -20,6 +20,10 @@ export class OfferService {
     private afs: AngularFirestore
     ) { }
 
+    getOfferItems() {
+      return this.afs.collection("static").doc("offers").collection(localStorage.getItem("lang")||"en").doc(localStorage.getItem("lang")||"en").snapshotChanges();
+    }
+
     getOffers(offerIndex:number){
       return this.afs.collection("meals").doc(localStorage.getItem("lang")||"en").collection(localStorage.getItem("lang")||"en",ref => ref.limit(offerIndex).where('show','==',true)).snapshotChanges();
     }

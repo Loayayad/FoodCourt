@@ -1,60 +1,84 @@
 <!-- start section (header)-->
-    <div class="bg-image align-items-center justify-content-center">
-      <h2 class="text-center">Blog Details</h2>
-      
-    </div>
-    <!-- section 2 Blog List left& side -->
-  <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-12 col-sm-12">
-         <div class="container-fluid d-flex flex-lg-nowrap flex-column flex-md-nowrap flex-wrap justify-content-center m-4" *ngFor="let post of AllPosts">
-              <img [src]="post.image" style="width:80% ;">
-              <div class="postDetails p-3">
-                <h5 class="postTitle">{{post.title}}</h5>
-                <p>{{post.date.toDate()|date:'dd/MM/yyyy h:mm:ss a'}}</p>
-                <p>{{post.postBody}}</p>
-              </div>
-         </div>
-          
-        </div>
-        <!-------------------- right side------------------------------------ -->
-        <div class="col-lg-4 col-md-12 col-sm-12">
-          <div class="rightSide">
-            <img class="mt-4" style=" width: 400px; border-radius: 5%;" src="https://firebasestorage.googleapis.com/v0/b/foodcourt-2f1f1.appspot.com/o/blog%2Fpizza.jpg?alt=media&token=a40a3773-ccd8-4d35-909a-97cb9e8a4966" alt="food">
-          </div>
-          <div>
-            <div class="mt-2"> <h2>Recent Comments</h2></div>
-            <div class="container-fluid d-flex flex-lg-nowrap flex-column flex-md-nowrap flex-wrap justify-content-start"  *ngFor="let comment of AllComments"><hr/>
-                <!-- <h5 class="commentName">{{comment.name}}</h5> -->
-                 <p class="commentBody"><i class="far fa-comments p-2"></i>{{comment.comment}}</p>
-                
-                <p class="p-2 commentDate">{{comment.date.toDate()|date:'yyyy/MM/dd h:mm:ss a'}}</p>
-              
-            </div>
-          </div>
+<div class="bg-image align-items-center justify-content-center">
+  <h2 class="text-center">{{ BlogItems.header }}</h2>
+</div>
+<!-- section 2 Blog List left& side -->
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-12 col-sm-12">
+      <div
+        class="container-fluid d-flex flex-lg-nowrap flex-column flex-md-nowrap flex-wrap justify-content-center m-4"
+        *ngFor="let post of AllPosts"
+      >
+        <img [src]="post.image" style="width: 80%" />
+        <div class="postDetails p-3">
+          <h5 class="postTitle">{{ post.title }}</h5>
+          <p>{{ post.date.toDate() | date: "dd/MM/yyyy h:mm:ss a" }}</p>
+          <p>{{ post.postBody }}</p>
         </div>
       </div>
     </div>
-    <!-- Reactive Form -->
-    <div class="container-fluid d-flex flex-row">
-      
-        <div class="col-lg-8 col-md-12 col-sm-12">
-          <h2 class="form_title">leave A Comment</h2>
-          <form class="col-12" (ngSubmit) = "onSubmit()">
-               <div class="d-flex flex-wrap flex-lg-nowrap flex-md-nowrap" style="margin-left: 8%;">
-                <textarea class="col-12"  placeholder="Add Comment" style="height: 95px; "[(ngModel)]="addComment.comment" name="Comment"></textarea> 
-               </div>
-               <br>
-               <input type="submit"  class="btn btn-primary food_btn " value="submit">  
-        </form>
- </div>
-  <img class="col-lg-4 img-fluid d-none recommended d-sm-block" style="height:300px; padding:15px; border-radius: 10%;" src="https://firebasestorage.googleapis.com/v0/b/foodcourt-2f1f1.appspot.com/o/blog%2Fworkplace-1245776_1920.jpg?alt=media&token=63825c47-4e51-407a-95bf-782aa40940ca" alt="food">   
+    <!-------------------- right side------------------------------------ -->
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="rightSide">
+        <img
+          class="mt-4"
+          style="width: 400px; border-radius: 5%"
+          src="https://firebasestorage.googleapis.com/v0/b/foodcourt-2f1f1.appspot.com/o/blog%2Fpizza.jpg?alt=media&token=a40a3773-ccd8-4d35-909a-97cb9e8a4966"
+          alt="food"
+        />
+      </div>
+      <div>
+        <div class="mt-2">
+          <h2>{{ BlogItems.recentCom }}</h2>
+        </div>
+        <div
+          class="container-fluid d-flex flex-lg-nowrap flex-column flex-md-nowrap flex-wrap justify-content-start"
+          *ngFor="let comment of AllComments"
+        >
+          <hr />
+          <!-- <h5 class="commentName">{{comment.name}}</h5> -->
+          <p class="commentBody">
+            <i class="far fa-comments p-2"></i>{{ comment.comment }}
+          </p>
+
+          <p class="p-2 commentDate">
+            {{ comment.date.toDate() | date: "dd/MM/yyyy h:mm:ss a" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-    
-
-  
-    
-
-  
-   
+<!-- Reactive Form -->
+<div class="container-fluid d-flex flex-row">
+  <div class="col-lg-8 col-md-12 col-sm-12">
+    <h2 class="form_title">{{ BlogItems.leaveCom }}</h2>
+    <form class="col-12" (ngSubmit)="onSubmit()">
+      <div
+        class="d-flex flex-wrap flex-lg-nowrap flex-md-nowrap"
+        style="margin-left: 8%"
+      >
+        <textarea
+          class="col-12"
+          style="height: 95px"
+          [(ngModel)]="addComment.comment"
+          name="Comment"
+        ></textarea>
+      </div>
+      <br />
+      <input
+        type="submit"
+        class="btn btn-primary food_btn"
+        value="{{ BlogItems.button }}"
+      />
+    </form>
+  </div>
+  <img
+    class="col-lg-4 img-fluid d-none recommended d-sm-block"
+    style="height: 300px; padding: 15px; border-radius: 10%"
+    src="https://firebasestorage.googleapis.com/v0/b/foodcourt-2f1f1.appspot.com/o/blog%2Fworkplace-1245776_1920.jpg?alt=media&token=63825c47-4e51-407a-95bf-782aa40940ca"
+    alt="food"
+  />
+</div>

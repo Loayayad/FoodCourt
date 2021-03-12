@@ -21,6 +21,7 @@ export class MenuComponent implements OnInit {
   CategoryList: ICategory[] = [];
   // SelectedCategory = 2;
   AllMeals: any[]=[];
+  MenuItems: any;
   catIndex:number=6;
   
   mID:number=0;
@@ -45,7 +46,9 @@ export class MenuComponent implements OnInit {
     private router:Router) { }
     
   
-    ngOnInit(): void {} 
+    ngOnInit(): void {
+      this.getMenuGeneralProduct();
+    } 
     addToCart(mealCount:string){
       this.cartService.addTocart(this.selectedMeal.image,
         this.selectedMeal.id,
@@ -59,6 +62,17 @@ export class MenuComponent implements OnInit {
   ngOnChanges(){
     this.getMealbyCatID();
     this.catIndex=6;
+  }
+
+  getMenuGeneralProduct(){
+    this.mealService.getMenuItems().subscribe(
+      (res)=>{
+        this.MenuItems=res.payload.data();
+        console.log(res.payload.data());
+      },(err)=>{
+        console.log(err);
+      }
+    )
   }
 
   // getAllMeals(){
@@ -101,9 +115,81 @@ export class MenuComponent implements OnInit {
     )
   }
 
+  getMealbyCatIDOrderByName(){
+    localStorage.setItem("filterMenu","name");
+    this.mealService.getMealByCategoryIDOrderByName(this.InputCategoryID,this.catIndex).subscribe(
+      (res) =>{
+        this.MealsList=[];
+        //console.log(res);
+        res.forEach((element)=>{
+          //console.log(element.payload.doc.data());
+          this.MealsList.push(element.payload.doc.data())
+        })
+        
+        this.MealsList.forEach((element)=>{
+          console.log(element);
+        })
+      },
+      (err)=>{
+        console.log(err);
+      }
+    )
+  }
+
+  getMealbyCatIDOrderByPrice(){
+    localStorage.setItem("filterMenu","price");
+    this.mealService.getMealByCategoryIDOrderByPrice(this.InputCategoryID,this.catIndex).subscribe(
+      (res) =>{
+        this.MealsList=[];
+        //console.log(res);
+        res.forEach((element)=>{
+          //console.log(element.payload.doc.data());
+          this.MealsList.push(element.payload.doc.data())
+        })
+        
+        this.MealsList.forEach((element)=>{
+          console.log(element);
+        })
+      },
+      (err)=>{
+        console.log(err);
+      }
+    )
+  }
+  
+  getMealbyCatIDOrderByPriceDesc(){
+    localStorage.setItem("filterMenu","priceDesc");
+    this.mealService.getMealByCategoryIDOrderByPriceDesc(this.InputCategoryID,this.catIndex).subscribe(
+      (res) =>{
+        this.MealsList=[];
+        //console.log(res);
+        res.forEach((element)=>{
+          //console.log(element.payload.doc.data());
+          this.MealsList.push(element.payload.doc.data())
+        })
+        
+        this.MealsList.forEach((element)=>{
+          console.log(element);
+        })
+      },
+      (err)=>{
+        console.log(err);
+      }
+    )
+  }
+
   nextIndex(){
     this.catIndex+=6;
-    this.getMealbyCatID();
+
+    if(localStorage.getItem("filterMenu")==="name"){
+      this.getMealbyCatIDOrderByName();
+    }else if(localStorage.getItem("filterMenu")==="price"){
+      this.getMealbyCatIDOrderByPrice();
+    }else if(localStorage.getItem("filterMenu")==="priceDesc"){
+      this.getMealbyCatIDOrderByPriceDesc();
+    }else{
+      this.getMealbyCatID();
+    }
   }
 
   ngOnDestroy(): void {

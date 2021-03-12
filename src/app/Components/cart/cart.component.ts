@@ -15,6 +15,7 @@ export class CartComponent implements OnInit, OnChanges {
   taxes:number=0;
   total:number=0;
   shipping:number=0;
+  CartItems: any;
   priceAfterDiscount:number = 0;
 
   //getting the selected meals into the cart
@@ -33,7 +34,15 @@ export class CartComponent implements OnInit, OnChanges {
 
     
   }
-
+  getCartItems(){
+    this.cartService.getCartItems().subscribe(
+      (res)=>{
+        this.CartItems=res.payload.data();
+      },(err)=>{
+        console.log(err);
+      }
+    )
+  }
   moveToCheckout(){   
     this.cartService.setTotal(this.total)
     this.items.forEach(i => {
@@ -44,6 +53,7 @@ export class CartComponent implements OnInit, OnChanges {
 
   //Automatically caculating the price when the page is loaded.
   ngOnInit(): void {
+     this.getCartItems();
      
       for(var i=0; i<this.items.length; i++)
       {

@@ -1,14 +1,24 @@
-<header style="margin-top:100px; text-align: center;" class="d-flex flex-column justify-content-center">
-  <h1>What will <span class="headerElement">you</span> eat today</h1>
-  <h4 id="subTitle">We bring professional chefs to your home to prepare delicious, 
-    <br>
-    customized meals at a fraction of the cost.</h4>
+<header
+  style="margin-top: 100px; text-align: center"
+  class="d-flex flex-column justify-content-center"
+>
+  <h1>
+    <span class="headerElement">{{ ParentMenuItems.firstHeader }}</span>
+  </h1>
+  <h4 id="subTitle">{{ ParentMenuItems.secondHeader }}</h4>
 </header>
 <!-- Filling the dropdown list with category names from the database -->
-<div class="d-flex flex-row flex-wrap container justify-content-between" style="margin-top:50px">
-    <button class="btn CatBtn rounded-pill active" *ngFor="let cat of CategoryList" (click)="setCatID(cat.id)">
-      {{cat.name}}
-    </button>
+<div
+  class="d-flex flex-row flex-wrap container justify-content-between"
+  style="margin-top: 50px"
+>
+  <button
+    class="btn CatBtn rounded-pill active"
+    *ngFor="let cat of CategoryList"
+    (click)="setCatID(cat.id)"
+  >
+    {{ cat.name }}
+  </button>
 </div>
 
 <!-- Calling the menu elements based on the category id -->
