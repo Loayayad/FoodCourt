@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row d-flex justify-content-center">
-    <div id="ourChefs" class="text-center col-12">{{ ChefItems.knowThem }}</div>
+    <div id="ourChefs" class="text-center col-12">{{ ChefItems.header }}</div>
     <br /><br />
 
     <div
@@ -15,7 +15,8 @@
           class="btn btn-link img__description"
           (click)="viewChef(chef.id)"
         >
-          {{ ChefItems.header }}
+        {{ ChefItems.knowThem }}
+          
         </button>
       </div>
 
