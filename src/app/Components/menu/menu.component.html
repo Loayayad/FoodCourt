@@ -13,9 +13,21 @@
         </div>
     </div>
 
-    <div class="col-5">
+    <!-- <div class="col-5" >
         <input type="text" class="search form-control rounded-pill" placeholder="search" [(ngModel)]="name" (input)="Search()">
-    </div>
+     </div> -->
+     
+        <div class="col-5 ">
+            <div class="input-group">
+                <input class="form-control py-2 border-right-0 border" type="search" value="search"placeholder="search" [(ngModel)]="name" (input)="Search()" id="example-search-input">
+                <span class="input-group-append">
+                    <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+                </span>
+            </div>
+        </div>
+    
+       
+   
 </div>
 
 <div class="container-fluid justify-content-center">

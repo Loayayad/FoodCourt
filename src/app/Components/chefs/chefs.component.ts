@@ -12,6 +12,7 @@ import {Subscription} from 'rxjs';
   
 })
 export class ChefsComponent implements OnInit {
+   name:String="";
    ChefList:any[]=[];
    subscription: Subscription|null=null;
    chefID:number=0;
@@ -68,6 +69,19 @@ export class ChefsComponent implements OnInit {
   }
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
+  }
+
+  Search(){
+    if(this.name!=""){
+      this.ChefList=this.ChefList.filter(res=>{
+        return res.name.toLowerCase().match(this.name.toLowerCase());
+      })
+    }
+    else if(this.name===""){
+
+      this.ngOnInit();
+    }
+
   }
   
 }

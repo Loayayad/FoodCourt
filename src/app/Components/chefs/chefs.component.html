@@ -1,7 +1,24 @@
 <div class="container-fluid">
   <div class="row d-flex justify-content-center">
-    <div id="ourChefs" class="text-center col-12">{{ ChefItems.header }}</div>
-    <br /><br />
+    <div id="ourChefs" class="text-center col-12 ">{{ ChefItems.header }}
+      <!-- <div class="col-5 " style="margin-left: 30%; margin-bottom: 10px;" >
+        <i class="fas fa-search"></i>
+        <input type="text" class="search form-control rounded-pill" placeholder="search" [(ngModel)]="name" (input)="Search()">
+     </div> -->
+     <div class="row">
+      <div class="col-5 " style="margin-left: 30%; margin-bottom: 10px;">
+          <div class="input-group">
+              <input class="form-control py-2 border-right-0 border" type="search" value="search"placeholder="search" [(ngModel)]="name" (input)="Search()" id="example-search-input">
+              <span class="input-group-append">
+                  <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+              </span>
+          </div>
+      </div>
+  </div>
+     
+    </div>
+   
+    
 
     <div
       class="shadow rounded card text-left col-sm-10 col-xs-12 col-xl-3 col-lg-4 col-md-4 card-light p-0"
