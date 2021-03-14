@@ -72,7 +72,6 @@ h1,
 .product-image {
     padding: 1%;
     width: 30%;
-    // background: no-repeat center / cover transparent;
 }
 
 .product-info {
@@ -170,21 +169,24 @@ h1,
     color: white;
 }
 
-.btnDone{
-    background-color:#FD5602; 
-    color:white; 
-    height:40px; 
+.btnDone {
+    background-color: #FD5602;
+    color: white;
+    height: 40px;
     width: 100px;
     font-size: large;
     transition: 0.3s;
 }
+
 .btnDone:hover {
-    background:#fd8709 ;
+    background: #fd8709;
     color: white;
 }
-p>.price{
+
+p>.price {
     text-decoration: line-through;
 }
-#discount{
-    color:black;
+
+#discount {
+    color: black;
 }

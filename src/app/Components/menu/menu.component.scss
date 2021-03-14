@@ -1,145 +1,168 @@
 body {
-  font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
+
 .fa-shopping-cart {
-  margin-left: 10px;
-  font-size: 25px;
-  color: #fd5602;
-  transition: 0.3s;
+    margin-left: 10px;
+    font-size: 25px;
+    color: #fd5602;
+    transition: 0.3s;
 }
+
 .fa-shopping-cart:hover {
-  cursor: pointer;
-  color: #fd8709;
+    cursor: pointer;
+    color: #fd8709;
 }
+
 .ribbon {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  padding: 0.5rem;
-  width: 100%;
-  background: #f5c25dbd;
-  border-radius: 30px 30px 0px 0px;
-  color: #852600;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 0.5rem;
+    width: 100%;
+    background: #f5c25dbd;
+    border-radius: 30px 30px 0px 0px;
+    color: #852600;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
 }
+
 .card-title {
-  color: #fd5602;
+    color: #fd5602;
 }
 
 .buttonColor {
-  background-color: #ffaf42;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  font-size: x-large;
-  //width: 150px;
+    background-color: #ffaf42;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: x-large;
+    //width: 150px;
 }
+
 .card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
 }
+
 img {
-  width: 100%;
-  height: 300px;
-  border-radius: 30px;
-  font-family: "Roboto", sans-serif;
+    width: 100%;
+    height: 300px;
+    border-radius: 30px;
+    font-family: "Roboto", sans-serif;
 }
+
 h2 {
-  font-weight: bold;
-  color: #fd5602;
-  font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: #fd5602;
+    font-family: "Roboto", sans-serif;
 }
+
 h5 {
-  color: rgb(121, 121, 121);
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
+    color: rgb(121, 121, 121);
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
 }
+
 .add {
-  background-color: #fd5602;
-  color: white;
-  height: 35px;
-  margin-left: 10px;
-  transition: 0.3s;
+    background-color: #fd5602;
+    color: white;
+    height: 35px;
+    margin-left: 10px;
+    transition: 0.3s;
 }
+
 .cont {
-  background: #fd5602;
-  color: white;
-  transition: 0.3s;
+    background: #fd5602;
+    color: white;
+    transition: 0.3s;
 }
+
 .add:hover {
-  background: #fd8709;
-  color: white;
+    background: #fd8709;
+    color: white;
 }
+
 .cont:hover {
-  background: #fd8709;
-  color: white;
+    background: #fd8709;
+    color: white;
 }
+
 img,
 button:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 .img__wrap {
-  position: relative;
-  font-size: large;
-  text-align: center;
-  text-justify: center;
+    position: relative;
+    font-size: large;
+    text-align: center;
+    text-justify: center;
 }
 
 .img__description {
-  border-radius: 30px;
-  position: absolute;
-  padding: 20% 5% 20% 5%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(217, 205, 189, 0.6);
-  color: #852600;
-  visibility: hidden;
-  opacity: 0;
-  font-size: larger;
-  font-weight: 500;
-  /* transition effect. not necessary */
-  transition: opacity 0.2s, visibility 0.2s;
+    border-radius: 30px;
+    position: absolute;
+    padding: 20% 5% 20% 5%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(217, 205, 189, 0.6);
+    color: #852600;
+    visibility: hidden;
+    opacity: 0;
+    font-size: larger;
+    font-weight: 500;
+    /* transition effect. not necessary */
+    transition: opacity 0.2s, visibility 0.2s;
 }
 
 .img__wrap:hover .img__description {
-  visibility: visible;
-  opacity: 1;
-  cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
 }
 
-.seemore{
-  
-  font-size: 22px;
-  color: #fd8709;
+.seemore {
+    font-size: 22px;
+    color: #fd8709;
 }
 
-.seemore:hover{
-  
-  text-decoration: none;
-  color: #fd5602;
-  
+.seemore:hover {
+    text-decoration: none;
+    color: #fd5602;
 }
 
-.filter{
-  color: darkgray;
-  font-size: 18px;
+.filter {
+    color: darkgray;
+    font-size: 18px;
 }
 
-.filter:hover{
-  text-decoration: none;
+.filter:hover {
+    text-decoration: none;
 }
 
-.filter:focus{
-  text-decoration: underline;
-  line-height: 1.5;
-  border: solid 1px darkgray;
-  
+.filter:focus {
+    text-decoration: underline;
+    line-height: 1.5;
+    border: solid 1px darkgray;
+}
+
+.filters {
+    font-family: 'Roboto', sans-serif;
+    font-size: x-large;
+    color: black;
+}
+
+.search {
+    height: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    color: black;
 }

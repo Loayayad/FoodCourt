@@ -15,7 +15,7 @@ import { element } from 'protractor';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
+name:String="";
   subscription: Subscription|null = null;
   MealsList: any[] = [];
   CategoryList: ICategory[] = [];
@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
   AllMeals: any[]=[];
   MenuItems: any;
   catIndex:number=6;
-  
+
   mID:number=0;
   selectedMeal: IMeal =
   {
@@ -37,18 +37,18 @@ export class MenuComponent implements OnInit {
     discount:'',
     show:false
   };
-  
+
   @Input() InputCategoryID:number=1;
- 
+
 
   constructor(private mealService:MealAPIService,
     private cartService:CartService,
     private router:Router) { }
-    
-  
+
+
     ngOnInit(): void {
       this.getMenuGeneralProduct();
-    } 
+    }
     addToCart(mealCount:string){
       this.cartService.addTocart(this.selectedMeal.image,
         this.selectedMeal.id,
@@ -58,7 +58,7 @@ export class MenuComponent implements OnInit {
         this.selectedMeal.discount,
         parseInt(mealCount))
     }
-  
+
   ngOnChanges(){
     this.getMealbyCatID();
     this.catIndex=6;
@@ -104,7 +104,7 @@ export class MenuComponent implements OnInit {
           //console.log(element.payload.doc.data());
           this.MealsList.push(element.payload.doc.data())
         })
-        
+
         this.MealsList.forEach((element)=>{
           console.log(element);
         })
@@ -125,7 +125,7 @@ export class MenuComponent implements OnInit {
           //console.log(element.payload.doc.data());
           this.MealsList.push(element.payload.doc.data())
         })
-        
+
         this.MealsList.forEach((element)=>{
           console.log(element);
         })
@@ -146,7 +146,7 @@ export class MenuComponent implements OnInit {
           //console.log(element.payload.doc.data());
           this.MealsList.push(element.payload.doc.data())
         })
-        
+
         this.MealsList.forEach((element)=>{
           console.log(element);
         })
@@ -156,7 +156,7 @@ export class MenuComponent implements OnInit {
       }
     )
   }
-  
+
   getMealbyCatIDOrderByPriceDesc(){
     localStorage.setItem("filterMenu","priceDesc");
     this.mealService.getMealByCategoryIDOrderByPriceDesc(this.InputCategoryID,this.catIndex).subscribe(
@@ -167,7 +167,7 @@ export class MenuComponent implements OnInit {
           //console.log(element.payload.doc.data());
           this.MealsList.push(element.payload.doc.data())
         })
-        
+
         this.MealsList.forEach((element)=>{
           console.log(element);
         })
@@ -196,15 +196,28 @@ export class MenuComponent implements OnInit {
     this.subscription?.unsubscribe();
   }
   viewDetails(mID:number){
-    
+
     this.router.navigate(['/MealDetails',mID]);
   }
   add(meal:IMeal){
     if(this.selectedMeal)
     {
       this.selectedMeal = meal;
-    }  
-    
+    }
+
 
   }
+  Search(){
+    if(this.name!=""){
+      this.MealsList=this.MealsList.filter(res=>{
+        return res.name.toLowerCase().match(this.name.toLowerCase());
+      })
+    }
+    else if(this.name===""){
+
+      this.ngOnChanges();
+    }
+
+  }
+
 }

@@ -1,126 +1,103 @@
 <!-- Viewing meals of the selected category as cards -->
 
 <br />
+<div class="container d-flex flex-row justify-content-between">
+    <div class="btn-group col-4">
+        <button type="button" class="btn filters dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{ MenuItems.filterBy }}
+    </button>
+        <div class="dropdown-menu dropdown-menu-right col-11 text-center">
+            <button class="dropdown-item" type="button" (click)="getMealbyCatIDOrderByName()">{{ MenuItems.filter1 }}</button>
+            <button class="dropdown-item" type="button" (click)="getMealbyCatIDOrderByPrice()">{{ MenuItems.filter2 }}</button>
+            <button class="dropdown-item" type="button" (click)="getMealbyCatIDOrderByPriceDesc()">{{ MenuItems.filter3 }}</button>
+        </div>
+    </div>
+
+    <div class="col-5">
+        <input type="text" class="search form-control rounded-pill" placeholder="search" [(ngModel)]="name" (input)="Search()">
+    </div>
+</div>
+
 <div class="container-fluid justify-content-center">
-  <div class="d-flex flex-row ml-4 mb-4 flex-wrap justify-content-center">
-    <h3>{{ MenuItems.filterBy }}</h3>
-    <div class="d-flex flex-row flex-wrap">
-      <button
-        class="btn btn-link mr-2 ml-5 filter"
-        (click)="getMealbyCatIDOrderByName()"
-      >
+    <!-- <div class="d-flex flex-row ml-4 mb-4 flex-wrap justify-content-center">
+        <h3>{{ MenuItems.filterBy }}</h3>
+        <div class="d-flex flex-row flex-wrap">
+            <button class="btn btn-link mr-2 ml-5 filter" (click)="getMealbyCatIDOrderByName()">
         {{ MenuItems.filter1 }}
       </button>
-      <button
-        class="btn btn-link filter"
-        (click)="getMealbyCatIDOrderByPrice()"
-      >
+            <button class="btn btn-link filter" (click)="getMealbyCatIDOrderByPrice()">
         {{ MenuItems.filter2 }}
       </button>
-      <button
-        class="btn btn-link filter"
-        (click)="getMealbyCatIDOrderByPriceDesc()"
-      >
+            <button class="btn btn-link filter" (click)="getMealbyCatIDOrderByPriceDesc()">
         {{ MenuItems.filter3 }}
       </button>
-    </div>
-  </div>
+        </div>
+    </div> -->
 
-  <div class="row justify-content-center">
-    <div
-      class="col-sm-6 col-xs-12 col-xl-3 col-lg-4 col-md-4 rounded card text-center card-light"
-      style="margin: 20px; border-color: white"
-      *ngFor="let meal of MealsList"
-    >
-      <div class="img__wrap" (click)="viewDetails(meal.id)">
-        <img
-          [src]="meal?.image"
-          class="rounded-corners card-img-top img__img"
-        />
+    <div class="row justify-content-center">
+        <div class="col-sm-6 col-xs-12 col-xl-3 col-lg-4 col-md-4 rounded card text-center card-light" style="margin: 20px; border-color: white" *ngFor="let meal of MealsList">
+            <div class="img__wrap" (click)="viewDetails(meal.id)">
+                <img [src]="meal?.image" class="rounded-corners card-img-top img__img" />
 
-        <div class="img__description">
-          {{ meal?.description }} <br />
-          <h4 *ngIf="meal?.show == true" class="ribbon">
-            {{ MenuItems.discount }} {{ meal?.discount }}
-          </h4>
-          <button
-            style="color: white; text-align: center"
-            type="button"
-            class="btn btn-link"
-            (click)="viewDetails(meal.id)"
-          >
+                <div class="img__description">
+                    {{ meal?.description }} <br />
+                    <h4 *ngIf="meal?.show == true" class="ribbon">
+                        {{ MenuItems.discount }} {{ meal?.discount }}
+                    </h4>
+                    <button style="color: white; text-align: center" type="button" class="btn btn-link" (click)="viewDetails(meal.id)">
             {{ MenuItems.moreDetails }}
           </button>
-        </div>
-      </div>
+                </div>
+            </div>
 
-      <div class="card-body">
-        <h2 class="card-title text-center">{{ meal?.name }}</h2>
-        <!-- <h5 *ngIf="meal?.show == true">-{{meal?.discount}}</h5> -->
-        <div class="container d-flex flex-row justify-content-between col-6">
-          <h5 class="card-text text-center prices">
-            {{ meal?.price | currency: "EGP" }}
-          </h5>
-          <i
-            class="fas fa-shopping-cart"
-            (click)="add(meal)"
-            data-toggle="modal"
-            data-target="#myModal"
-          ></i>
-        </div>
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
+            <div class="card-body">
+                <h2 class="card-title text-center">{{ meal?.name }}</h2>
+                <!-- <h5 *ngIf="meal?.show == true">-{{meal?.discount}}</h5> -->
+                <div class="container d-flex flex-row justify-content-between col-6">
+                    <h5 class="card-text text-center prices">
+                        {{ meal?.price | currency: "EGP" }}
+                    </h5>
+                    <i class="fas fa-shopping-cart" (click)="add(meal)" data-toggle="modal" data-target="#myModal"></i>
+                </div>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
                   &times;
                 </button>
-              </div>
-              <div class="modal-body d-flex flex-row">
-                <div class="column">
-                  <img [src]="selectedMeal?.image" class="img-fluid" />
-                </div>
+                            </div>
+                            <div class="modal-body d-flex flex-row">
+                                <div class="column">
+                                    <img [src]="selectedMeal?.image" class="img-fluid" />
+                                </div>
 
-                <div class="column d-flex flex-column col-lg-5">
-                  <h2 style="margin-top: 15px">{{ selectedMeal?.name }}</h2>
-                  <h5 style="margin-top: 25px">
-                    {{ selectedMeal?.description }}
-                  </h5>
-                  <h3 style="margin-top: 15px">
-                    {{ selectedMeal?.price | currency: "EGP" }}
-                  </h3>
-                  <div
-                    class="d-flex flex-row justify-content-center"
-                    style="margin-top: 15px"
-                  >
-                    <input
-                      #itemsCount
-                      class="_column product-qty rounded-pill col-lg-3"
-                      type="number"
-                      min="1"
-                      value="1"
-                    />
-                    <button
-                      class="btn add rounded-pill col-lg-3 btn-sm"
-                      (click)="addToCart(itemsCount.value)"
-                      routerLink="/Cart"
-                      data-dismiss="modal"
-                    >
+                                <div class="column d-flex flex-column col-lg-5">
+                                    <h2 style="margin-top: 15px">{{ selectedMeal?.name }}</h2>
+                                    <h5 style="margin-top: 25px">
+                                        {{ selectedMeal?.description }}
+                                    </h5>
+                                    <h3 style="margin-top: 15px">
+                                        {{ selectedMeal?.price | currency: "EGP" }}
+                                    </h3>
+                                    <div class="d-flex flex-row justify-content-center" style="margin-top: 15px">
+                                        <input #itemsCount class="_column product-qty rounded-pill col-lg-3" type="number" min="1" value="1" />
+                                        <button class="btn add rounded-pill col-lg-3 btn-sm" (click)="addToCart(itemsCount.value)" routerLink="/Cart" data-dismiss="modal">
                       Add
                     </button>
-                  </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="d-flex flex-column mx-auto align-items-center">
-    <a class="btn btn-link seemore" (click)="nextIndex()" role="button">{{
+    <div class="d-flex flex-column mx-auto align-items-center">
+        <a class="btn btn-link seemore" (click)="nextIndex()" role="button">{{
       MenuItems.button
     }}</a>
-    <i class="fas fa-chevron-down seemore" (click)="nextIndex()"></i>
-  </div>
+        <i class="fas fa-chevron-down seemore" (click)="nextIndex()"></i>
+    </div>
 </div>
